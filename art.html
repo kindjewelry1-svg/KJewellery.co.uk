@@ -1,0 +1,1519 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KJewellery ♡ Community Art</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        /* =================================================
+           KJEWELLERY ART PAGE
+           ================================================= */
+
+        .art-page {
+            width: 94%;
+            max-width: 1000px;
+            margin: 45px auto 70px;
+            text-align: center;
+        }
+
+
+        .art-hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff8f5,
+                    #ffe5ee
+                );
+
+            border: 3px solid white;
+            border-radius: 35px;
+
+            padding: 45px 25px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(98, 47, 67, 0.10);
+        }
+
+
+        .art-hero h2 {
+            margin: 0 0 15px;
+
+            color: #c66e97;
+
+            font-size: 38px;
+        }
+
+
+        .art-hero p {
+            max-width: 650px;
+
+            margin: 10px auto;
+
+            line-height: 1.8;
+
+            font-size: 16px;
+        }
+
+
+        .art-decoration {
+            color: #d691ae;
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =================================================
+           DRAWING AREA
+           ================================================= */
+
+        .drawing-section {
+            margin-top: 35px;
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(98, 47, 67, 0.10);
+        }
+
+
+        .drawing-section h3 {
+            color: #c66e97;
+
+            margin-top: 0;
+
+            font-size: 24px;
+        }
+
+
+        .canvas-wrapper {
+            position: relative;
+
+            width: 100%;
+
+            max-width: 800px;
+
+            margin: 20px auto;
+
+            background: white;
+
+            border: 4px solid #f3bad1;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow:
+                inset 0 0 15px
+                rgba(98, 47, 67, 0.05);
+        }
+
+
+        #drawingCanvas {
+            display: block;
+
+            width: 100%;
+
+            height: 500px;
+
+            background-color: white;
+
+            cursor: crosshair;
+
+            touch-action: none;
+        }
+
+
+        /* =================================================
+           TOOLBAR
+           ================================================= */
+
+        .art-toolbar {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 20px auto;
+
+            max-width: 800px;
+        }
+
+
+        .tool-group {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: #fff8fa;
+
+            border: 2px solid #f3bad1;
+
+            padding: 8px 12px;
+
+            border-radius: 20px;
+        }
+
+
+        .tool-group label {
+            color: #622f43;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        #colourPicker {
+            width: 42px;
+            height: 32px;
+
+            padding: 0;
+
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+        }
+
+
+        #brushSize {
+            width: 90px;
+
+            accent-color: #d691ae;
+        }
+
+
+        .art-button {
+            border: none;
+
+            background-color: #d691ae;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 25px;
+
+            font-family: "Comfortaa", sans-serif;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 4px 0 #c66e97;
+
+            transition:
+                transform 0.2s ease,
+                background-color 0.2s ease;
+        }
+
+
+        .art-button:hover {
+            background-color: #c66e97;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .art-button:active {
+            transform:
+                translateY(2px);
+
+            box-shadow:
+                0 2px 0 #c66e97;
+        }
+
+
+        .clear-button {
+            background-color: #fff0b4;
+
+            color: #622f43;
+
+            box-shadow:
+                0 4px 0 #e2c96c;
+        }
+
+
+        .clear-button:hover {
+            background-color: #ffe89a;
+        }
+
+
+        .eraser-button {
+            background-color: #f3bad1;
+
+            color: #622f43;
+
+            box-shadow:
+                0 4px 0 #d691ae;
+        }
+
+
+        .eraser-button.active {
+            background-color: #c66e97;
+
+            color: white;
+        }
+
+
+        /* =================================================
+           FINISH SECTION
+           ================================================= */
+
+        .finish-box {
+            max-width: 700px;
+
+            margin: 30px auto 0;
+
+            padding: 30px 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #fff8e7
+                );
+
+            border-radius: 25px;
+
+            border: 2px solid white;
+        }
+
+
+        .finish-box h3 {
+            color: #c66e97;
+
+            margin-top: 0;
+        }
+
+
+        .finish-box p {
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =================================================
+           SUBMISSION FORM
+           ================================================= */
+
+        .art-form {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+            max-width: 600px;
+
+            margin: 25px auto 0;
+
+            text-align: left;
+        }
+
+
+        .art-form label {
+            color: #c66e97;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-top: 5px;
+        }
+
+
+        .art-form input,
+        .art-form textarea {
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 13px 15px;
+
+            border: 2px solid #f3cbd7;
+
+            border-radius: 15px;
+
+            background-color: #fffafa;
+
+            color: #622f43;
+
+            font-family:
+                "Comfortaa",
+                sans-serif;
+
+            font-size: 14px;
+
+            outline: none;
+        }
+
+
+        .art-form input:focus,
+        .art-form textarea:focus {
+            border-color: #d691ae;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    214,
+                    145,
+                    174,
+                    0.15
+                );
+        }
+
+
+        .art-form textarea {
+            min-height: 100px;
+
+            resize: vertical;
+        }
+
+
+        .submit-art-button {
+            margin-top: 10px;
+
+            width: 100%;
+
+            border: none;
+
+            background-color: #c66e97;
+
+            color: white;
+
+            padding: 15px;
+
+            border-radius: 25px;
+
+            font-family:
+                "Comfortaa",
+                sans-serif;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+
+        .submit-art-button:hover {
+            transform:
+                translateY(-2px);
+
+            opacity: 0.9;
+        }
+
+
+        .form-note {
+            text-align: center;
+
+            font-size: 12px;
+
+            color: #a18d85;
+
+            line-height: 1.6;
+
+            margin-top: 15px;
+        }
+
+
+        /* =================================================
+           SAVED MESSAGE
+           ================================================= */
+
+        .saved-message {
+            display: none;
+
+            margin: 15px auto;
+
+            padding: 12px 18px;
+
+            max-width: 500px;
+
+            background-color: #fff0f5;
+
+            border-radius: 20px;
+
+            color: #c66e97;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        .saved-message.show {
+            display: block;
+
+            animation:
+                savedAppear
+                0.3s
+                ease;
+        }
+
+
+        @keyframes savedAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* =================================================
+           FOOTER LINK
+           ================================================= */
+
+        .art-back {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            color: #c66e97;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        .art-back:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =================================================
+           MOBILE
+           ================================================= */
+
+        @media (max-width: 600px) {
+
+            .art-page {
+                width: 94%;
+
+                margin-top: 30px;
+            }
+
+
+            .art-hero {
+                padding: 35px 18px;
+
+                border-radius: 25px;
+            }
+
+
+            .art-hero h2 {
+                font-size: 28px;
+            }
+
+
+            .art-hero p {
+                font-size: 14px;
+            }
+
+
+            .drawing-section {
+                padding: 15px;
+
+                border-radius: 25px;
+            }
+
+
+            #drawingCanvas {
+                height: 420px;
+            }
+
+
+            .art-toolbar {
+                gap: 8px;
+            }
+
+
+            .tool-group {
+                padding: 7px 10px;
+            }
+
+
+            .art-button {
+                padding: 11px 15px;
+
+                font-size: 12px;
+            }
+
+
+            .finish-box {
+                padding: 25px 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body id="top">
+
+
+    <!-- =================================================
+         HEADER
+         ================================================= -->
+
+    <header class="site-header">
+
+        <h1>
+            𝜗𝜚⋆₊˚ KJewellery ₊˚⋆𝜗𝜚
+        </h1>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="game.html">
+                Game
+            </a>
+
+            <a href="garden.html">
+                Garden
+            </a>
+
+            <a href="art.html">
+                Art
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN ART PAGE
+         ================================================= -->
+
+    <main class="art-page">
+
+
+        <!-- HERO -->
+
+        <section class="art-hero">
+
+            <div class="art-decoration">
+                ✦ ♡ ✦
+            </div>
+
+
+            <h2>
+                🎨 KJewellery Community Art ♡
+            </h2>
+
+
+            <p>
+                Draw something cute, sparkly or completely
+                random and share your creativity with us! ♡
+            </p>
+
+
+            <p>
+                Your artwork can become part of the
+                KJewellery community Guestbook! ˚₊‧꒰ა ♡ ໒꒱ ‧₊˚
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             DRAWING SECTION
+             ================================================= -->
+
+        <section class="drawing-section">
+
+            <h3>
+                ✏️ Create Your Masterpiece
+            </h3>
+
+
+            <div class="canvas-wrapper">
+
+                <canvas
+                    id="drawingCanvas"
+                ></canvas>
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+
+            <div class="art-toolbar">
+
+
+                <!-- COLOUR -->
+
+                <div class="tool-group">
+
+                    <label for="colourPicker">
+                        Colour
+                    </label>
+
+                    <input
+                        type="color"
+                        id="colourPicker"
+                        value="#d691ae"
+                    >
+
+                </div>
+
+
+                <!-- BRUSH SIZE -->
+
+                <div class="tool-group">
+
+                    <label for="brushSize">
+                        Brush
+                    </label>
+
+                    <input
+                        type="range"
+                        id="brushSize"
+                        min="2"
+                        max="35"
+                        value="6"
+                    >
+
+                </div>
+
+
+                <!-- ERASER -->
+
+                <button
+                    type="button"
+                    id="eraserButton"
+                    class="art-button eraser-button"
+                >
+                    🧽 Eraser
+                </button>
+
+
+                <!-- CLEAR -->
+
+                <button
+                    type="button"
+                    id="clearButton"
+                    class="art-button clear-button"
+                >
+                    🗑️ Clear
+                </button>
+
+            </div>
+
+
+            <!-- SAVE -->
+
+            <button
+                type="button"
+                id="saveButton"
+                class="art-button"
+            >
+                💾 Save My Artwork
+            </button>
+
+
+            <div
+                id="savedMessage"
+                class="saved-message"
+            >
+                ✨ Your artwork has been saved! Check your
+                downloads folder. ♡
+            </div>
+
+
+            <!-- =================================================
+                 SUBMISSION
+                 ================================================= -->
+
+            <div class="finish-box">
+
+                <h3>
+                    💌 Send Your Artwork To KJewellery
+                </h3>
+
+
+                <p>
+                    First click
+                    <strong>
+                        "Save My Artwork"
+                    </strong>
+                    above so you have a copy of your drawing.
+                </p>
+
+
+                <p>
+                    Then tell us your name and a little
+                    message! We'll use your message to help
+                    choose artwork for our Guestbook. ♡
+                </p>
+
+
+                <form
+                    class="art-form"
+                    action="https://formspree.io/f/xnpalzkv"
+                    method="POST"
+                >
+
+
+                    <label for="artistName">
+                        Your Name ♡
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="artistName"
+                        name="name"
+                        placeholder="Your name or nickname"
+                        required
+                    >
+
+
+                    <label for="artistMessage">
+                        Message ♡
+                    </label>
+
+
+                    <textarea
+                        id="artistMessage"
+                        name="message"
+                        placeholder="Tell us about your artwork! What did you draw? ♡"
+                        required
+                    ></textarea>
+
+
+                    <input
+                        type="hidden"
+                        name="submission_type"
+                        value="KJewellery Community Artwork"
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="submit-art-button"
+                    >
+                        💌 Submit My Artwork ♡
+                    </button>
+
+
+                    <p class="form-note">
+                        ˖ ࣪⊹ Remember to save your artwork
+                        before submitting! ♡
+                        <br>
+                        Your drawing itself stays on your
+                        device, while your message is sent
+                        to KJewellery.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GUESTBOOK LINK
+             ================================================= -->
+
+        <a
+            href="guestbook.html"
+            class="art-back"
+        >
+            📖 Visit the KJewellery Guestbook ♡
+        </a>
+
+
+    </main>
+
+
+    <!-- =================================================
+         JAVASCRIPT
+         ================================================= -->
+
+    <script>
+
+        /* =================================================
+           CANVAS SETUP
+           ================================================= */
+
+        const canvas =
+            document.getElementById(
+                "drawingCanvas"
+            );
+
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        const colourPicker =
+            document.getElementById(
+                "colourPicker"
+            );
+
+
+        const brushSize =
+            document.getElementById(
+                "brushSize"
+            );
+
+
+        const eraserButton =
+            document.getElementById(
+                "eraserButton"
+            );
+
+
+        const clearButton =
+            document.getElementById(
+                "clearButton"
+            );
+
+
+        const saveButton =
+            document.getElementById(
+                "saveButton"
+            );
+
+
+        const savedMessage =
+            document.getElementById(
+                "savedMessage"
+            );
+
+
+        let drawing = false;
+
+        let erasing = false;
+
+
+        /* =================================================
+           CANVAS SIZE
+           ================================================= */
+
+        function resizeCanvas() {
+
+            /*
+             * Save current drawing first.
+             */
+
+            const oldCanvas =
+                document.createElement(
+                    "canvas"
+                );
+
+
+            const oldContext =
+                oldCanvas.getContext("2d");
+
+
+            oldCanvas.width =
+                canvas.width;
+
+
+            oldCanvas.height =
+                canvas.height;
+
+
+            if (
+                canvas.width > 0 &&
+                canvas.height > 0
+            ) {
+
+                oldContext.drawImage(
+                    canvas,
+                    0,
+                    0
+                );
+
+            }
+
+
+            const displayWidth =
+                canvas.clientWidth;
+
+
+            const displayHeight =
+                canvas.clientHeight;
+
+
+            const devicePixelRatio =
+                window.devicePixelRatio || 1;
+
+
+            canvas.width =
+                displayWidth *
+                devicePixelRatio;
+
+
+            canvas.height =
+                displayHeight *
+                devicePixelRatio;
+
+
+            ctx.scale(
+                devicePixelRatio,
+                devicePixelRatio
+            );
+
+
+            /*
+             * White background.
+             */
+
+            ctx.fillStyle =
+                "white";
+
+            ctx.fillRect(
+                0,
+                0,
+                displayWidth,
+                displayHeight
+            );
+
+
+            /*
+             * Restore old artwork if there
+             * was already something drawn.
+             */
+
+            if (
+                oldCanvas.width > 0 &&
+                oldCanvas.height > 0
+            ) {
+
+                ctx.drawImage(
+                    oldCanvas,
+                    0,
+                    0,
+                    oldCanvas.width,
+                    oldCanvas.height,
+                    0,
+                    0,
+                    displayWidth,
+                    displayHeight
+                );
+
+            }
+
+
+            ctx.lineCap =
+                "round";
+
+            ctx.lineJoin =
+                "round";
+
+        }
+
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        resizeCanvas();
+
+
+        /* =================================================
+           GET MOUSE / TOUCH POSITION
+           ================================================= */
+
+        function getPosition(event) {
+
+            const rect =
+                canvas.getBoundingClientRect();
+
+
+            return {
+
+                x:
+                    event.clientX -
+                    rect.left,
+
+                y:
+                    event.clientY -
+                    rect.top
+
+            };
+
+        }
+
+
+        /* =================================================
+           START DRAWING
+           ================================================= */
+
+        canvas.addEventListener(
+            "pointerdown",
+            function (event) {
+
+                event.preventDefault();
+
+                drawing = true;
+
+
+                const position =
+                    getPosition(event);
+
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    position.x,
+                    position.y
+                );
+
+
+                canvas.setPointerCapture(
+                    event.pointerId
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           DRAW
+           ================================================= */
+
+        canvas.addEventListener(
+            "pointermove",
+            function (event) {
+
+                if (!drawing) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                const position =
+                    getPosition(event);
+
+
+                ctx.lineWidth =
+                    Number(
+                        brushSize.value
+                    );
+
+
+                if (erasing) {
+
+                    ctx.strokeStyle =
+                        "white";
+
+                } else {
+
+                    ctx.strokeStyle =
+                        colourPicker.value;
+
+                }
+
+
+                ctx.lineTo(
+                    position.x,
+                    position.y
+                );
+
+
+                ctx.stroke();
+
+            }
+        );
+
+
+        /* =================================================
+           STOP DRAWING
+           ================================================= */
+
+        function stopDrawing(event) {
+
+            drawing = false;
+
+            ctx.closePath();
+
+
+            if (event && event.pointerId) {
+
+                try {
+
+                    canvas.releasePointerCapture(
+                        event.pointerId
+                    );
+
+                } catch (error) {}
+
+            }
+
+        }
+
+
+        canvas.addEventListener(
+            "pointerup",
+            stopDrawing
+        );
+
+
+        canvas.addEventListener(
+            "pointercancel",
+            stopDrawing
+        );
+
+
+        canvas.addEventListener(
+            "pointerleave",
+            function () {
+
+                if (drawing) {
+
+                    /*
+                     * We don't stop drawing here
+                     * because pointer capture keeps
+                     * the canvas responsive.
+                     */
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           ERASER
+           ================================================= */
+
+        eraserButton.addEventListener(
+            "click",
+            function () {
+
+                erasing =
+                    !erasing;
+
+
+                if (erasing) {
+
+                    eraserButton.classList.add(
+                        "active"
+                    );
+
+                    eraserButton.textContent =
+                        "✨ Eraser ON";
+
+                } else {
+
+                    eraserButton.classList.remove(
+                        "active"
+                    );
+
+                    eraserButton.textContent =
+                        "🧽 Eraser";
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           CLEAR CANVAS
+           ================================================= */
+
+        clearButton.addEventListener(
+            "click",
+            function () {
+
+                const width =
+                    canvas.clientWidth;
+
+
+                const height =
+                    canvas.clientHeight;
+
+
+                ctx.clearRect(
+                    0,
+                    0,
+                    width,
+                    height
+                );
+
+
+                ctx.fillStyle =
+                    "white";
+
+
+                ctx.fillRect(
+                    0,
+                    0,
+                    width,
+                    height
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           SAVE ARTWORK
+           ================================================= */
+
+        saveButton.addEventListener(
+            "click",
+            function () {
+
+                /*
+                 * Create a clean PNG canvas.
+                 */
+
+                const downloadCanvas =
+                    document.createElement(
+                        "canvas"
+                    );
+
+
+                downloadCanvas.width =
+                    canvas.width;
+
+
+                downloadCanvas.height =
+                    canvas.height;
+
+
+                const downloadContext =
+                    downloadCanvas.getContext(
+                        "2d"
+                    );
+
+
+                /*
+                 * White background.
+                 */
+
+                downloadContext.fillStyle =
+                    "white";
+
+
+                downloadContext.fillRect(
+                    0,
+                    0,
+                    downloadCanvas.width,
+                    downloadCanvas.height
+                );
+
+
+                /*
+                 * Copy artwork.
+                 */
+
+                downloadContext.drawImage(
+                    canvas,
+                    0,
+                    0
+                );
+
+
+                /*
+                 * Create download.
+                 */
+
+                const link =
+                    document.createElement(
+                        "a"
+                    );
+
+
+                link.download =
+                    "KJewellery-Artwork.png";
+
+
+                link.href =
+                    downloadCanvas.toDataURL(
+                        "image/png"
+                    );
+
+
+                link.click();
+
+
+                /*
+                 * Show message.
+                 */
+
+                savedMessage.classList.add(
+                    "show"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        savedMessage.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    4000
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           PREVENT ACCIDENTAL PAGE SCROLLING
+           ================================================= */
+
+        canvas.addEventListener(
+            "touchstart",
+            function (event) {
+
+                event.preventDefault();
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        canvas.addEventListener(
+            "touchmove",
+            function (event) {
+
+                event.preventDefault();
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* =================================================
+           FORM SUBMISSION MESSAGE
+           ================================================= */
+
+        const artForm =
+            document.querySelector(
+                ".art-form"
+            );
+
+
+        artForm.addEventListener(
+            "submit",
+            function () {
+
+                const submitButton =
+                    artForm.querySelector(
+                        ".submit-art-button"
+                    );
+
+
+                submitButton.disabled =
+                    true;
+
+
+                submitButton.textContent =
+                    "Sending... ♡";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
