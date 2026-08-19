@@ -50,9 +50,11 @@
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
             <a href="game.html">Game</a>
-
+<a href="garden.html">Garden</a>
         </nav>
-
+<button id="themeToggle" class="theme-toggle" type="button">
+    🌙 Night Mode
+</button>
     </header>
 
 
@@ -361,6 +363,236 @@
 <a href="#" class="back-to-top" aria-label="Back to top">
     ↑
 </a>
+<script>
+/* =========================================
+   🐱 DRAGGABLE CAT MASCOT
+   ========================================= */
 
+const floatingCat = document.querySelector(".floating-cat");
+
+let draggingCat = false;
+let catOffsetX = 0;
+let catOffsetY = 0;
+
+
+/* Start dragging */
+
+floatingCat.addEventListener("pointerdown", function(event) {
+
+    event.preventDefault();
+
+    draggingCat = true;
+
+    const rect = floatingCat.getBoundingClientRect();
+
+    catOffsetX = event.clientX - rect.left;
+    catOffsetY = event.clientY - rect.top;
+
+    floatingCat.setPointerCapture(event.pointerId);
+
+    floatingCat.style.animation = "none";
+    floatingCat.style.cursor = "grabbing";
+
+});
+
+
+/* Move cat */
+
+floatingCat.addEventListener("pointermove", function(event) {
+
+    if (!draggingCat) {
+        return;
+    }
+
+    let newX = event.clientX - catOffsetX;
+    let newY = event.clientY - catOffsetY;
+
+
+    /* Keep the cat inside the screen */
+
+    const maxX =
+        window.innerWidth - floatingCat.offsetWidth;
+
+    const maxY =
+        window.innerHeight - floatingCat.offsetHeight;
+
+
+    newX = Math.max(0, Math.min(newX, maxX));
+    newY = Math.max(0, Math.min(newY, maxY));
+
+
+    floatingCat.style.left = newX + "px";
+    floatingCat.style.top = newY + "px";
+
+    floatingCat.style.right = "auto";
+    floatingCat.style.bottom = "auto";
+
+});
+
+
+/* Stop dragging */
+
+floatingCat.addEventListener("pointerup", function(event) {
+
+    draggingCat = false;
+
+    floatingCat.style.cursor = "grab";
+
+    try {
+        floatingCat.releasePointerCapture(event.pointerId);
+    } catch (error) {
+        // Nothing needed here.
+    }
+
+});
+
+
+/* Also stop if the pointer is cancelled */
+
+floatingCat.addEventListener("pointercancel", function() {
+
+    draggingCat = false;
+
+    floatingCat.style.cursor = "grab";
+
+});
+</script>
+<!-- 🐱 KJewellery cute draggable cat -->
+<div class="floating-cat" aria-label="Draggable KJewellery cat">
+
+    <div class="cat-ear cat-ear-left"></div>
+    <div class="cat-ear cat-ear-right"></div>
+
+    <div class="cat-face">
+        <span class="cat-eye">•</span>
+        <span class="cat-eye">•</span>
+        <span class="cat-mouth">ᴗ</span>
+    </div>
+
+    <span class="cat-sparkle sparkle-one">✦</span>
+    <span class="cat-sparkle sparkle-two">♡</span>
+
+</div>
+<!-- ✨ KJewellery cat speech bubble -->
+<div id="catSpeechBubble" class="cat-speech-bubble">
+    ♡ Hi hi! Welcome to KJewellery! ♡
+</div>
+
+<!-- ✨ Easter egg message -->
+<div id="catEasterEgg" class="cat-easter-egg">
+    ✦ You found my secret! ✦
+    <br>
+    ♡ You're Amazing! ♡
+</div>
+<script>
+const mascot = document.querySelector(".floating-cat");
+const bubble = document.getElementById("catSpeechBubble");
+const secret = document.getElementById("catEasterEgg");
+
+let clicks = 0;
+
+const messages = [
+    "♡ Hi hi! Welcome to KJewellery! ♡",
+    "🎀 Have you seen the jewellery yet?",
+    "✦ Have you played the bakery game?",
+    "♡ Something pretty is coming soon...",
+    "🐱 Meow! Thanks for visiting!",
+    "˚₊‧ You're part of the KJewellery family! ‧₊˚"
+];
+
+if (mascot) {
+
+    mascot.addEventListener("click", function(event) {
+
+        /* Don't let the click interfere with anything else */
+        event.stopPropagation();
+
+        clicks++;
+
+        /* Show a random message */
+        const message =
+            messages[Math.floor(Math.random() * messages.length)];
+
+        bubble.textContent = message;
+
+        bubble.classList.add("show");
+
+        /* Hide bubble after 3 seconds */
+        setTimeout(function() {
+            bubble.classList.remove("show");
+        }, 3000);
+
+
+        /* Secret after 5 clicks */
+        if (clicks === 5) {
+
+            bubble.classList.remove("show");
+
+            secret.classList.add("show");
+
+            setTimeout(function() {
+                secret.classList.remove("show");
+            }, 4500);
+
+            clicks = 0;
+        }
+
+    });
+
+}
+</script>
+<!-- ✨ KJewellery sparkle trail -->
+<div id="sparkle-trail-container"></div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    let lastSparkle = 0;
+
+    document.addEventListener("mousemove", function (event) {
+
+        const now = Date.now();
+
+        if (now - lastSparkle < 80) {
+            return;
+        }
+
+        lastSparkle = now;
+
+        const sparkle =
+            document.createElement("span");
+
+        sparkle.className = "kj-sparkle";
+
+        const shapes = [
+            "✦",
+            "✧",
+            "♡",
+            "⋆"
+        ];
+
+        sparkle.textContent =
+            shapes[
+                Math.floor(
+                    Math.random() * shapes.length
+                )
+            ];
+
+        sparkle.style.left =
+            event.clientX + "px";
+
+        sparkle.style.top =
+            event.clientY + "px";
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(function () {
+            sparkle.remove();
+        }, 700);
+
+    });
+
+});
+</script>
 </body>
+
 </html>

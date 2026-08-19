@@ -7,14 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KJewellery  Cat Bakery</title>
+    <title>KJewellery Cat Bakery</title>
 
     <link rel="icon" type="image/png" href="logo.png">
 
     <link rel="stylesheet" href="style.css">
 
 </head>
-
 
 <body>
 
@@ -36,8 +35,8 @@
 
             <a href="contact.html">Contact</a>
 
-            <a href="game.html">Game </a>
-
+            <a href="game.html">Game</a>
+<a href="garden.html">Garden</a>
         </nav>
 
     </header>
@@ -50,12 +49,12 @@
     <main class="game-page">
 
         <h2 class="game-title">
-             Cat Café Bakery!
+            Cat Café Bakery!
         </h2>
 
-        <p class="game-subtitle">
-            Catch the tasty treats before they hit the floor! ♡
-        </p>
+        <p class="discount-hint">
+     Catch 50 treats to unlock 20% OFF KJewellery! 
+</p>
 
 
         <!-- GAME INFORMATION -->
@@ -72,14 +71,20 @@
                 <span id="misses">0</span>/5
             </div>
 
-            <button id="muteButton" class="sound-button">
+            <button
+                id="muteButton"
+                class="sound-button"
+                type="button"
+            >
                 🔊 Sound
             </button>
 
         </div>
 
 
-        <!-- GAME AREA -->
+        <!-- =========================
+             GAME AREA
+             ========================= -->
 
         <div id="game">
 
@@ -99,31 +104,21 @@
 
             <!-- Decorative cats -->
 
-            <div class="bakery-cat cat-one">
-                
-            </div>
+            <div class="bakery-cat cat-one"></div>
 
-            <div class="bakery-cat cat-two">
-                
-            </div>
+            <div class="bakery-cat cat-two"></div>
 
-            <div class="bakery-cat cat-three">
-                
-            </div>
+            <div class="bakery-cat cat-three"></div>
 
 
             <!-- Decorative bread -->
 
-            <div class="bread-stack">
-                
-            </div>
+            <div class="bread-stack"></div>
 
 
             <!-- Oven -->
 
-            <div class="oven">
-                
-            </div>
+            <div class="oven"></div>
 
 
             <!-- Player tray -->
@@ -131,7 +126,9 @@
             <div id="tray"></div>
 
 
-            <!-- START SCREEN -->
+            <!-- =========================
+                 START SCREEN
+                 ========================= -->
 
             <div
                 id="startScreen"
@@ -162,6 +159,7 @@
                     <button
                         id="startButton"
                         class="main-game-button"
+                        type="button"
                     >
                         Start Baking ♡
                     </button>
@@ -171,7 +169,71 @@
             </div>
 
 
-            <!-- GAME OVER SCREEN -->
+            <!-- =========================
+                 100 POINT DISCOUNT SCREEN
+                 ========================= -->
+
+            <div
+                id="discountScreen"
+                class="game-overlay"
+                style="display: none;"
+            >
+
+                <div class="overlay-card discount-card">
+
+                    <div class="big-cat">
+                        
+                    </div>
+
+                    <h2>
+                         Meowgical Milestone! 
+                    </h2>
+
+                    <p>
+                        You caught 100 tasty treats! ♡
+                    </p>
+
+                    <p>
+                        You've unlocked:
+                    </p>
+
+                    <h3 class="discount-title">
+                        50% OFF KJewellery! 
+                    </h3>
+
+                    <div class="discount-code">
+                        CATBAKERY50
+                    </div>
+
+                    <button
+                        id="copyDiscountButton"
+                        class="main-game-button"
+                        type="button"
+                    >
+                        Copy Code ♡
+                    </button>
+
+                    <button
+                        id="closeDiscountButton"
+                        class="main-game-button"
+                        type="button"
+                    >
+                        Keep Baking! 
+                    </button>
+
+                    <p
+                        id="copyMessage"
+                        class="copy-message"
+                    ></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 GAME OVER SCREEN
+                 ========================= -->
 
             <div
                 id="gameOverScreen"
@@ -200,6 +262,7 @@
                     <button
                         id="restartButton"
                         class="main-game-button"
+                        type="button"
                     >
                         Play Again ♡
                     </button>
@@ -211,13 +274,16 @@
         </div>
 
 
-        <!-- MOBILE CONTROLS -->
+        <!-- =========================
+             MOBILE CONTROLS
+             ========================= -->
 
         <div class="mobile-controls">
 
             <button
                 id="leftButton"
                 class="control-button"
+                type="button"
                 aria-label="Move left"
             >
                 ←
@@ -226,6 +292,7 @@
             <button
                 id="rightButton"
                 class="control-button"
+                type="button"
                 aria-label="Move right"
             >
                 →
@@ -283,11 +350,23 @@
         const gameOverScreen =
             document.getElementById("gameOverScreen");
 
+        const discountScreen =
+            document.getElementById("discountScreen");
+
         const startButton =
             document.getElementById("startButton");
 
         const restartButton =
             document.getElementById("restartButton");
+
+        const closeDiscountButton =
+            document.getElementById("closeDiscountButton");
+
+        const copyDiscountButton =
+            document.getElementById("copyDiscountButton");
+
+        const copyMessage =
+            document.getElementById("copyMessage");
 
         const finalScore =
             document.getElementById("finalScore");
@@ -333,6 +412,8 @@
 
         let muted = false;
 
+        let discountUnlocked = false;
+
 
         /* =========================
            PASTRY TYPES
@@ -361,7 +442,6 @@
                 return;
             }
 
-
             try {
 
                 if (!audioContext) {
@@ -374,6 +454,14 @@
 
                 }
 
+                if (
+                    audioContext.state ===
+                    "suspended"
+                ) {
+
+                    audioContext.resume();
+
+                }
 
                 const oscillator =
                     audioContext.createOscillator();
@@ -447,6 +535,8 @@
 
             spawnInterval = 1000;
 
+            discountUnlocked = false;
+
             scoreDisplay.textContent =
                 score;
 
@@ -464,11 +554,24 @@
             gameOverScreen.style.display =
                 "none";
 
+            discountScreen.style.display =
+                "none";
 
-            /*
-                Music starts after the visitor
-                clicks Start Baking.
-            */
+            copyMessage.textContent =
+                "";
+
+
+            /* Remove any old pastries */
+
+            const oldPastries =
+                game.querySelectorAll(".pastry");
+
+            oldPastries.forEach(
+                pastry => pastry.remove()
+            );
+
+
+            /* Start music */
 
             if (!muted) {
 
@@ -519,10 +622,36 @@
 
 
         /* =========================
+           DISCOUNT REWARD
+           ========================= */
+
+        function unlockDiscount() {
+
+            if (discountUnlocked) {
+                return;
+            }
+
+            discountUnlocked = true;
+
+            gameRunning = false;
+
+            discountScreen.style.display =
+                "flex";
+
+            playSound("catch");
+
+        }
+
+
+        /* =========================
            SPAWN PASTRY
            ========================= */
 
         function spawnPastry() {
+
+            if (!gameRunning) {
+                return;
+            }
 
             const pastryElement =
                 document.createElement("div");
@@ -685,9 +814,11 @@
 
             setTimeout(
                 () => {
+
                     tray.classList.remove(
                         "tray-bounce"
                     );
+
                 },
                 250
             );
@@ -700,6 +831,15 @@
 
 
             pastry.element.remove();
+
+
+            /* Check for 100-point reward */
+
+            if (score >= 50) {
+
+                unlockDiscount();
+
+            }
 
         }
 
@@ -956,7 +1096,13 @@
                 ) {
 
                     setTimeout(
-                        spawnPastry,
+                        function() {
+
+                            if (gameRunning) {
+                                spawnPastry();
+                            }
+
+                        },
                         250
                     );
 
@@ -1243,8 +1389,277 @@
             startGame
         );
 
-    </script>
 
+        /* =========================
+           DISCOUNT BUTTONS
+           ========================= */
+
+        copyDiscountButton.addEventListener(
+            "click",
+            async function() {
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        "CATBAKERY50"
+                    );
+
+                    copyMessage.textContent =
+                        "Copied! ♡";
+
+                } catch (error) {
+
+                    copyMessage.textContent =
+                        "Your code is: CATBAKERY50 ♡";
+
+                }
+
+            }
+        );
+
+
+        closeDiscountButton.addEventListener(
+            "click",
+            function() {
+
+                discountScreen.style.display =
+                    "none";
+
+                gameRunning = true;
+
+                lastTime =
+                    performance.now();
+
+                requestAnimationFrame(
+                    gameLoop
+                );
+
+            }
+        );
+
+    </script>
+<script>
+    const themeToggle = document.getElementById("themeToggle");
+
+    if (localStorage.getItem("kjewelleryTheme") === "night") {
+        document.body.classList.add("night-mode");
+        themeToggle.textContent = "☀️ Day Mode";
+    }
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("night-mode");
+
+        if (document.body.classList.contains("night-mode")) {
+            themeToggle.textContent = "☀️ Day Mode";
+            localStorage.setItem("kjewelleryTheme", "night");
+        } else {
+            themeToggle.textContent = "🌙 Night Mode";
+            localStorage.setItem("kjewelleryTheme", "day");
+        }
+
+    });
+</script>
+<!-- 🐱 KJewellery floating mascot -->
+<div class="floating-cat" aria-label="KJewellery cat mascot">
+    <span class="cat-sparkle">✦</span>
+    <span class="cat-face">૮ ˶ᵔ ᵕ ᵔ˶ ა</span>
+    <span class="cat-heart">♡</span>
+</div>
+<script>
+const cat = document.querySelector(".floating-cat");
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+cat.addEventListener("pointerdown", function(event) {
+    isDragging = true;
+
+    const rect = cat.getBoundingClientRect();
+
+    offsetX = event.clientX - rect.left;
+    offsetY = event.clientY - rect.top;
+
+    cat.setPointerCapture(event.pointerId);
+
+    cat.style.left = rect.left + "px";
+    cat.style.top = rect.top + "px";
+    cat.style.right = "auto";
+    cat.style.bottom = "auto";
+
+    cat.style.cursor = "grabbing";
+
+    event.preventDefault();
+});
+
+cat.addEventListener("pointermove", function(event) {
+    if (!isDragging) return;
+
+    let x = event.clientX - offsetX;
+    let y = event.clientY - offsetY;
+
+    const maxX = window.innerWidth - cat.offsetWidth;
+    const maxY = window.innerHeight - cat.offsetHeight;
+
+    x = Math.max(0, Math.min(x, maxX));
+    y = Math.max(0, Math.min(y, maxY));
+
+    cat.style.left = x + "px";
+    cat.style.top = y + "px";
+});
+
+cat.addEventListener("pointerup", function(event) {
+    isDragging = false;
+    cat.style.cursor = "grab";
+
+    try {
+        cat.releasePointerCapture(event.pointerId);
+    } catch (error) {}
+});
+
+cat.addEventListener("pointercancel", function() {
+    isDragging = false;
+    cat.style.cursor = "grab";
+});
+</script>
+<!-- 🐱 KJewellery cute draggable cat -->
+<div class="floating-cat" aria-label="Draggable KJewellery cat">
+
+    <div class="cat-ear cat-ear-left"></div>
+    <div class="cat-ear cat-ear-right"></div>
+
+    <div class="cat-face">
+        <span class="cat-eye">•</span>
+        <span class="cat-eye">•</span>
+        <span class="cat-mouth">ᴗ</span>
+    </div>
+
+    <span class="cat-sparkle sparkle-one">✦</span>
+    <span class="cat-sparkle sparkle-two">♡</span>
+
+</div>
+<!-- ✨ KJewellery cat speech bubble -->
+<div id="catSpeechBubble" class="cat-speech-bubble">
+    ♡ Hi hi! Welcome to KJewellery! ♡
+</div>
+
+<!-- ✨ Easter egg message -->
+<div id="catEasterEgg" class="cat-easter-egg">
+    ✦ You found my secret! ✦
+    <br>
+    ♡ You're Amazing! ♡
+</div>
+<script>
+const mascot = document.querySelector(".floating-cat");
+const bubble = document.getElementById("catSpeechBubble");
+const secret = document.getElementById("catEasterEgg");
+
+let clicks = 0;
+
+const messages = [
+    "♡ Hi hi! Welcome to KJewellery! ♡",
+    "🎀 Have you seen the jewellery yet?",
+    "✦ Have you played the bakery game?",
+    "♡ Something pretty is coming soon...",
+    "🐱 Meow! Thanks for visiting!",
+    "˚₊‧ You're part of the KJewellery family! ‧₊˚"
+];
+
+if (mascot) {
+
+    mascot.addEventListener("click", function(event) {
+
+        /* Don't let the click interfere with anything else */
+        event.stopPropagation();
+
+        clicks++;
+
+        /* Show a random message */
+        const message =
+            messages[Math.floor(Math.random() * messages.length)];
+
+        bubble.textContent = message;
+
+        bubble.classList.add("show");
+
+        /* Hide bubble after 3 seconds */
+        setTimeout(function() {
+            bubble.classList.remove("show");
+        }, 3000);
+
+
+        /* Secret after 5 clicks */
+        if (clicks === 5) {
+
+            bubble.classList.remove("show");
+
+            secret.classList.add("show");
+
+            setTimeout(function() {
+                secret.classList.remove("show");
+            }, 4500);
+
+            clicks = 0;
+        }
+
+    });
+
+}
+</script>
+</script>
+<!-- ✨ KJewellery sparkle trail -->
+<div id="sparkle-trail-container"></div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    let lastSparkle = 0;
+
+    document.addEventListener("mousemove", function (event) {
+
+        const now = Date.now();
+
+        if (now - lastSparkle < 80) {
+            return;
+        }
+
+        lastSparkle = now;
+
+        const sparkle =
+            document.createElement("span");
+
+        sparkle.className = "kj-sparkle";
+
+        const shapes = [
+            "✦",
+            "✧",
+            "♡",
+            "⋆"
+        ];
+
+        sparkle.textContent =
+            shapes[
+                Math.floor(
+                    Math.random() * shapes.length
+                )
+            ];
+
+        sparkle.style.left =
+            event.clientX + "px";
+
+        sparkle.style.top =
+            event.clientY + "px";
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(function () {
+            sparkle.remove();
+        }, 700);
+
+    });
+
+});
+</script>
 </body>
 
 </html>

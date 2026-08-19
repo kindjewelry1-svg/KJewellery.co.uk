@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KJewellery ♡ Digital Garden</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!--  HEADER -->
+
+    <header class="site-header">
+
+        <h1>
+            𝜗𝜚⋆₊˚ KJewellery ₊˚⋆𝜗𝜚
+        </h1>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="game.html">
+                Game
+            </a>
+
+            <a href="garden.html">
+                Garden
+            </a>
+
+        </nav>
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+        >
+            🌙 Night Mode
+        </button>
+
+    </header>
+
+
+    <!-- 🌱 DIGITAL GARDEN -->
+
+    <main class="garden-page">
+
+        <section class="garden-hero">
+
+            <div class="garden-sparkles">
+                ✦ ˚₊‧ ✧ 🌱 ✧ ‧₊˚ ✦
+            </div>
+
+            <h2>
+                ❤︎ KJewellery Digital Garden ❤︎
+            </h2>
+
+            <p>
+                A tiny garden filled with things
+                I'm currently reading, watching
+                and loving ❤︎
+            </p>
+
+            <p class="garden-small-text">
+                ˚₊‧꒰ა water the garden ໒꒱ ‧₊˚
+            </p>
+
+            <button
+                id="waterGarden"
+                class="water-button"
+                type="button"
+            >
+                ˚˖𓍢ִ໋❀ Water the Garden
+            </button>
+
+        </section>
+
+
+        <!--  GARDEN -->
+
+        <section class="digital-garden">
+
+
+            <!--  READING -->
+
+            <div class="garden-plant reading-plant">
+
+                <div class="plant-card">
+
+                    <div class="plant-icon">
+                        📖
+                    </div>
+
+                    <span class="plant-label">
+                        Currently Reading
+                    </span>
+
+                    <h3>
+                        Shatter Me By Tahereh Mafi ♡
+                    </h3>
+
+                    <p>
+                       
+
+                </div>
+
+                <div class="plant-stem"></div>
+
+                <div class="plant-leaves">
+                    🌿 🌱 🌿
+                </div>
+
+                <div class="plant-pot">
+                    🪴
+                </div>
+
+            </div>
+
+
+            <!--  WATCHING -->
+
+            <div class="garden-plant watching-plant">
+
+                <div class="plant-card">
+
+                    <div class="plant-icon">
+                        🎬
+                    </div>
+
+                    <span class="plant-label">
+                        Currently Watching
+                    </span>
+
+                    <h3>
+                        Death Note
+                    </h3>
+
+                    <p>
+                       
+                    </p>
+
+                </div>
+
+                <div class="plant-stem"></div>
+
+                <div class="plant-leaves">
+                    🌱 🌿 🌱
+                </div>
+
+                <div class="plant-pot">
+                    🪴
+                </div>
+
+            </div>
+
+
+            <!--  LOVING -->
+
+            <div class="garden-plant loving-plant">
+
+                <div class="plant-card">
+
+                    <div class="plant-icon">
+                        💗
+                    </div>
+
+                    <span class="plant-label">
+                        Currently Loving
+                    </span>
+
+                    <h3>
+                        crochetting
+                    </h3>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+                <div class="plant-stem"></div>
+
+                <div class="plant-leaves">
+                    🌿 🌸 🌿
+                </div>
+
+                <div class="plant-pot">
+                    🪴
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!--  LITTLE NOTE -->
+
+        <section class="garden-note">
+
+            <h2>
+                ♡ Little Garden Note ♡
+            </h2>
+
+            <p>
+                This little corner of KJewellery is
+                always growing...
+            </p>
+
+            <p>
+                Come back later to see what's new! 🌱
+            </p>
+
+            <div class="garden-decoration">
+                🌷 ✦ 🌱 ♡ 🌿 ✧ 🌸
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © KJewellery ˖᯽ ݁˖· ─ Handmade with love
+            ˖᯽ ݁˖· ─
+        </p>
+
+    </footer>
+
+
+    <!-- 🌙 NIGHT MODE -->
+
+    <script>
+
+        const themeToggle =
+            document.getElementById("themeToggle");
+
+
+        if (
+            localStorage.getItem("kjewelleryTheme")
+            === "night"
+        ) {
+
+            document.body.classList.add(
+                "night-mode"
+            );
+
+            themeToggle.textContent =
+                "☀️ Day Mode";
+
+        }
+
+
+        themeToggle.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle(
+                    "night-mode"
+                );
+
+
+                if (
+                    document.body.classList.contains(
+                        "night-mode"
+                    )
+                ) {
+
+                    themeToggle.textContent =
+                        "☀️ Day Mode";
+
+                    localStorage.setItem(
+                        "kjewelleryTheme",
+                        "night"
+                    );
+
+                } else {
+
+                    themeToggle.textContent =
+                        "🌙 Night Mode";
+
+                    localStorage.setItem(
+                        "kjewelleryTheme",
+                        "day"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+    <!-- ˚˖𓍢ִ໋❀ WATER THE GARDEN -->
+
+    <script>
+
+        const waterButton =
+            document.getElementById("waterGarden");
+
+
+        waterButton.addEventListener(
+            "click",
+            function () {
+
+                document
+                    .querySelectorAll(
+                        ".garden-plant"
+                    )
+                    .forEach(function (plant) {
+
+                        plant.classList.remove(
+                            "garden-watered"
+                        );
+
+                        void plant.offsetWidth;
+
+                        plant.classList.add(
+                            "garden-watered"
+                        );
+
+                    });
+
+
+                waterButton.textContent =
+                    "˚˖𓍢ִ໋❀ The garden is happy! ♡";
+
+
+                setTimeout(function () {
+
+                    waterButton.textContent =
+                        "💧 Water the Garden";
+
+                }, 1800);
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

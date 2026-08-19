@@ -78,10 +78,12 @@
 
             <a href="game.html">
                 Game
-            </a>
+            <a href="garden.html">Garden</a>
 
         </nav>
-
+<button id="themeToggle" class="theme-toggle" type="button">
+    🌙 Night Mode
+</button>
     </header>
 
 
@@ -570,7 +572,228 @@
 
     </footer>
 
+<script>
+    const themeToggle = document.getElementById("themeToggle");
 
+    if (localStorage.getItem("kjewelleryTheme") === "night") {
+        document.body.classList.add("night-mode");
+        themeToggle.textContent = "☀️ Day Mode";
+    }
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("night-mode");
+
+        if (document.body.classList.contains("night-mode")) {
+            themeToggle.textContent = "☀️ Day Mode";
+            localStorage.setItem("kjewelleryTheme", "night");
+        } else {
+            themeToggle.textContent = "🌙 Night Mode";
+            localStorage.setItem("kjewelleryTheme", "day");
+        }
+
+    });
+</script>
+<!-- 🐱 KJewellery floating mascot -->
+<div class="floating-cat" aria-label="KJewellery cat mascot">
+    <span class="cat-sparkle">✦</span>
+    <span class="cat-face">૮ ˶ᵔ ᵕ ᵔ˶ ა</span>
+    <span class="cat-heart">♡</span>
+</div>
+<script>
+const cat = document.querySelector(".floating-cat");
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+cat.addEventListener("pointerdown", function(event) {
+    isDragging = true;
+
+    const rect = cat.getBoundingClientRect();
+
+    offsetX = event.clientX - rect.left;
+    offsetY = event.clientY - rect.top;
+
+    cat.setPointerCapture(event.pointerId);
+
+    cat.style.left = rect.left + "px";
+    cat.style.top = rect.top + "px";
+    cat.style.right = "auto";
+    cat.style.bottom = "auto";
+
+    cat.style.cursor = "grabbing";
+
+    event.preventDefault();
+});
+
+cat.addEventListener("pointermove", function(event) {
+    if (!isDragging) return;
+
+    let x = event.clientX - offsetX;
+    let y = event.clientY - offsetY;
+
+    const maxX = window.innerWidth - cat.offsetWidth;
+    const maxY = window.innerHeight - cat.offsetHeight;
+
+    x = Math.max(0, Math.min(x, maxX));
+    y = Math.max(0, Math.min(y, maxY));
+
+    cat.style.left = x + "px";
+    cat.style.top = y + "px";
+});
+
+cat.addEventListener("pointerup", function(event) {
+    isDragging = false;
+    cat.style.cursor = "grab";
+
+    try {
+        cat.releasePointerCapture(event.pointerId);
+    } catch (error) {}
+});
+
+cat.addEventListener("pointercancel", function() {
+    isDragging = false;
+    cat.style.cursor = "grab";
+});
+</script>
+<!-- 🐱 KJewellery cute draggable cat -->
+<div class="floating-cat" aria-label="Draggable KJewellery cat">
+
+    <div class="cat-ear cat-ear-left"></div>
+    <div class="cat-ear cat-ear-right"></div>
+
+    <div class="cat-face">
+        <span class="cat-eye">•</span>
+        <span class="cat-eye">•</span>
+        <span class="cat-mouth">ᴗ</span>
+    </div>
+
+    <span class="cat-sparkle sparkle-one">✦</span>
+    <span class="cat-sparkle sparkle-two">♡</span>
+
+</div>
+<!-- ✨ KJewellery cat speech bubble -->
+<div id="catSpeechBubble" class="cat-speech-bubble">
+    ♡ Hi hi! Welcome to KJewellery! ♡
+</div>
+
+<!-- ✨ Easter egg message -->
+<div id="catEasterEgg" class="cat-easter-egg">
+    ✦ You found my secret! ✦
+    <br>
+    ♡ You're Amazing! ♡
+</div>
+<script>
+const mascot = document.querySelector(".floating-cat");
+const bubble = document.getElementById("catSpeechBubble");
+const secret = document.getElementById("catEasterEgg");
+
+let clicks = 0;
+
+const messages = [
+    "♡ Hi hi! Welcome to KJewellery! ♡",
+    "🎀 Have you seen the jewellery yet?",
+    "✦ Have you played the bakery game?",
+    "♡ Something pretty is coming soon...",
+    "🐱 Meow! Thanks for visiting!",
+    "˚₊‧ You're part of the KJewellery family! ‧₊˚"
+];
+
+if (mascot) {
+
+    mascot.addEventListener("click", function(event) {
+
+        /* Don't let the click interfere with anything else */
+        event.stopPropagation();
+
+        clicks++;
+
+        /* Show a random message */
+        const message =
+            messages[Math.floor(Math.random() * messages.length)];
+
+        bubble.textContent = message;
+
+        bubble.classList.add("show");
+
+        /* Hide bubble after 3 seconds */
+        setTimeout(function() {
+            bubble.classList.remove("show");
+        }, 3000);
+
+
+        /* Secret after 5 clicks */
+        if (clicks === 5) {
+
+            bubble.classList.remove("show");
+
+            secret.classList.add("show");
+
+            setTimeout(function() {
+                secret.classList.remove("show");
+            }, 4500);
+
+            clicks = 0;
+        }
+
+    });
+
+}
+</script>
+</script>
+<!-- ✨ KJewellery sparkle trail -->
+<div id="sparkle-trail-container"></div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    let lastSparkle = 0;
+
+    document.addEventListener("mousemove", function (event) {
+
+        const now = Date.now();
+
+        if (now - lastSparkle < 80) {
+            return;
+        }
+
+        lastSparkle = now;
+
+        const sparkle =
+            document.createElement("span");
+
+        sparkle.className = "kj-sparkle";
+
+        const shapes = [
+            "✦",
+            "✧",
+            "♡",
+            "⋆"
+        ];
+
+        sparkle.textContent =
+            shapes[
+                Math.floor(
+                    Math.random() * shapes.length
+                )
+            ];
+
+        sparkle.style.left =
+            event.clientX + "px";
+
+        sparkle.style.top =
+            event.clientY + "px";
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(function () {
+            sparkle.remove();
+        }, 700);
+
+    });
+
+});
+</script>
 </body>
 
 </html>
