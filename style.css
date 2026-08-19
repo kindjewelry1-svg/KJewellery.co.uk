@@ -1,0 +1,350 @@
+/* =========================
+   KJEWELLERY COLOURS
+   ========================= */
+
+:root {
+    --pink: #d691ae;
+    --light-pink: #f3bad1;
+    --yellow: #fff0b4;
+    --cream: #fffaf5;
+    --dark-pink: #c66e97;
+    --text: #622f43;
+}
+
+
+/* =========================
+   GENERAL PAGE
+   ========================= */
+
+body {
+    margin: 0;
+
+    background-color: var(--cream);
+    color: var(--text);
+
+    font-family: "Comfortaa", sans-serif;
+
+    text-align: center;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+    background-color: var(--light-pink);
+
+    padding: 25px;
+
+    border-bottom: 4px solid var(--yellow);
+}
+
+
+header h1 {
+    color: var(--dark-pink);
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+nav a {
+    color: var(--dark-pink);
+
+    text-decoration: none;
+
+    margin: 0 12px;
+
+    font-weight: bold;
+}
+
+
+nav a:hover {
+    color: #8f365f;
+}
+
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+    padding: 100px 20px;
+
+    background-color: var(--yellow);
+}
+
+
+.hero h2 {
+    font-size: 42px;
+
+    color: var(--dark-pink);
+}
+
+
+.hero p {
+    font-size: 20px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+button {
+    background-color: var(--pink);
+
+    color: white;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: var(--dark-pink);
+}
+
+
+/* =========================
+   FEATURES
+   ========================= */
+
+.features {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    padding: 60px 20px;
+}
+
+
+.features div {
+    background-color: white;
+
+    padding: 25px;
+
+    width: 220px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   SHOP INTRO
+   ========================= */
+
+.shop-intro {
+    padding: 50px 20px 20px;
+}
+
+
+.shop-intro h2 {
+    color: var(--dark-pink);
+
+    font-size: 32px;
+}
+
+
+/* =========================
+   PRODUCTS
+   ========================= */
+
+.products {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    padding: 50px 20px;
+}
+
+
+.product-card {
+    background-color: white;
+
+    width: 260px;
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+
+    transition: transform 0.2s ease;
+}
+
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================
+   PRODUCT PHOTOS
+   ========================= */
+
+.product-image {
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    display: block;
+}
+
+
+/* =========================
+   PRODUCT TEXT
+   ========================= */
+
+.product-card h3 {
+    color: var(--dark-pink);
+
+    margin-top: 20px;
+}
+
+
+.product-card p {
+    line-height: 1.6;
+}
+
+
+/* =========================
+   COMING SOON LABEL
+   ========================= */
+
+.coming-soon-label {
+    display: inline-block;
+
+    background-color: var(--light-pink);
+
+    color: var(--text);
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+/* =========================
+   SHOP NOTE
+   ========================= */
+
+.shop-note {
+    padding: 50px 20px;
+}
+
+
+.shop-note h2 {
+    color: var(--dark-pink);
+}
+
+
+/* =========================
+   PLACEHOLDER
+   ========================= */
+
+.product-placeholder {
+    width: 100%;
+
+    height: 260px;
+
+    background-color: var(--yellow);
+
+    border-radius: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 50px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background-color: var(--light-pink);
+
+    padding: 25px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    nav a {
+        display: inline-block;
+
+        margin: 5px 8px;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .products {
+        padding: 30px 15px;
+    }
+
+    .product-card {
+        width: 90%;
+        max-width: 320px;
+    }
+
+}
