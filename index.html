@@ -130,7 +130,7 @@
 
         </section>
 
-```html
+
         <!-- CUSTOMER REVIEWS -->
 
         <section class="reviews-section">
@@ -205,6 +205,116 @@
             <div class="review-note">
 
                 ♡ Reviews from our lovely KJewellery community ♡
+
+            </div>
+            <!-- LEAVE A REVIEW -->
+
+            <button
+                type="button"
+                class="leave-review-button"
+                id="showReviewForm"
+            >
+                ♡ Leave a Review ♡
+            </button>
+
+
+            <div
+                class="review-form-container"
+                id="reviewFormContainer"
+            >
+
+                <h3>
+                    ˚₊‧꒰ა Tell Us What You Think ໒꒱ ‧₊˚
+                </h3>
+
+                <p>
+                    We'd love to hear what you think about
+                    your KJewellery experience! ♡
+                </p>
+
+
+                <form
+                    action="https://formspree.io/f/xoeaydpr"
+                    method="POST"
+                    class="review-form"
+                >
+
+                    <label for="review-name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="review-name"
+                        name="name"
+                        placeholder="Your name ♡"
+                        required
+                    >
+
+
+                    <label for="review-rating">
+                        Your Rating
+                    </label>
+
+                    <select
+                        id="review-rating"
+                        name="rating"
+                        required
+                    >
+
+                        <option value="">
+                            Choose a rating ♡
+                        </option>
+
+                        <option value="5">
+                            ★★★★★ — Amazing!
+                        </option>
+
+                        <option value="4">
+                            ★★★★☆ — Lovely!
+                        </option>
+
+                        <option value="3">
+                            ★★★☆☆ — Good!
+                        </option>
+
+                        <option value="2">
+                            ★★☆☆☆ — Could be better
+                        </option>
+
+                        <option value="1">
+                            ★☆☆☆☆ — Needs improvement
+                        </option>
+
+                    </select>
+
+
+                    <label for="review-message">
+                        Your Review
+                    </label>
+
+                    <textarea
+                        id="review-message"
+                        name="message"
+                        rows="5"
+                        placeholder="Tell us about your KJewellery experience ♡"
+                        required
+                    ></textarea>
+
+
+                    <button
+                        type="submit"
+                        class="submit-review-button"
+                    >
+                        Send My Review ♡
+                    </button>
+
+                </form>
+
+
+                <p class="review-form-note">
+                    ˖ ࣪⊹ Thank you for supporting KJewellery! ♡
+                </p>
 
             </div>
 
@@ -311,6 +421,46 @@
 
     </footer>
 
+
+<script>
+
+    const reviewButton =
+        document.getElementById("showReviewForm");
+
+    const reviewForm =
+        document.getElementById("reviewFormContainer");
+
+
+    reviewButton.addEventListener(
+        "click",
+        function () {
+
+            reviewForm.classList.toggle("show");
+
+
+            if (
+                reviewForm.classList.contains("show")
+            ) {
+
+                reviewButton.textContent =
+                    "♡ Hide Review Form ♡";
+
+                reviewForm.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            } else {
+
+                reviewButton.textContent =
+                    "♡ Leave a Review ♡"
+
+            }
+
+        }
+    );
+
+</script>
 
 </body>
 
