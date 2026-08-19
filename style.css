@@ -1,3 +1,4 @@
+
 /* =========================
    KJEWELLERY COLOURS
    ========================= */
@@ -315,6 +316,191 @@ footer {
 
 
 /* =========================
+   NEWSLETTER
+   ========================= */
+
+.kj-newsletter {
+    width: 100%;
+
+    padding: 60px 20px;
+
+    box-sizing: border-box;
+}
+
+
+.kj-newsletter-box {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background-color: #fffaf7;
+
+    border: 2px solid var(--light-pink);
+
+    border-radius: 25px;
+
+    box-shadow: 0 8px 25px rgba(80, 60, 50, 0.08);
+}
+
+
+.kj-newsletter-box h2 {
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    font-family: "Comfortaa", sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    color: var(--dark-pink);
+}
+
+
+.kj-newsletter-box p {
+    margin-bottom: 25px;
+
+    font-family: "Comfortaa", sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: var(--text);
+}
+
+
+/* =========================
+   NEWSLETTER FORM
+   ========================= */
+
+.kj-newsletter-form {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+.kj-newsletter-form label {
+    align-self: flex-start;
+
+    font-family: "Comfortaa", sans-serif;
+
+    font-size: 14px;
+
+    color: var(--text);
+}
+
+
+.kj-newsletter-input {
+    display: flex;
+
+    gap: 10px;
+
+    width: 100%;
+
+    max-width: 600px;
+}
+
+
+.kj-newsletter-input input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 15px 18px;
+
+    border: 1px solid #d9c9c2;
+
+    border-radius: 30px;
+
+    background-color: white;
+
+    font-family: "Comfortaa", sans-serif;
+
+    font-size: 14px;
+
+    color: var(--text);
+
+    outline: none;
+}
+
+
+.kj-newsletter-input input:focus {
+    border-color: var(--pink);
+
+    box-shadow: 0 0 0 3px rgba(214, 145, 174, 0.15);
+}
+
+
+.kj-newsletter-input input::placeholder {
+    color: #b5a5a0;
+}
+
+
+/* =========================
+   NEWSLETTER BUTTON
+   ========================= */
+
+.kj-newsletter-input button {
+    padding: 14px 25px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background-color: var(--pink);
+
+    color: white;
+
+    font-family: "Comfortaa", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+
+.kj-newsletter-input button:hover {
+    background-color: var(--dark-pink);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   NEWSLETTER NOTE
+   ========================= */
+
+.kj-newsletter-box small {
+    display: block;
+
+    margin-top: 20px;
+
+    font-family: "Comfortaa", sans-serif;
+
+    font-size: 12px;
+
+    color: #a18d85;
+}
+
+
+/* =========================
    MOBILE
    ========================= */
 
@@ -324,27 +510,92 @@ footer {
         font-size: 30px;
     }
 
+
     nav a {
         display: inline-block;
 
         margin: 5px 8px;
     }
 
+
     .hero {
         padding: 60px 20px;
     }
+
 
     .hero h2 {
         font-size: 30px;
     }
 
+
     .products {
         padding: 30px 15px;
     }
 
+
     .product-card {
         width: 90%;
+
         max-width: 320px;
     }
 
+
+    /* NEWSLETTER MOBILE */
+
+    .kj-newsletter {
+        padding: 40px 15px;
+    }
+
+
+    .kj-newsletter-box {
+        padding: 35px 20px;
+
+        border-radius: 20px;
+    }
+
+
+    .kj-newsletter-box h2 {
+        font-size: 22px;
+    }
+
+
+    .kj-newsletter-box p {
+        font-size: 13px;
+    }
+
+
+    .kj-newsletter-input {
+        flex-direction: column;
+    }
+
+
+    .kj-newsletter-input input {
+        width: 100%;
+    }
+
+
+    .kj-newsletter-input button {
+        width: 100%;
+
+        padding: 14px;
+    }
+
+}
+.kj-newsletter {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 60px 20px !important;
+    background: pink !important;
+}
+
+.kj-newsletter-box {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+    padding: 50px !important;
+    background: white !important;
+    border: 5px solid hotpink !important;
 }
