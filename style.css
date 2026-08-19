@@ -683,3 +683,41 @@ footer {
     }
 
 }
+/* ================================
+   BACK TO TOP BUTTON
+   ================================ */
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 55px;
+    height: 55px;
+
+    background-color: #d691ae;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    font-family: "Comfortaa", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 15px rgba(98, 47, 67, 0.25);
+
+    z-index: 9999;
+
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    background-color: #c66e97;
+    transform: translateY(-4px);
+}
