@@ -599,3 +599,87 @@ footer {
     background: white !important;
     border: 5px solid hotpink !important;
 }
+/* ================================
+   ANNOUNCEMENT BANNER
+   ================================ */
+
+.announcement-banner {
+    background-color: var(--dark-pink);
+    color: white;
+
+    padding: 12px 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* ================================
+   BACK TO TOP BUTTON
+   ================================ */
+
+.back-to-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--pink);
+    color: white;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+    z-index: 1000;
+
+    transition: transform 0.2s ease,
+                background-color 0.2s ease;
+}
+
+
+.back-to-top:hover {
+    background-color: var(--dark-pink);
+
+    transform: translateY(-5px);
+}
+
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 600px) {
+
+    .announcement-banner {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+
+        right: 15px;
+        bottom: 15px;
+
+        font-size: 19px;
+    }
+
+}
