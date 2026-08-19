@@ -721,3 +721,939 @@ footer {
     background-color: #c66e97;
     transform: translateY(-4px);
 }
+/* =========================
+   KJEWELLERY NAVIGATION
+   ========================= */
+
+.site-header {
+    width: 100%;
+    background-color: #f3bad1;
+    padding: 18px 10px;
+    text-align: center;
+    border-bottom: 4px solid #fff0b4;
+    box-sizing: border-box;
+}
+
+.site-header h1 {
+    margin: 0 0 10px;
+    color: #c66e97;
+    font-size: 28px;
+}
+
+.site-header nav a {
+    color: #c66e97;
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.site-header nav a:hover {
+    color: #8f365f;
+}
+
+@media (max-width: 600px) {
+
+    .site-header h1 {
+        font-size: 23px;
+    }
+
+    .site-header nav a {
+        display: inline-block;
+        margin: 4px 6px;
+    }
+
+}
+
+/* =========================================================
+   KJEWELLERY CAT BAKERY GAME
+   ========================================================= */
+
+.game-page {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.game-title {
+    margin-top: 0;
+    color: var(--dark-pink);
+    font-size: 42px;
+}
+
+.game-subtitle {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   SCORE / GAME INFO
+   ========================= */
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.info-box {
+    background: white;
+    padding: 11px 17px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(98, 47, 67, 0.10);
+    font-weight: bold;
+}
+
+.sound-button {
+    background-color: var(--light-pink);
+    color: var(--text);
+    border: none;
+    padding: 11px 17px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Comfortaa", sans-serif;
+}
+
+.sound-button:hover {
+    background-color: var(--pink);
+}
+
+
+/* =========================
+   GAME AREA
+   ========================= */
+
+#game {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    border-radius: 30px;
+    border: 5px solid white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe8ef 0%,
+            #fff2d0 65%,
+            #e8b98d 65%,
+            #d99b72 100%
+        );
+
+    box-shadow:
+        0 12px 35px rgba(98, 47, 67, 0.15);
+
+    touch-action: none;
+}
+
+
+/* =========================
+   BAKERY SIGN
+   ========================= */
+
+.bakery-sign {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: var(--yellow);
+    border: 3px solid white;
+
+    padding: 12px 25px;
+    border-radius: 25px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    white-space: nowrap;
+    z-index: 2;
+}
+
+
+/* =========================
+   BAKERY WINDOWS
+   ========================= */
+
+.bakery-window {
+    position: absolute;
+
+    top: 110px;
+
+    width: 120px;
+    height: 105px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c9edf5,
+            #e9f9f8
+        );
+
+    border: 8px solid #fff5df;
+    border-radius: 20px;
+
+    opacity: 0.85;
+}
+
+.window-left {
+    left: 25px;
+}
+
+.window-right {
+    right: 25px;
+}
+
+
+/* =========================
+   BACKGROUND CATS
+   ========================= */
+
+.bakery-cat {
+    position: absolute;
+    font-size: 55px;
+    z-index: 3;
+
+    animation:
+        bakeryCatBob
+        3s
+        ease-in-out
+        infinite;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.cat-one {
+    left: 30px;
+    top: 235px;
+}
+
+.cat-two {
+    right: 30px;
+    top: 235px;
+    animation-delay: 1s;
+}
+
+.cat-three {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 75px;
+
+    font-size: 48px;
+    animation-delay: 0.5s;
+}
+
+@keyframes bakeryCatBob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* =========================
+   BREAD + OVEN
+   ========================= */
+
+.bread-stack {
+    position: absolute;
+    left: 135px;
+    bottom: 70px;
+
+    font-size: 55px;
+    z-index: 2;
+
+    transform: rotate(-5deg);
+}
+
+.oven {
+    position: absolute;
+    right: 135px;
+    bottom: 70px;
+
+    font-size: 50px;
+    z-index: 2;
+}
+
+
+/* =========================
+   PLAYER TRAY
+   ========================= */
+
+#tray {
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 130px;
+    height: 32px;
+
+    background-color: #c98561;
+
+    border: 4px solid #a86146;
+
+    border-radius:
+        8px
+        8px
+        20px
+        20px;
+
+    z-index: 10;
+
+    box-shadow:
+        0 5px 0 rgba(98, 47, 67, 0.15);
+
+    transition:
+        transform 0.08s ease;
+}
+
+#tray::before {
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+    top: -10px;
+
+    height: 12px;
+
+    background-color: #ffe5bd;
+
+    border: 3px solid #a86146;
+
+    border-radius:
+        10px
+        10px
+        4px
+        4px;
+}
+
+.tray-bounce {
+    animation:
+        trayBounce
+        0.25s
+        ease;
+}
+
+@keyframes trayBounce {
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-7px);
+    }
+}
+
+
+/* =========================
+   FALLING PASTRIES
+   ========================= */
+
+.pastry {
+    position: absolute;
+
+    z-index: 8;
+
+    font-size: 38px;
+
+    user-select: none;
+    pointer-events: none;
+
+    will-change: transform;
+}
+
+
+/* =========================
+   FLOATING +1
+   ========================= */
+
+.float-score {
+    position: absolute;
+
+    z-index: 20;
+
+    color: var(--dark-pink);
+
+    font-size: 20px;
+    font-weight: bold;
+
+    pointer-events: none;
+
+    animation:
+        floatUp
+        0.8s
+        ease-out
+        forwards;
+}
+
+@keyframes floatUp {
+
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+
+/* =========================
+   CATCH PARTICLES
+   ========================= */
+
+.particle {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    background-color: var(--light-pink);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: 15;
+
+    animation:
+        particlePop
+        0.6s
+        ease-out
+        forwards;
+}
+
+@keyframes particlePop {
+
+    to {
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(0.3);
+    }
+}
+
+
+/* =========================
+   OOPS MESSAGE
+   ========================= */
+
+.oops {
+    position: absolute;
+
+    z-index: 20;
+
+    color: var(--dark-pink);
+
+    font-size: 20px;
+    font-weight: bold;
+
+    pointer-events: none;
+
+    animation:
+        oopsAnimation
+        0.8s
+        ease-out
+        forwards;
+}
+
+@keyframes oopsAnimation {
+
+    0% {
+        opacity: 1;
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-25px)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   START / GAME OVER SCREEN
+   ========================= */
+
+.game-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(
+            255,
+            250,
+            245,
+            0.94
+        );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 50;
+
+    padding: 25px;
+}
+
+.overlay-card {
+    width: 100%;
+    max-width: 460px;
+
+    background-color: white;
+
+    padding: 35px 25px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(98, 47, 67, 0.15);
+}
+
+.overlay-card h2 {
+    color: var(--dark-pink);
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.overlay-card p {
+    line-height: 1.7;
+}
+
+.big-cat {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   GAME BUTTON
+   ========================= */
+
+.main-game-button {
+    border: none;
+
+    background-color: var(--pink);
+    color: white;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    font-family: "Comfortaa", sans-serif;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.main-game-button:hover {
+    background-color: var(--dark-pink);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================
+   MOBILE CONTROLS
+   ========================= */
+
+.mobile-controls {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 18px;
+}
+
+.control-button {
+    width: 110px;
+    height: 60px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background-color: var(--light-pink);
+
+    color: var(--text);
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    touch-action: none;
+    user-select: none;
+
+    box-shadow:
+        0 5px 0 var(--pink);
+
+    font-family: Arial, sans-serif;
+}
+
+.control-button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 1px 0 var(--pink);
+}
+
+
+/* =========================
+   INSTRUCTIONS
+   ========================= */
+
+.game-instructions {
+    margin-top: 12px;
+
+    font-size: 13px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   GAME PAGE NAVIGATION
+   ========================= */
+
+.site-header {
+    width: 100%;
+
+    background-color: var(--light-pink);
+
+    padding: 18px 10px;
+
+    text-align: center;
+
+    border-bottom:
+        4px solid
+        var(--yellow);
+
+    box-sizing: border-box;
+}
+
+.site-header h1 {
+    margin: 0 0 10px;
+
+    color: var(--dark-pink);
+
+    font-size: 28px;
+}
+
+.site-header nav a {
+    color: var(--dark-pink);
+
+    text-decoration: none;
+
+    margin: 0 8px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+.site-header nav a:hover {
+    color: #8f365f;
+}
+
+
+/* =========================
+   MOBILE GAME
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .game-page {
+        padding: 35px 12px;
+    }
+
+    .game-title {
+        font-size: 30px;
+    }
+
+    .game-subtitle {
+        font-size: 14px;
+    }
+
+    #game {
+        height: 600px;
+        border-radius: 22px;
+    }
+
+    .bakery-sign {
+        font-size: 13px;
+        padding: 10px 15px;
+    }
+
+    .bakery-window {
+        width: 75px;
+        height: 75px;
+    }
+
+    .bakery-cat {
+        font-size: 42px;
+    }
+
+    .cat-three {
+        font-size: 40px;
+    }
+
+    .bread-stack {
+        left: 70px;
+        font-size: 42px;
+    }
+
+    .oven {
+        right: 70px;
+        font-size: 40px;
+    }
+
+    #tray {
+        width: 105px;
+    }
+
+    .pastry {
+        font-size: 32px;
+    }
+
+    .site-header h1 {
+        font-size: 23px;
+    }
+
+    .site-header nav a {
+        display: inline-block;
+        margin: 4px 6px;
+    }
+
+    .overlay-card {
+        padding: 28px 18px;
+    }
+
+    .overlay-card h2 {
+        font-size: 25px;
+    }
+
+    .mobile-controls {
+        gap: 18px;
+    }
+
+    .control-button {
+        width: 105px;
+        height: 58px;
+    }
+
+}
+/* =========================================================
+   CUSTOMER REVIEWS
+   ========================================================= */
+
+.reviews-section {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 60px auto;
+
+    padding: 45px 25px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8f5,
+            #ffe8ef
+        );
+
+    border-radius: 35px;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 10px 30px
+        rgba(98, 47, 67, 0.10);
+}
+
+
+.reviews-section h2 {
+    margin-top: 0;
+
+    color: var(--dark-pink);
+
+    font-size: 30px;
+}
+
+
+.reviews-intro {
+    margin-bottom: 30px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   REVIEW CARDS
+   ========================= */
+
+.reviews-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+
+.review-card {
+    background-color: white;
+
+    padding: 25px 20px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(98, 47, 67, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.review-card:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(98, 47, 67, 0.13);
+}
+
+
+/* =========================
+   STARS
+   ========================= */
+
+.review-stars {
+    color: #e8b84a;
+
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.review-card p {
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin:
+        0 0 15px;
+}
+
+
+.review-card h3 {
+    color: var(--dark-pink);
+
+    font-size: 14px;
+
+    margin: 0;
+}
+
+
+/* =========================
+   REVIEW NOTE
+   ========================= */
+
+.review-note {
+    margin-top: 30px;
+
+    font-size: 13px;
+
+    color: var(--dark-pink);
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   MOBILE REVIEWS
+   ========================= */
+
+@media (max-width: 750px) {
+
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .reviews-section {
+        width: 94%;
+
+        padding:
+            35px 18px;
+    }
+
+
+    .reviews-section h2 {
+        font-size: 25px;
+    }
+
+
+    .review-card {
+        padding: 22px 18px;
+    }
+
+}

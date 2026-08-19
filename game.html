@@ -1,0 +1,1250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KJewellery  Cat Bakery</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         KJEWELLERY HEADER
+         ========================= -->
+
+    <header class="site-header">
+
+        <h1>𝜗𝜚⋆₊˚ KJewellery ₊˚⋆𝜗𝜚</h1>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="shop.html">Shop</a>
+
+            <a href="about.html">About</a>
+
+            <a href="contact.html">Contact</a>
+
+            <a href="game.html">Game </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         GAME
+         ========================= -->
+
+    <main class="game-page">
+
+        <h2 class="game-title">
+             Cat Café Bakery!
+        </h2>
+
+        <p class="game-subtitle">
+            Catch the tasty treats before they hit the floor! ♡
+        </p>
+
+
+        <!-- GAME INFORMATION -->
+
+        <div class="game-info">
+
+            <div class="info-box">
+                Score:
+                <span id="score">0</span>
+            </div>
+
+            <div class="info-box">
+                Misses:
+                <span id="misses">0</span>/5
+            </div>
+
+            <button id="muteButton" class="sound-button">
+                🔊 Sound
+            </button>
+
+        </div>
+
+
+        <!-- GAME AREA -->
+
+        <div id="game">
+
+            <!-- Bakery sign -->
+
+            <div class="bakery-sign">
+                ♡ Meowgical Bakery ♡
+            </div>
+
+
+            <!-- Bakery windows -->
+
+            <div class="bakery-window window-left"></div>
+
+            <div class="bakery-window window-right"></div>
+
+
+            <!-- Decorative cats -->
+
+            <div class="bakery-cat cat-one">
+                
+            </div>
+
+            <div class="bakery-cat cat-two">
+                
+            </div>
+
+            <div class="bakery-cat cat-three">
+                
+            </div>
+
+
+            <!-- Decorative bread -->
+
+            <div class="bread-stack">
+                
+            </div>
+
+
+            <!-- Oven -->
+
+            <div class="oven">
+                
+            </div>
+
+
+            <!-- Player tray -->
+
+            <div id="tray"></div>
+
+
+            <!-- START SCREEN -->
+
+            <div
+                id="startScreen"
+                class="game-overlay"
+            >
+
+                <div class="overlay-card">
+
+                    <div class="big-cat">
+                        
+                    </div>
+
+                    <h2>
+                        Welcome, baker! ♡
+                    </h2>
+
+                    <p>
+                        Help the kitty catch all the
+                        delicious treats before they fall
+                        on the floor!
+                    </p>
+
+                    <p>
+                        Use <strong>← →</strong> or
+                        <strong>A / D</strong> to move.
+                    </p>
+
+                    <button
+                        id="startButton"
+                        class="main-game-button"
+                    >
+                        Start Baking ♡
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- GAME OVER SCREEN -->
+
+            <div
+                id="gameOverScreen"
+                class="game-overlay"
+                style="display: none;"
+            >
+
+                <div class="overlay-card">
+
+                    <div class="big-cat">
+                        
+                    </div>
+
+                    <h2>
+                        Bakery closed! ♡
+                    </h2>
+
+                    <p>
+                        You caught
+                        <strong>
+                            <span id="finalScore">0</span>
+                        </strong>
+                        tasty treats!
+                    </p>
+
+                    <button
+                        id="restartButton"
+                        class="main-game-button"
+                    >
+                        Play Again ♡
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE CONTROLS -->
+
+        <div class="mobile-controls">
+
+            <button
+                id="leftButton"
+                class="control-button"
+                aria-label="Move left"
+            >
+                ←
+            </button>
+
+            <button
+                id="rightButton"
+                class="control-button"
+                aria-label="Move right"
+            >
+                →
+            </button>
+
+        </div>
+
+
+        <p class="game-instructions">
+            Desktop: Arrow Keys or A/D
+            ·
+            Mobile: use the buttons ♡
+        </p>
+
+    </main>
+
+
+    <!-- =========================
+         BACKGROUND MUSIC
+         ========================= -->
+
+    <audio
+        id="backgroundMusic"
+        src="lofi.mp3"
+        loop
+        preload="auto"
+    ></audio>
+
+
+    <!-- =========================
+         GAME JAVASCRIPT
+         ========================= -->
+
+    <script>
+
+        /* =========================
+           ELEMENTS
+           ========================= */
+
+        const game =
+            document.getElementById("game");
+
+        const tray =
+            document.getElementById("tray");
+
+        const scoreDisplay =
+            document.getElementById("score");
+
+        const missesDisplay =
+            document.getElementById("misses");
+
+        const startScreen =
+            document.getElementById("startScreen");
+
+        const gameOverScreen =
+            document.getElementById("gameOverScreen");
+
+        const startButton =
+            document.getElementById("startButton");
+
+        const restartButton =
+            document.getElementById("restartButton");
+
+        const finalScore =
+            document.getElementById("finalScore");
+
+        const music =
+            document.getElementById("backgroundMusic");
+
+        const muteButton =
+            document.getElementById("muteButton");
+
+        const leftButton =
+            document.getElementById("leftButton");
+
+        const rightButton =
+            document.getElementById("rightButton");
+
+
+        /* =========================
+           GAME VARIABLES
+           ========================= */
+
+        let score = 0;
+
+        let misses = 0;
+
+        const maximumMisses = 5;
+
+        let gameRunning = false;
+
+        let trayX = 50;
+
+        let pastries = [];
+
+        let lastTime = 0;
+
+        let spawnTimer = 0;
+
+        let spawnInterval = 1000;
+
+        let moveLeft = false;
+
+        let moveRight = false;
+
+        let muted = false;
+
+
+        /* =========================
+           PASTRY TYPES
+           ========================= */
+
+        const pastryTypes = [
+            "🥐",
+            "🧁",
+            "🍩",
+            "🍪",
+            "🍥",
+            "🍰"
+        ];
+
+
+        /* =========================
+           SOUND
+           ========================= */
+
+        let audioContext;
+
+
+        function playSound(type) {
+
+            if (muted) {
+                return;
+            }
+
+
+            try {
+
+                if (!audioContext) {
+
+                    audioContext =
+                        new (
+                            window.AudioContext ||
+                            window.webkitAudioContext
+                        )();
+
+                }
+
+
+                const oscillator =
+                    audioContext.createOscillator();
+
+                const gain =
+                    audioContext.createGain();
+
+
+                oscillator.connect(gain);
+
+                gain.connect(
+                    audioContext.destination
+                );
+
+
+                if (type === "catch") {
+
+                    oscillator.frequency.value = 650;
+
+                } else {
+
+                    oscillator.frequency.value = 180;
+
+                }
+
+
+                gain.gain.setValueAtTime(
+                    0.08,
+                    audioContext.currentTime
+                );
+
+
+                gain.gain.exponentialRampToValueAtTime(
+                    0.001,
+                    audioContext.currentTime + 0.15
+                );
+
+
+                oscillator.start();
+
+                oscillator.stop(
+                    audioContext.currentTime + 0.15
+                );
+
+            } catch (error) {
+
+                console.log(
+                    "Sound unavailable."
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           START GAME
+           ========================= */
+
+        function startGame() {
+
+            score = 0;
+
+            misses = 0;
+
+            pastries = [];
+
+            trayX = 50;
+
+            spawnTimer = 0;
+
+            spawnInterval = 1000;
+
+            scoreDisplay.textContent =
+                score;
+
+            missesDisplay.textContent =
+                misses;
+
+            tray.style.left =
+                trayX + "%";
+
+            gameRunning = true;
+
+            startScreen.style.display =
+                "none";
+
+            gameOverScreen.style.display =
+                "none";
+
+
+            /*
+                Music starts after the visitor
+                clicks Start Baking.
+            */
+
+            if (!muted) {
+
+                music.volume = 0.25;
+
+                music.play().catch(
+                    function(error) {
+
+                        console.log(
+                            "Music could not play:",
+                            error
+                        );
+
+                    }
+                );
+
+            }
+
+
+            lastTime =
+                performance.now();
+
+
+            requestAnimationFrame(
+                gameLoop
+            );
+
+        }
+
+
+        /* =========================
+           END GAME
+           ========================= */
+
+        function endGame() {
+
+            gameRunning = false;
+
+            finalScore.textContent =
+                score;
+
+            gameOverScreen.style.display =
+                "flex";
+
+            music.pause();
+
+        }
+
+
+        /* =========================
+           SPAWN PASTRY
+           ========================= */
+
+        function spawnPastry() {
+
+            const pastryElement =
+                document.createElement("div");
+
+            pastryElement.className =
+                "pastry";
+
+
+            pastryElement.textContent =
+                pastryTypes[
+                    Math.floor(
+                        Math.random() *
+                        pastryTypes.length
+                    )
+                ];
+
+
+            const x =
+                Math.random() * 88 + 6;
+
+
+            pastryElement.style.left =
+                x + "%";
+
+            pastryElement.style.top =
+                "-50px";
+
+
+            game.appendChild(
+                pastryElement
+            );
+
+
+            pastries.push({
+
+                element: pastryElement,
+
+                x: x,
+
+                y: -50,
+
+                speed:
+                    120 +
+                    Math.min(
+                        score * 3,
+                        180
+                    )
+
+            });
+
+        }
+
+
+        /* =========================
+           COLLISION DETECTION
+           ========================= */
+
+        function checkCollision(
+            pastry
+        ) {
+
+            const trayRect =
+                tray.getBoundingClientRect();
+
+            const pastryRect =
+                pastry.element
+                    .getBoundingClientRect();
+
+
+            return (
+
+                pastryRect.bottom >=
+                    trayRect.top &&
+
+                pastryRect.left <
+                    trayRect.right &&
+
+                pastryRect.right >
+                    trayRect.left &&
+
+                pastryRect.bottom <
+                    trayRect.bottom + 45
+
+            );
+
+        }
+
+
+        /* =========================
+           CATCH PASTRY
+           ========================= */
+
+        function catchPastry(
+            pastry
+        ) {
+
+            score++;
+
+            scoreDisplay.textContent =
+                score;
+
+
+            playSound("catch");
+
+
+            const rect =
+                pastry.element
+                    .getBoundingClientRect();
+
+
+            const gameRect =
+                game.getBoundingClientRect();
+
+
+            const x =
+                rect.left -
+                gameRect.left;
+
+
+            const y =
+                rect.top -
+                gameRect.top;
+
+
+            /* Floating +1 */
+
+            const scoreText =
+                document.createElement("div");
+
+            scoreText.className =
+                "float-score";
+
+            scoreText.textContent =
+                "+1 ♡";
+
+            scoreText.style.left =
+                x + "px";
+
+            scoreText.style.top =
+                y + "px";
+
+
+            game.appendChild(
+                scoreText
+            );
+
+
+            setTimeout(
+                () => scoreText.remove(),
+                800
+            );
+
+
+            /* Tray bounce */
+
+            tray.classList.add(
+                "tray-bounce"
+            );
+
+
+            setTimeout(
+                () => {
+                    tray.classList.remove(
+                        "tray-bounce"
+                    );
+                },
+                250
+            );
+
+
+            createParticles(
+                x,
+                y
+            );
+
+
+            pastry.element.remove();
+
+        }
+
+
+        /* =========================
+           PARTICLES
+           ========================= */
+
+        function createParticles(
+            x,
+            y
+        ) {
+
+            for (
+                let i = 0;
+                i < 7;
+                i++
+            ) {
+
+                const particle =
+                    document.createElement(
+                        "div"
+                    );
+
+                particle.className =
+                    "particle";
+
+                particle.style.left =
+                    x + "px";
+
+                particle.style.top =
+                    y + "px";
+
+
+                particle.style.setProperty(
+                    "--x",
+                    (
+                        Math.random() *
+                        80 -
+                        40
+                    ) + "px"
+                );
+
+
+                particle.style.setProperty(
+                    "--y",
+                    (
+                        Math.random() *
+                        80 -
+                        40
+                    ) + "px"
+                );
+
+
+                game.appendChild(
+                    particle
+                );
+
+
+                setTimeout(
+                    () =>
+                        particle.remove(),
+                    600
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           MISSED PASTRY
+           ========================= */
+
+        function missPastry(
+            pastry
+        ) {
+
+            misses++;
+
+            missesDisplay.textContent =
+                misses;
+
+
+            playSound("miss");
+
+
+            const rect =
+                pastry.element
+                    .getBoundingClientRect();
+
+
+            const gameRect =
+                game.getBoundingClientRect();
+
+
+            const oops =
+                document.createElement(
+                    "div"
+                );
+
+            oops.className =
+                "oops";
+
+            oops.textContent =
+                "Oops! ♡";
+
+            oops.style.left =
+                (
+                    rect.left -
+                    gameRect.left
+                ) + "px";
+
+            oops.style.top =
+                (
+                    rect.top -
+                    gameRect.top
+                ) + "px";
+
+
+            game.appendChild(
+                oops
+            );
+
+
+            setTimeout(
+                () => oops.remove(),
+                800
+            );
+
+
+            pastry.element.remove();
+
+
+            if (
+                misses >=
+                maximumMisses
+            ) {
+
+                endGame();
+
+            }
+
+        }
+
+
+        /* =========================
+           DIFFICULTY
+           ========================= */
+
+        function updateDifficulty() {
+
+            spawnInterval =
+                Math.max(
+                    400,
+                    1000 -
+                    score * 18
+                );
+
+        }
+
+
+        /* =========================
+           TRAY MOVEMENT
+           ========================= */
+
+        function moveTray(
+            deltaTime
+        ) {
+
+            const speed = 55;
+
+
+            if (moveLeft) {
+
+                trayX -=
+                    speed *
+                    deltaTime /
+                    1000;
+
+            }
+
+
+            if (moveRight) {
+
+                trayX +=
+                    speed *
+                    deltaTime /
+                    1000;
+
+            }
+
+
+            trayX =
+                Math.max(
+                    8,
+                    Math.min(
+                        92,
+                        trayX
+                    )
+                );
+
+
+            tray.style.left =
+                trayX + "%";
+
+        }
+
+
+        /* =========================
+           GAME LOOP
+           ========================= */
+
+        function gameLoop(
+            timestamp
+        ) {
+
+            if (!gameRunning) {
+                return;
+            }
+
+
+            const deltaTime =
+                timestamp -
+                lastTime;
+
+
+            lastTime =
+                timestamp;
+
+
+            moveTray(
+                deltaTime
+            );
+
+
+            spawnTimer +=
+                deltaTime;
+
+
+            if (
+                spawnTimer >=
+                spawnInterval
+            ) {
+
+                spawnPastry();
+
+                spawnTimer = 0;
+
+
+                if (
+                    score >= 10 &&
+                    Math.random() < 0.2
+                ) {
+
+                    setTimeout(
+                        spawnPastry,
+                        250
+                    );
+
+                }
+
+            }
+
+
+            for (
+                let i =
+                    pastries.length - 1;
+                i >= 0;
+                i--
+            ) {
+
+                const pastry =
+                    pastries[i];
+
+
+                pastry.y +=
+                    pastry.speed *
+                    deltaTime /
+                    1000;
+
+
+                pastry.element.style.transform =
+                    `translateY(${pastry.y}px)`;
+
+
+                if (
+                    checkCollision(
+                        pastry
+                    )
+                ) {
+
+                    catchPastry(
+                        pastry
+                    );
+
+                    pastries.splice(
+                        i,
+                        1
+                    );
+
+                    updateDifficulty();
+
+                }
+
+                else if (
+                    pastry.y >
+                    game.clientHeight
+                ) {
+
+                    missPastry(
+                        pastry
+                    );
+
+                    pastries.splice(
+                        i,
+                        1
+                    );
+
+                }
+
+            }
+
+
+            requestAnimationFrame(
+                gameLoop
+            );
+
+        }
+
+
+        /* =========================
+           KEYBOARD CONTROLS
+           ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                const key =
+                    event.key.toLowerCase();
+
+
+                if (
+                    event.key ===
+                    "ArrowLeft" ||
+                    key === "a"
+                ) {
+
+                    moveLeft = true;
+
+                    event.preventDefault();
+
+                }
+
+
+                if (
+                    event.key ===
+                    "ArrowRight" ||
+                    key === "d"
+                ) {
+
+                    moveRight = true;
+
+                    event.preventDefault();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keyup",
+            function(event) {
+
+                const key =
+                    event.key.toLowerCase();
+
+
+                if (
+                    event.key ===
+                    "ArrowLeft" ||
+                    key === "a"
+                ) {
+
+                    moveLeft = false;
+
+                }
+
+
+                if (
+                    event.key ===
+                    "ArrowRight" ||
+                    key === "d"
+                ) {
+
+                    moveRight = false;
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           MOBILE CONTROLS
+           ========================= */
+
+        function holdButton(
+            button,
+            direction
+        ) {
+
+            button.addEventListener(
+                "pointerdown",
+                function(event) {
+
+                    event.preventDefault();
+
+
+                    if (
+                        direction ===
+                        "left"
+                    ) {
+
+                        moveLeft = true;
+
+                    } else {
+
+                        moveRight = true;
+
+                    }
+
+                }
+            );
+
+
+            button.addEventListener(
+                "pointerup",
+                function() {
+
+                    moveLeft = false;
+
+                    moveRight = false;
+
+                }
+            );
+
+
+            button.addEventListener(
+                "pointerleave",
+                function() {
+
+                    moveLeft = false;
+
+                    moveRight = false;
+
+                }
+            );
+
+
+            button.addEventListener(
+                "pointercancel",
+                function() {
+
+                    moveLeft = false;
+
+                    moveRight = false;
+
+                }
+            );
+
+        }
+
+
+        holdButton(
+            leftButton,
+            "left"
+        );
+
+
+        holdButton(
+            rightButton,
+            "right"
+        );
+
+
+        /* =========================
+           MUTE BUTTON
+           ========================= */
+
+        muteButton.addEventListener(
+            "click",
+            function() {
+
+                muted = !muted;
+
+
+                if (muted) {
+
+                    music.pause();
+
+                    muteButton.textContent =
+                        "🔇 Muted";
+
+                }
+
+                else {
+
+                    muteButton.textContent =
+                        "🔊 Sound";
+
+
+                    if (gameRunning) {
+
+                        music.play().catch(
+                            () => {}
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           GAME BUTTONS
+           ========================= */
+
+        startButton.addEventListener(
+            "click",
+            startGame
+        );
+
+
+        restartButton.addEventListener(
+            "click",
+            startGame
+        );
+
+    </script>
+
+</body>
+
+</html>
