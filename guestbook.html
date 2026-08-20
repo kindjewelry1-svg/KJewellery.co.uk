@@ -138,13 +138,62 @@ body {
            GUESTBOOK PAGE
            ===================================================== */
 
-        .guestbook-page {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 25px 80px;
-            overflow: visible;
         }
+        .guestbook-page html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.guestbook-page {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.artwork-grid {
+    width: 100%;
+    min-width: 0;
+}
+
+.artwork-card {
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+
+    .guestbook-page {
+        width: 100%;
+        max-width: 100%;
+        padding: 25px 12px 50px;
+    }
+
+    .guestbook-hero,
+    .guestbook-note,
+    .guestbook-thanks {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .artwork-grid {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .artwork-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .artwork-image,
+    .artwork-placeholder {
+        width: 100%;
+        max-width: 100%;
+    }
+}
 
 
         /* =====================================================
