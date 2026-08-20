@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>  KJewellery Arcade </title>
+    <title>♡ KJewellery Arcade ♡</title>
 
     <link
         rel="icon"
@@ -18,85 +18,42 @@
         href="logo.png"
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
     <style>
-
-/* =========================================
-   📱 MOBILE ARCADE SCROLL FIX
-   ========================================= */
-
-html,
-body {
-    height: auto !important;
-    min-height: 100%;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-}
-
-body {
-    position: static !important;
-}
-
-.arcade-page,
-.arcade-container,
-.game-page {
-    height: auto !important;
-    min-height: auto !important;
-    overflow: visible !important;
-}
-
-@media (max-width: 600px) {
-
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .arcade-page,
-    .arcade-container,
-    .game-page {
-        width: 100%;
-        max-width: 100%;
-        height: auto !important;
-        min-height: 0 !important;
-        overflow: visible !important;
-    }
-
-}
 
         /* =====================================================
            ARCADE PAGE
            ===================================================== */
 
-        html,
         body {
-            max-width: 100%;
             overflow-x: hidden;
         }
 
         .arcade-page {
             width: 100%;
-            max-width: 1050px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 30px 15px 70px;
+            padding: 35px 15px 70px;
         }
 
-
-        /* =====================================================
-           ARCADE HERO
-           ===================================================== */
-
-        .arcade-hero {
+        .arcade-intro {
             text-align: center;
             padding: 35px 20px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
 
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.9);
 
             border: 3px solid #f3bad1;
             border-radius: 30px;
@@ -105,20 +62,18 @@ body {
                 0 10px 25px rgba(100, 70, 60, 0.08);
         }
 
-        .arcade-hero h2 {
+        .arcade-intro h2 {
             margin: 0 0 12px;
 
             color: #c66e97;
 
-            font-size: clamp(30px, 6vw, 48px);
+            font-size: clamp(28px, 6vw, 44px);
         }
 
-        .arcade-hero p {
-            margin: 8px auto;
-
-            max-width: 700px;
-
+        .arcade-intro p {
             line-height: 1.7;
+            margin: 8px auto;
+            max-width: 700px;
         }
 
 
@@ -127,99 +82,24 @@ body {
            ===================================================== */
 
         .arcade-game {
+            width: 100%;
             margin-bottom: 55px;
         }
 
         .game-heading {
             text-align: center;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .game-heading h2 {
             color: #c66e97;
-            margin-bottom: 7px;
+            font-size: clamp(25px, 5vw, 36px);
+            margin-bottom: 8px;
         }
 
         .game-heading p {
+            margin: 0;
             opacity: 0.8;
-        }
-
-
-        /* =====================================================
-           GAME INFO
-           ===================================================== */
-
-        .game-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            gap: 12px;
-
-            flex-wrap: wrap;
-
-            margin-bottom: 12px;
-        }
-
-        .info-box {
-            background: white;
-
-            border: 2px solid #f3bad1;
-
-            border-radius: 18px;
-
-            padding: 10px 18px;
-
-            font-weight: bold;
-
-            box-shadow:
-                0 5px 12px rgba(100, 70, 60, 0.08);
-        }
-
-        .info-box span {
-            color: #c66e97;
-        }
-
-        .sound-button {
-            border: 2px solid #f3bad1;
-
-            background: white;
-
-            color: #6b4d43;
-
-            padding: 10px 16px;
-
-            border-radius: 18px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
-           GENERAL GAME AREA
-           ===================================================== */
-
-        .arcade-game-area {
-            position: relative;
-
-            width: 100%;
-
-            height: 560px;
-
-            overflow: hidden;
-
-            border-radius: 28px;
-
-            border: 4px solid #f3bad1;
-
-            box-shadow:
-                0 12px 30px rgba(100, 70, 60, 0.13);
-
-            touch-action: none;
-
-            user-select: none;
         }
 
 
@@ -227,28 +107,89 @@ body {
            CAT BAKERY
            ===================================================== */
 
-        #bakeryGame {
+        .bakery-wrapper {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .bakery-info {
+            display: flex;
+            gap: 10px;
+            align-items: stretch;
+            margin-bottom: 10px;
+        }
+
+        .bakery-info-box {
+            flex: 1;
+
+            background: white;
+
+            border: 2px solid #f3bad1;
+            border-radius: 16px;
+
+            padding: 10px;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+        .bakery-info-box span {
+            color: #c66e97;
+        }
+
+        .sound-button {
+            border: 2px solid #f3bad1;
+            border-radius: 16px;
+
+            background: white;
+            color: #6b4d43;
+
+            padding: 10px 14px;
+
+            font-family: inherit;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .bakery-game {
+            position: relative;
+
+            width: 100%;
+            height: 570px;
+
+            overflow: hidden;
+
+            border: 4px solid #f3bad1;
+            border-radius: 28px;
+
             background:
                 linear-gradient(
                     to bottom,
-                    #fff2d9 0%,
-                    #ffe4d0 58%,
-                    #f4c7b1 100%
+                    #fff1d9 0%,
+                    #ffe3cf 62%,
+                    #edc1aa 100%
                 );
+
+            box-shadow:
+                0 12px 30px rgba(100, 70, 60, 0.14);
+
+            touch-action: none;
         }
 
         .bakery-wall {
             position: absolute;
-
             inset: 0 0 auto 0;
 
-            height: 150px;
+            height: 115px;
 
             background:
                 repeating-linear-gradient(
                     90deg,
-                    rgba(255,255,255,0.28) 0 45px,
-                    rgba(255,210,190,0.18) 45px 90px
+                    rgba(255,255,255,.35) 0 35px,
+                    rgba(255,220,200,.2) 35px 70px
                 );
 
             pointer-events: none;
@@ -257,48 +198,39 @@ body {
         .bakery-sign {
             position: absolute;
 
-            top: 20px;
+            top: 18px;
             left: 50%;
 
             transform: translateX(-50%);
 
-            width: min(80%, 380px);
+            z-index: 2;
 
-            padding: 13px;
+            padding: 10px 18px;
 
-            text-align: center;
+            background: #fffaf5;
 
-            background: #fffaf2;
-
-            border: 3px solid #d691ae;
-
+            border: 3px solid #f3bad1;
             border-radius: 18px;
 
             color: #c66e97;
 
             font-weight: bold;
 
-            box-shadow:
-                0 6px 12px rgba(100,70,60,0.08);
-
-            z-index: 2;
+            white-space: nowrap;
         }
 
         .bakery-window {
             position: absolute;
 
-            top: 115px;
+            top: 25px;
 
-            width: 110px;
-            height: 75px;
+            width: 105px;
+            height: 70px;
 
-            background: #cceef0;
+            background: #c9edf0;
 
-            border: 7px solid #fffaf2;
-
-            border-radius: 18px;
-
-            opacity: 0.85;
+            border: 7px solid #fff8ed;
+            border-radius: 15px;
         }
 
         .bakery-window::before {
@@ -312,7 +244,7 @@ body {
 
             width: 4px;
 
-            background: #fffaf2;
+            background: #fff8ed;
         }
 
         .bakery-window::after {
@@ -320,21 +252,21 @@ body {
 
             position: absolute;
 
+            top: 50%;
             left: 0;
             right: 0;
-            top: 50%;
 
             height: 4px;
 
-            background: #fffaf2;
+            background: #fff8ed;
         }
 
         .window-left {
-            left: 35px;
+            left: 25px;
         }
 
         .window-right {
-            right: 35px;
+            right: 25px;
         }
 
         .bakery-counter {
@@ -344,53 +276,89 @@ body {
             right: 0;
             bottom: 0;
 
-            height: 95px;
+            height: 80px;
 
             background:
                 linear-gradient(
                     to bottom,
-                    #d99a78,
-                    #b97858
+                    #d99b79,
+                    #bf805f
                 );
 
-            border-top: 7px solid #efb69d;
+            border-top: 6px solid #f0b49a;
+
+            pointer-events: none;
         }
 
         .bakery-cat {
             position: absolute;
 
-            z-index: 4;
+            z-index: 3;
 
-            font-size: 58px;
+            font-size: 50px;
+
+            user-select: none;
+            pointer-events: none;
 
             filter:
                 drop-shadow(
-                    0 4px 3px
-                    rgba(70,45,40,0.15)
+                    0 4px 3px rgba(80,50,40,.15)
                 );
 
-            pointer-events: none;
+            animation:
+                bakeryBob 3s ease-in-out infinite;
         }
 
         .cat-one {
-            left: 40px;
-            bottom: 82px;
+            left: 20px;
+            bottom: 70px;
         }
 
         .cat-two {
-            right: 45px;
-            bottom: 82px;
-
-            font-size: 52px;
+            right: 20px;
+            bottom: 70px;
+            font-size: 44px;
+            animation-delay: 1s;
         }
 
         .cat-three {
             left: 50%;
             transform: translateX(-50%);
+            bottom: 20px;
+            font-size: 34px;
+        }
 
-            bottom: 15px;
+        .cat-one::before {
+            content: "👨‍🍳";
+            display: block;
+            position: absolute;
+            top: -23px;
+            left: 8px;
+            font-size: 24px;
+        }
 
-            font-size: 36px;
+        .cat-one::after {
+            content: "🐱";
+        }
+
+        .cat-two::after {
+            content: "🐱";
+        }
+
+        .cat-three::after {
+            content: "😴🐈";
+        }
+
+        @keyframes bakeryBob {
+
+            0%, 100% {
+                margin-top: 0;
+            }
+
+            50% {
+                margin-top: -5px;
+            }
+
         }
 
         #bakeryTray {
@@ -398,9 +366,7 @@ body {
 
             z-index: 10;
 
-            bottom: 103px;
-
-            left: 50%;
+            bottom: 85px;
 
             width: 100px;
             height: 27px;
@@ -414,13 +380,10 @@ body {
                 );
 
             border: 4px solid #a97059;
-
-            border-radius:
-                8px 8px 20px 20px;
+            border-radius: 8px 8px 20px 20px;
 
             box-shadow:
-                0 5px 8px
-                rgba(80,50,40,0.18);
+                0 5px 8px rgba(80,50,40,.18);
         }
 
         #bakeryTray::after {
@@ -428,16 +391,14 @@ body {
 
             position: absolute;
 
-            left: 23px;
-            right: 23px;
+            left: 24px;
+            right: 24px;
+            bottom: -10px;
 
-            bottom: -9px;
-
-            height: 7px;
-
-            border-radius: 8px;
+            height: 8px;
 
             background: #a97059;
+            border-radius: 10px;
         }
 
         .bakery-pastry {
@@ -445,23 +406,130 @@ body {
 
             z-index: 8;
 
-            font-size: 38px;
-
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
-            pointer-events: none;
+            font-size: 34px;
 
-            filter:
-                drop-shadow(
-                    0 4px 3px
-                    rgba(80,50,40,0.14)
-                );
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .bakery-overlay {
+            position: absolute;
+
+            z-index: 30;
+
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(255,250,245,.86);
+
+            backdrop-filter: blur(4px);
+        }
+
+        .bakery-card {
+            width: 100%;
+            max-width: 390px;
+
+            padding: 28px 20px;
+
+            text-align: center;
+
+            background: white;
+
+            border: 3px solid #f3bad1;
+            border-radius: 26px;
+
+            box-shadow:
+                0 12px 30px rgba(80,50,40,.15);
+        }
+
+        .bakery-card h3 {
+            color: #c66e97;
+            font-size: 26px;
+        }
+
+        .bakery-card p {
+            line-height: 1.7;
+        }
+
+        .arcade-button {
+            border: none;
+
+            padding: 12px 22px;
+
+            background: #d691ae;
+            color: white;
+
+            border-radius: 28px;
+
+            font-family: inherit;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 5px 0 #b96d8e;
+
+            margin: 5px;
+        }
+
+        .arcade-button:hover {
+            background: #c66e97;
+            transform: translateY(-2px);
+        }
+
+        .discount-code {
+            margin: 15px auto;
+
+            padding: 12px;
+
+            max-width: 220px;
+
+            background: #fff0b4;
+
+            border: 2px dashed #d691ae;
+            border-radius: 15px;
+
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .bakery-mobile-controls {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+
+            margin-top: 12px;
+        }
+
+        .arcade-control {
+            width: 110px;
+            height: 55px;
+
+            border: none;
+            border-radius: 18px;
+
+            background: #f3bad1;
+            color: #6b4d43;
+
+            font-size: 26px;
+            font-weight: bold;
+
+            box-shadow: 0 5px 0 #d691ae;
+
+            touch-action: none;
+            user-select: none;
         }
 
 
@@ -469,117 +537,100 @@ body {
            FLOWER RUSH
            ===================================================== */
 
+        .flower-wrapper {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .flower-info {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            margin-bottom: 10px;
+        }
+
+        .flower-info-box {
+            flex: 1;
+
+            max-width: 220px;
+
+            padding: 10px;
+
+            background: white;
+
+            border: 2px solid #f3bad1;
+            border-radius: 16px;
+
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .flower-info-box span {
+            color: #c66e97;
+        }
+
         #flowerGame {
+            position: relative;
+
+            width: 100%;
+            height: 520px;
+
+            overflow: hidden;
+
+            border: 4px solid #f3bad1;
+            border-radius: 28px;
+
             background:
                 linear-gradient(
                     to bottom,
-                    #dff5e5 0%,
-                    #c8edcf 52%,
-                    #9ed19d 100%
+                    #dff5e5,
+                    #f8f3d7 60%,
+                    #d4b98c 100%
                 );
+
+            touch-action: none;
+
+            box-shadow:
+                0 12px 30px rgba(100,70,60,.12);
         }
 
         .flower-sky {
             position: absolute;
-
             inset: 0;
+
+            pointer-events: none;
 
             background:
                 radial-gradient(
-                    circle at 20% 25%,
-                    rgba(255,255,255,0.65) 0 20px,
-                    transparent 21px
+                    circle at 15% 20%,
+                    rgba(255,255,255,.8) 0 18px,
+                    transparent 19px
                 ),
                 radial-gradient(
-                    circle at 75% 18%,
-                    rgba(255,255,255,0.55) 0 18px,
-                    transparent 19px
+                    circle at 80% 30%,
+                    rgba(255,255,255,.7) 0 15px,
+                    transparent 16px
                 );
-
-            pointer-events: none;
         }
 
-        .flower-sun {
-            position: absolute;
-
-            top: 25px;
-            right: 35px;
-
-            font-size: 55px;
-
-            opacity: 0.85;
-        }
-
-        .flower-cloud {
-            position: absolute;
-
-            font-size: 34px;
-
-            opacity: 0.7;
-        }
-
-        .flower-cloud.one {
-            top: 50px;
-            left: 30px;
-        }
-
-        .flower-cloud.two {
-            top: 100px;
-            right: 120px;
-        }
-
-        .garden-ground {
+        .flower-ground {
             position: absolute;
 
             left: 0;
             right: 0;
             bottom: 0;
 
-            height: 105px;
+            height: 70px;
 
             background:
                 linear-gradient(
-                    to bottom,
-                    #7eb87b,
-                    #679b66
+                    #b6d58d,
+                    #8bb46e
                 );
 
-            border-top:
-                6px solid #a7d497;
-
-            pointer-events: none;
-        }
-
-        .garden-cat {
-            position: absolute;
-
-            z-index: 4;
-
-            bottom: 55px;
-
-            left: 25px;
-
-            font-size: 58px;
-
-            pointer-events: none;
-
-            filter:
-                drop-shadow(
-                    0 4px 3px
-                    rgba(50,80,50,0.16)
-                );
-        }
-
-        .garden-bush {
-            position: absolute;
-
-            z-index: 3;
-
-            bottom: 48px;
-
-            right: 25px;
-
-            font-size: 70px;
+            border-top: 5px solid #a1c47c;
 
             pointer-events: none;
         }
@@ -587,33 +638,26 @@ body {
         #flowerBasket {
             position: absolute;
 
-            z-index: 10;
-
-            bottom: 92px;
+            bottom: 58px;
 
             left: 50%;
 
-            width: 100px;
-            height: 52px;
-
             transform: translateX(-50%);
+
+            width: 115px;
+            height: 55px;
 
             background:
                 linear-gradient(
-                    to bottom,
-                    #e6b67d,
-                    #b87b4f
+                    #d99b79,
+                    #b8785d
                 );
 
-            border:
-                4px solid #986341;
+            border: 4px solid #9d634f;
 
-            border-radius:
-                8px 8px 25px 25px;
+            border-radius: 10px 10px 25px 25px;
 
-            box-shadow:
-                0 5px 8px
-                rgba(70,50,35,0.18);
+            z-index: 10;
         }
 
         #flowerBasket::before {
@@ -621,20 +665,16 @@ body {
 
             position: absolute;
 
-            left: 13px;
-            right: 13px;
+            left: 20px;
+            right: 20px;
+            top: -28px;
 
-            top: -23px;
+            height: 35px;
 
-            height: 30px;
+            border: 7px solid #9d634f;
+            border-bottom: 0;
 
-            border:
-                5px solid #986341;
-
-            border-bottom: none;
-
-            border-radius:
-                30px 30px 0 0;
+            border-radius: 40px 40px 0 0;
         }
 
         .falling-flower {
@@ -642,301 +682,65 @@ body {
 
             z-index: 8;
 
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
-            font-size: 38px;
-
-            pointer-events: none;
-
-            filter:
-                drop-shadow(
-                    0 3px 3px
-                    rgba(50,80,50,0.12)
-                );
-        }
-
-        .weed {
-            position: absolute;
-
-            z-index: 8;
-
-            width: 50px;
-            height: 50px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-size: 38px;
+            font-size: 36px;
 
             pointer-events: none;
         }
 
-
-        /* =====================================================
-           OVERLAYS
-           ===================================================== */
-
-        .game-overlay {
+        .flower-overlay {
             position: absolute;
+
+            z-index: 30;
 
             inset: 0;
 
-            z-index: 50;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             padding: 20px;
 
             background:
-                rgba(255,250,245,0.84);
+                rgba(255,255,255,.72);
 
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(4px);
         }
 
-        .overlay-card {
-            width: min(100%, 430px);
+        .flower-card {
+            width: 100%;
+            max-width: 380px;
 
-            max-height: calc(100% - 30px);
+            padding: 28px 20px;
 
-            overflow-y: auto;
+            text-align: center;
 
             background: white;
 
             border: 3px solid #f3bad1;
-
-            border-radius: 28px;
-
-            padding: 28px 22px;
-
-            text-align: center;
-
-            box-shadow:
-                0 12px 30px
-                rgba(80,50,40,0.15);
+            border-radius: 26px;
         }
 
-        .overlay-card h2 {
+        .flower-card h3 {
             color: #c66e97;
-
-            margin-top: 0;
         }
 
-        .overlay-card p {
-            line-height: 1.65;
+        .flower-card p {
+            line-height: 1.7;
         }
 
-        .main-game-button {
-            border: none;
-
-            background: #d691ae;
-
-            color: white;
-
-            padding: 12px 23px;
-
-            border-radius: 25px;
-
-            font-size: 15px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            margin: 5px;
-
-            box-shadow:
-                0 5px 0 #b96d8e;
-        }
-
-        .main-game-button:hover {
-            background: #c66e97;
-            transform: translateY(-2px);
-        }
-
-
-        /* =====================================================
-           EFFECTS
-           ===================================================== */
-
-        .float-score {
-            position: absolute;
-
-            z-index: 30;
-
-            color: #c66e97;
-
-            font-size: 21px;
-
-            font-weight: bold;
-
-            pointer-events: none;
-
-            animation:
-                floatScore 0.8s ease-out forwards;
-        }
-
-        @keyframes floatScore {
-
-            from {
-                opacity: 1;
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-
-            to {
-                opacity: 0;
-                transform:
-                    translateY(-45px)
-                    scale(1.2);
-            }
-
-        }
-
-        .particle {
-            position: absolute;
-
-            z-index: 25;
-
-            font-size: 18px;
-
-            pointer-events: none;
-
-            animation:
-                particlePop 0.65s ease-out forwards;
-        }
-
-        @keyframes particlePop {
-
-            from {
-                opacity: 1;
-
-                transform:
-                    translate(0,0)
-                    scale(1);
-            }
-
-            to {
-                opacity: 0;
-
-                transform:
-                    translate(
-                        var(--x),
-                        var(--y)
-                    )
-                    scale(0.3);
-            }
-
-        }
-
-        .oops {
-            position: absolute;
-
-            z-index: 30;
-
-            color: #8d6558;
-
-            font-weight: bold;
-
-            pointer-events: none;
-
-            animation:
-                oopsAnim 0.8s ease-out forwards;
-        }
-
-        @keyframes oopsAnim {
-
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                transform: translateY(-35px);
-            }
-
-        }
-
-
-        /* =====================================================
-           MOBILE CONTROLS
-           ===================================================== */
-
-        .mobile-controls {
+        .flower-controls {
             display: flex;
-
             justify-content: center;
-
-            gap: 20px;
+            gap: 18px;
 
             margin-top: 12px;
-        }
-
-        .control-button {
-            width: 115px;
-            height: 55px;
-
-            border: none;
-
-            border-radius: 20px;
-
-            background: #f3bad1;
-
-            color: #6b4d43;
-
-            font-size: 27px;
-
-            font-weight: bold;
-
-            box-shadow:
-                0 5px 0 #d691ae;
-
-            touch-action: none;
-
-            user-select: none;
-        }
-
-        .control-button:active {
-            transform: translateY(3px);
-
-            box-shadow:
-                0 2px 0 #d691ae;
-        }
-
-
-        /* =====================================================
-           FLOWER RUSH SPECIAL
-           ===================================================== */
-
-        .flower-reward {
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff0b4,
-                    #f3bad1
-                );
-
-            border-radius: 20px;
-
-            padding: 15px;
-
-            margin-top: 15px;
-
-            font-weight: bold;
-
-            color: #6b4d43;
         }
 
 
@@ -944,18 +748,18 @@ body {
            NIGHT MODE
            ===================================================== */
 
-        body.night-mode .arcade-hero,
-        body.night-mode .overlay-card,
-        body.night-mode .info-box,
+        body.night-mode .arcade-intro,
+        body.night-mode .bakery-info-box,
+        body.night-mode .flower-info-box,
+        body.night-mode .bakery-card,
+        body.night-mode .flower-card,
         body.night-mode .sound-button {
             background: #352a32;
-
             color: #ffe8f2;
         }
 
-        body.night-mode .arcade-hero p,
-        body.night-mode .game-heading p,
-        body.night-mode .overlay-card p {
+        body.night-mode .arcade-intro p,
+        body.night-mode .game-heading p {
             color: #ffe8f2;
         }
 
@@ -964,280 +768,96 @@ body {
            MOBILE
            ===================================================== */
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
 
             .arcade-page {
-                padding:
-                    20px 10px 55px;
+                padding: 25px 10px 55px;
             }
 
-            .arcade-hero {
-                padding:
-                    28px 15px;
+            .arcade-intro {
+                padding: 28px 15px;
             }
 
-            .arcade-game-area {
+            .bakery-game {
                 height: 500px;
+                border-radius: 22px;
+            }
 
+            #flowerGame {
+                height: 470px;
                 border-radius: 22px;
             }
 
             .bakery-window {
                 width: 75px;
-                height: 58px;
+                height: 55px;
             }
 
             .window-left {
-                left: 15px;
+                left: 10px;
             }
 
             .window-right {
-                right: 15px;
-            }
-
-            .bakery-cat {
-                font-size: 43px;
-            }
-
-            .cat-one {
-                left: 15px;
-            }
-
-            .cat-two {
-                right: 15px;
-            }
-
-            .bakery-sign {
-                font-size: 14px;
-            }
-
-            .garden-cat {
-                font-size: 43px;
-                left: 12px;
-            }
-
-            .garden-bush {
-                font-size: 52px;
                 right: 10px;
             }
 
-            #bakeryTray,
-            #flowerBasket {
-                width: 88px;
-            }
-
-            .falling-flower,
-            .weed {
-                font-size: 32px;
-            }
-
-            .game-info {
-                gap: 7px;
-            }
-
-            .info-box,
-            .sound-button {
-                padding: 8px 11px;
+            .bakery-sign {
                 font-size: 13px;
             }
 
-        }
-
-
-        /* =====================================================
-           DRAGGABLE MASCOT
-           ===================================================== */
-
-        .floating-cat {
-            position: fixed;
-
-            right: 20px;
-            bottom: 20px;
-
-            z-index: 9999;
-
-            width: 75px;
-            height: 75px;
-
-            background:
-                #fffaf5;
-
-            border:
-                3px solid #f3bad1;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            cursor: grab;
-
-            user-select: none;
-
-            touch-action: none;
-
-            box-shadow:
-                0 8px 20px
-                rgba(80,50,40,0.15);
-        }
-
-        .floating-cat .cat-face {
-            font-size: 30px;
-        }
-
-        .floating-cat .cat-sparkle {
-            position: absolute;
-
-            top: -10px;
-            left: 5px;
-
-            color: #d691ae;
-
-            font-size: 20px;
-        }
-
-        .floating-cat .cat-heart {
-            position: absolute;
-
-            right: 2px;
-            bottom: 2px;
-
-            color: #c66e97;
-
-            font-size: 18px;
-        }
-
-        .cat-speech-bubble {
-            position: fixed;
-
-            right: 25px;
-            bottom: 105px;
-
-            z-index: 9998;
-
-            max-width: 240px;
-
-            padding: 12px 15px;
-
-            background: white;
-
-            border:
-                2px solid #f3bad1;
-
-            border-radius: 18px;
-
-            box-shadow:
-                0 6px 18px
-                rgba(80,50,40,0.12);
-
-            font-size: 13px;
-
-            text-align: center;
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            transform:
-                translateY(10px);
-
-            transition:
-                opacity 0.2s ease,
-                transform 0.2s ease;
-        }
-
-        .cat-speech-bubble.show {
-            opacity: 1;
-
-            transform:
-                translateY(0);
-        }
-
-        .cat-easter-egg {
-            position: fixed;
-
-            left: 50%;
-            top: 50%;
-
-            transform:
-                translate(-50%,-50%)
-                scale(0.8);
-
-            z-index: 10000;
-
-            padding: 25px;
-
-            background:
-                #fff0b4;
-
-            border:
-                3px solid #d691ae;
-
-            border-radius: 25px;
-
-            text-align: center;
-
-            font-weight: bold;
-
-            color: #6b4d43;
-
-            box-shadow:
-                0 12px 35px
-                rgba(80,50,40,0.2);
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            transition:
-                opacity 0.25s ease,
-                transform 0.25s ease;
-        }
-
-        .cat-easter-egg.show {
-            opacity: 1;
-
-            transform:
-                translate(-50%,-50%)
-                scale(1);
-        }
-
-
-        /* =====================================================
-           SPARKLE TRAIL
-           ===================================================== */
-
-        .kj-sparkle {
-            position: fixed;
-
-            z-index: 9997;
-
-            pointer-events: none;
-
-            color: #d691ae;
-
-            font-size: 15px;
-
-            animation:
-                sparkleFade 0.7s ease-out forwards;
-        }
-
-        @keyframes sparkleFade {
-
-            from {
-                opacity: 1;
-                transform:
-                    translate(-50%,-50%)
-                    scale(1);
+            .bakery-cat {
+                font-size: 40px;
             }
 
-            to {
-                opacity: 0;
-                transform:
-                    translate(-50%,-80%)
-                    scale(0.4);
+            .cat-two {
+                font-size: 36px;
+            }
+
+            .cat-three {
+                font-size: 28px;
+            }
+
+            .bakery-info {
+                flex-wrap: wrap;
+            }
+
+            .bakery-info-box {
+                min-width: 0;
+            }
+
+            .sound-button {
+                width: 100%;
+            }
+
+        }
+
+
+        @media (max-width: 430px) {
+
+            .arcade-page {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            .arcade-intro h2 {
+                font-size: 27px;
+            }
+
+            .bakery-game {
+                height: 460px;
+            }
+
+            #flowerGame {
+                height: 440px;
+            }
+
+            .bakery-card,
+            .flower-card {
+                padding: 22px 15px;
+            }
+
+            .arcade-button {
+                width: 90%;
             }
 
         }
@@ -1263,22 +883,13 @@ body {
         <nav>
 
             <a href="index.html">Home</a>
-
             <a href="shop.html">Shop</a>
-
             <a href="about.html">About</a>
-
             <a href="contact.html">Contact</a>
-
             <a href="arcade.html">Arcade</a>
-
             <a href="garden.html">Garden</a>
-
             <a href="art.html">Art Corner</a>
-
-            <a href="guestbook.html">
-                Guestbook
-            </a>
+            <a href="guestbook.html">Guestbook</a>
 
         </nav>
 
@@ -1300,22 +911,19 @@ body {
     <main class="arcade-page">
 
 
-        <!-- ARCADE INTRO -->
-
-        <section class="arcade-hero">
+        <section class="arcade-intro">
 
             <h2>
-                🎮 ♡ KJewellery Arcade ♡ 🎮
+                🎀 KJewellery Arcade 🎀
             </h2>
 
             <p>
-                Welcome to the KJewellery Arcade!
-                ˚₊‧꒰ა ♡ ໒꒱ ‧₊˚
+                Welcome to the KJewellery arcade! ♡
             </p>
 
             <p>
-                Take a little break, play some games
-                and collect cute rewards! ✦
+                Take a little break, play some cute games
+                and have fun! ˚₊‧꒰ა ♡ ໒꒱ ‧₊˚
             </p>
 
         </section>
@@ -1330,208 +938,218 @@ body {
             <div class="game-heading">
 
                 <h2>
-                    🐈🥐 Cat Café Bakery
+                    🐱 Cat Café Bakery 🥐
                 </h2>
 
                 <p>
-                    Catch the tasty pastries before
-                    they hit the floor! ♡
+                    Catch the falling treats before they
+                    hit the floor!
                 </p>
 
             </div>
 
 
-            <div class="game-info">
+            <div class="bakery-wrapper">
 
-                <div class="info-box">
-                    Score:
-                    <span id="bakeryScore">0</span>
-                </div>
+                <div class="bakery-info">
 
-                <div class="info-box">
-                    Misses:
-                    <span id="bakeryMisses">0</span>/5
-                </div>
-
-                <button
-                    id="bakerySoundButton"
-                    class="sound-button"
-                    type="button"
-                >
-                    🔊 Sound
-                </button>
-
-            </div>
-
-
-            <div
-                id="bakeryGame"
-                class="arcade-game-area"
-            >
-
-                <div class="bakery-wall"></div>
-
-                <div class="bakery-sign">
-                    ♡ Meowgical Bakery ♡
-                </div>
-
-                <div class="bakery-window window-left"></div>
-
-                <div class="bakery-window window-right"></div>
-
-                <div class="bakery-cat cat-one">
-                    🐱
-                </div>
-
-                <div class="bakery-cat cat-two">
-                    🐈
-                </div>
-
-                <div class="bakery-cat cat-three">
-                    😴🐈
-                </div>
-
-                <div class="bakery-counter"></div>
-
-                <div id="bakeryTray"></div>
-
-
-                <!-- BAKERY START -->
-
-                <div
-                    id="bakeryStart"
-                    class="game-overlay"
-                >
-
-                    <div class="overlay-card">
-
-                        <h2>
-                            🐱 Welcome, baker! ♡
-                        </h2>
-
-                        <p>
-                            Help the kitty catch all
-                            the delicious treats!
-                        </p>
-
-                        <p>
-                            Use
-                            <strong>← →</strong>
-                            or
-                            <strong>A / D</strong>.
-                        </p>
-
-                        <button
-                            id="bakeryStartButton"
-                            class="main-game-button"
-                            type="button"
-                        >
-                            Start Baking ♡
-                        </button>
-
+                    <div class="bakery-info-box">
+                        Score:
+                        <span id="bakeryScore">0</span>
                     </div>
 
+                    <div class="bakery-info-box">
+                        Misses:
+                        <span id="bakeryMisses">0</span>/5
+                    </div>
+
+                    <button
+                        id="bakerySound"
+                        class="sound-button"
+                        type="button"
+                    >
+                        🔊 Sound
+                    </button>
+
                 </div>
 
 
-                <!-- BAKERY DISCOUNT -->
+                <div id="bakeryGame" class="bakery-game">
 
-                <div
-                    id="bakeryDiscount"
-                    class="game-overlay"
-                    style="display:none;"
-                >
+                    <div class="bakery-wall"></div>
 
-                    <div class="overlay-card">
+                    <div class="bakery-sign">
+                        ♡ Meowgical Bakery ♡
+                    </div>
 
-                        <h2>
-                            🎀 Meowgical Milestone!
-                        </h2>
+                    <div class="bakery-window window-left"></div>
 
-                        <p>
-                            You caught 50 tasty treats!
-                            ♡
-                        </p>
+                    <div class="bakery-window window-right"></div>
 
-                        <h3>
-                            You've unlocked 20% OFF!
-                        </h3>
+                    <div class="bakery-cat cat-one"></div>
 
-                        <div
-                            class="flower-reward"
-                        >
-                            CATBAKERY20
+                    <div class="bakery-cat cat-two"></div>
+
+                    <div class="bakery-cat cat-three"></div>
+
+                    <div class="bakery-counter"></div>
+
+                    <div id="bakeryTray"></div>
+
+
+                    <!-- START -->
+
+                    <div
+                        id="bakeryStart"
+                        class="bakery-overlay"
+                    >
+
+                        <div class="bakery-card">
+
+                            <h3>
+                                🐱 Welcome, baker! ♡
+                            </h3>
+
+                            <p>
+                                Catch the delicious pastries
+                                before they fall!
+                            </p>
+
+                            <p>
+                                Use
+                                <strong>← →</strong>
+                                or
+                                <strong>A / D</strong>
+                                on desktop.
+                            </p>
+
+                            <p>
+                                On your phone, use the
+                                buttons underneath the game.
+                            </p>
+
+                            <button
+                                id="bakeryStartButton"
+                                class="arcade-button"
+                                type="button"
+                            >
+                                Start Baking ♡
+                            </button>
+
                         </div>
 
-                        <button
-                            id="bakeryContinueButton"
-                            class="main-game-button"
-                            type="button"
-                        >
-                            Keep Baking ♡
-                        </button>
+                    </div>
+
+
+                    <!-- DISCOUNT -->
+
+                    <div
+                        id="bakeryDiscount"
+                        class="bakery-overlay"
+                        style="display:none;"
+                    >
+
+                        <div class="bakery-card">
+
+                            <h3>
+                                🎀 Meowgical Milestone! 🎀
+                            </h3>
+
+                            <p>
+                                You caught 50 tasty treats! ♡
+                            </p>
+
+                            <p>
+                                You've unlocked:
+                            </p>
+
+                            <h2 style="color:#c66e97;">
+                                20% OFF KJewellery!
+                            </h2>
+
+                            <div class="discount-code">
+                                CATBAKERY20
+                            </div>
+
+                            <button
+                                id="copyBakeryCode"
+                                class="arcade-button"
+                                type="button"
+                            >
+                                Copy Code ♡
+                            </button>
+
+                            <button
+                                id="continueBakery"
+                                class="arcade-button"
+                                type="button"
+                            >
+                                Keep Baking!
+                            </button>
+
+                            <p id="bakeryCopyMessage"></p>
+
+                        </div>
 
                     </div>
 
-                </div>
 
+                    <!-- GAME OVER -->
 
-                <!-- BAKERY GAME OVER -->
+                    <div
+                        id="bakeryGameOver"
+                        class="bakery-overlay"
+                        style="display:none;"
+                    >
 
-                <div
-                    id="bakeryGameOver"
-                    class="game-overlay"
-                    style="display:none;"
-                >
+                        <div class="bakery-card">
 
-                    <div class="overlay-card">
+                            <h3>
+                                🐱 Bakery Closed! ♡
+                            </h3>
 
-                        <h2>
-                            🐱 Bakery Closed! ♡
-                        </h2>
-
-                        <p>
-                            You caught
-                            <strong>
-                                <span id="bakeryFinalScore">
+                            <p>
+                                You caught
+                                <strong id="bakeryFinalScore">
                                     0
-                                </span>
-                            </strong>
-                            treats!
-                        </p>
+                                </strong>
+                                tasty treats!
+                            </p>
 
-                        <button
-                            id="bakeryRestartButton"
-                            class="main-game-button"
-                            type="button"
-                        >
-                            Play Again ♡
-                        </button>
+                            <button
+                                id="bakeryRestart"
+                                class="arcade-button"
+                                type="button"
+                            >
+                                Play Again ♡
+                            </button>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
 
+                <div class="bakery-mobile-controls">
 
-            <div class="mobile-controls">
+                    <button
+                        id="bakeryLeft"
+                        class="arcade-control"
+                        type="button"
+                    >
+                        ←
+                    </button>
 
-                <button
-                    id="bakeryLeft"
-                    class="control-button"
-                    type="button"
-                >
-                    ←
-                </button>
+                    <button
+                        id="bakeryRight"
+                        class="arcade-control"
+                        type="button"
+                    >
+                        →
+                    </button>
 
-                <button
-                    id="bakeryRight"
-                    class="control-button"
-                    type="button"
-                >
-                    →
-                </button>
+                </div>
 
             </div>
 
@@ -1547,202 +1165,154 @@ body {
             <div class="game-heading">
 
                 <h2>
-                    🌸 Flower Rush 🌷
+                    🌸 Flower Rush 🌼
                 </h2>
 
                 <p>
-                    Catch the pretty flowers and
-                    avoid the weeds! ♡
+                    Catch the falling flowers and fill
+                    your basket! ♡
                 </p>
 
             </div>
 
 
-            <div class="game-info">
+            <div class="flower-wrapper">
 
-                <div class="info-box">
-                    Flowers:
-                    <span id="flowerScore">0</span>
-                </div>
+                <div class="flower-info">
 
-                <div class="info-box">
-                    Weeds:
-                    <span id="flowerMisses">0</span>/5
-                </div>
+                    <div class="flower-info-box">
+                        Flowers:
+                        <span id="flowerScore">0</span>
+                    </div>
 
-            </div>
-
-
-            <div
-                id="flowerGame"
-                class="arcade-game-area"
-            >
-
-                <div class="flower-sky"></div>
-
-                <div class="flower-cloud one">
-                    ☁️
-                </div>
-
-                <div class="flower-cloud two">
-                    ☁️
-                </div>
-
-                <div class="flower-sun">
-                    ☀️
-                </div>
-
-                <div class="garden-cat">
-                    🐱
-                </div>
-
-                <div class="garden-bush">
-                    🌳
-                </div>
-
-                <div class="garden-ground"></div>
-
-                <div id="flowerBasket"></div>
-
-
-                <!-- FLOWER START -->
-
-                <div
-                    id="flowerStart"
-                    class="game-overlay"
-                >
-
-                    <div class="overlay-card">
-
-                        <h2>
-                            🌸 Flower Rush! ♡
-                        </h2>
-
-                        <p>
-                            Catch as many beautiful
-                            flowers as you can!
-                        </p>
-
-                        <p>
-                            🌷 Flowers = +1
-                            <br>
-                            🌿 Weeds = miss
-                        </p>
-
-                        <p>
-                            Use
-                            <strong>← →</strong>
-                            or
-                            <strong>A / D</strong>.
-                        </p>
-
-                        <button
-                            id="flowerStartButton"
-                            class="main-game-button"
-                            type="button"
-                        >
-                            Start Gardening ♡
-                        </button>
-
+                    <div class="flower-info-box">
+                        Misses:
+                        <span id="flowerMisses">0</span>/5
                     </div>
 
                 </div>
 
 
-                <!-- FLOWER REWARD -->
+                <div id="flowerGame">
 
-                <div
-                    id="flowerReward"
-                    class="game-overlay"
-                    style="display:none;"
-                >
+                    <div class="flower-sky"></div>
 
-                    <div class="overlay-card">
+                    <div class="flower-ground"></div>
 
-                        <h2>
-                            🌸 Garden Superstar! 🌸
-                        </h2>
+                    <div id="flowerBasket"></div>
 
-                        <p>
-                            You collected 30 flowers!
-                            ♡
-                        </p>
 
-                        <div class="flower-reward">
-                            ✦ You're blooming amazing! ✦
+                    <!-- FLOWER START -->
+
+                    <div
+                        id="flowerStart"
+                        class="flower-overlay"
+                    >
+
+                        <div class="flower-card">
+
+                            <h3>
+                                🌷 Welcome to Flower Rush! ♡
+                            </h3>
+
+                            <p>
+                                Move your basket and catch
+                                as many flowers as you can!
+                            </p>
+
+                            <p>
+                                Use
+                                <strong>← →</strong>
+                                or
+                                <strong>A / D</strong>
+                                on desktop.
+                            </p>
+
+                            <button
+                                id="flowerStartButton"
+                                class="arcade-button"
+                                type="button"
+                            >
+                                Start Flower Rush ♡
+                            </button>
+
                         </div>
 
-                        <button
-                            id="flowerContinueButton"
-                            class="main-game-button"
-                            type="button"
-                        >
-                            Keep Gardening ♡
-                        </button>
-
                     </div>
 
-                </div>
 
+                    <!-- FLOWER GAME OVER -->
 
-                <!-- FLOWER GAME OVER -->
+                    <div
+                        id="flowerOver"
+                        class="flower-overlay"
+                        style="display:none;"
+                    >
 
-                <div
-                    id="flowerGameOver"
-                    class="game-overlay"
-                    style="display:none;"
-                >
+                        <div class="flower-card">
 
-                    <div class="overlay-card">
+                            <h3>
+                                🌸 Garden Complete! ♡
+                            </h3>
 
-                        <h2>
-                            🌷 Garden Closed! ♡
-                        </h2>
-
-                        <p>
-                            You collected
-                            <strong>
-                                <span id="flowerFinalScore">
+                            <p>
+                                You collected
+                                <strong id="flowerFinalScore">
                                     0
-                                </span>
-                            </strong>
-                            flowers!
-                        </p>
+                                </strong>
+                                flowers!
+                            </p>
 
-                        <button
-                            id="flowerRestartButton"
-                            class="main-game-button"
-                            type="button"
-                        >
-                            Try Again ♡
-                        </button>
+                            <button
+                                id="flowerRestart"
+                                class="arcade-button"
+                                type="button"
+                            >
+                                Play Again ♡
+                            </button>
+
+                        </div>
 
                     </div>
 
                 </div>
 
+
+                <div class="flower-controls">
+
+                    <button
+                        id="flowerLeft"
+                        class="arcade-control"
+                        type="button"
+                    >
+                        ←
+                    </button>
+
+                    <button
+                        id="flowerRight"
+                        class="arcade-control"
+                        type="button"
+                    >
+                        →
+                    </button>
+
+                </div>
+
             </div>
 
+        </section>
 
-            <div class="mobile-controls">
 
-                <button
-                    id="flowerLeft"
-                    class="control-button"
-                    type="button"
-                >
-                    ←
-                </button>
+        <section class="arcade-intro">
 
-                <button
-                    id="flowerRight"
-                    class="control-button"
-                    type="button"
-                >
-                    →
-                </button>
+            <h2>
+                ✦ More games coming soon! ✦
+            </h2>
 
-            </div>
+            <p>
+                KJewellery Arcade is still growing...
+                ♡
+            </p>
 
         </section>
 
@@ -1751,95 +1321,18 @@ body {
 
 
     <!-- =====================================================
-         BACK TO TOP
-         ===================================================== -->
-
-    <a
-        href="#top"
-        class="back-to-top"
-        aria-label="Back to top"
-    >
-        ↑
-    </a>
-
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-
-    <footer>
-
-        <p>
-            © KJewellery ˖᯽ ݁˖· ─ Handmade with love
-            ˖᯽ ݁˖· ─
-        </p>
-
-    </footer>
-
-
-    <!-- =====================================================
-         MASCOT
-         ===================================================== -->
-
-    <div
-        class="floating-cat"
-        aria-label="KJewellery cat mascot"
-    >
-
-        <span class="cat-sparkle">
-            ✦
-        </span>
-
-        <span class="cat-face">
-            ૮ ˶ᵔ ᵕ ᵔ˶ ა
-        </span>
-
-        <span class="cat-heart">
-            ♡
-        </span>
-
-    </div>
-
-
-    <div
-        id="catSpeechBubble"
-        class="cat-speech-bubble"
-    >
-        ♡ Hi hi! Welcome to KJewellery! ♡
-    </div>
-
-
-    <div
-        id="catEasterEgg"
-        class="cat-easter-egg"
-    >
-        ✦ You found my secret! ✦
-        <br>
-        ♡ You're Amazing! ♡
-    </div>
-
-
-    <div id="sparkle-trail-container"></div>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
+         NIGHT MODE
          ===================================================== -->
 
     <script>
 
-        /* =====================================================
-           NIGHT MODE
-           ===================================================== */
-
         const themeToggle =
             document.getElementById("themeToggle");
 
+
         if (
-            themeToggle &&
-            localStorage.getItem(
-                "kjewelleryTheme"
-            ) === "night"
+            localStorage.getItem("kjewelleryTheme")
+            === "night"
         ) {
 
             document.body.classList.add(
@@ -1852,42 +1345,52 @@ body {
         }
 
 
-        if (themeToggle) {
+        themeToggle.addEventListener(
+            "click",
+            function () {
 
-            themeToggle.addEventListener(
-                "click",
-                function () {
+                document.body.classList.toggle(
+                    "night-mode"
+                );
 
-                    document.body.classList.toggle(
+
+                if (
+                    document.body.classList.contains(
                         "night-mode"
-                    );
-
-                    const night =
-                        document.body.classList.contains(
-                            "night-mode"
-                        );
+                    )
+                ) {
 
                     themeToggle.textContent =
-                        night
-                            ? "☀️ Day Mode"
-                            : "🌙 Night Mode";
+                        "☀️ Day Mode";
 
                     localStorage.setItem(
                         "kjewelleryTheme",
-                        night
-                            ? "night"
-                            : "day"
+                        "night"
+                    );
+
+                } else {
+
+                    themeToggle.textContent =
+                        "🌙 Night Mode";
+
+                    localStorage.setItem(
+                        "kjewelleryTheme",
+                        "day"
                     );
 
                 }
-            );
 
-        }
+            }
+        );
+
+    </script>
 
 
-        /* =====================================================
-           BAKERY GAME
-           ===================================================== */
+    <!-- =====================================================
+         CAT CAFÉ BAKERY JAVASCRIPT
+         ===================================================== -->
+
+    <script>
 
         const bakeryGame =
             document.getElementById("bakeryGame");
@@ -1911,49 +1414,53 @@ body {
             document.getElementById("bakeryGameOver");
 
         const bakeryStartButton =
-            document.getElementById(
-                "bakeryStartButton"
-            );
+            document.getElementById("bakeryStartButton");
 
-        const bakeryContinueButton =
-            document.getElementById(
-                "bakeryContinueButton"
-            );
+        const bakeryRestart =
+            document.getElementById("bakeryRestart");
 
-        const bakeryRestartButton =
-            document.getElementById(
-                "bakeryRestartButton"
-            );
+        const continueBakery =
+            document.getElementById("continueBakery");
+
+        const copyBakeryCode =
+            document.getElementById("copyBakeryCode");
+
+        const bakeryCopyMessage =
+            document.getElementById("bakeryCopyMessage");
 
         const bakeryFinalScore =
-            document.getElementById(
-                "bakeryFinalScore"
-            );
+            document.getElementById("bakeryFinalScore");
 
-        let bakeryRunning = false;
+        const bakerySound =
+            document.getElementById("bakerySound");
+
+        const bakeryLeft =
+            document.getElementById("bakeryLeft");
+
+        const bakeryRight =
+            document.getElementById("bakeryRight");
+
 
         let bakeryScore = 0;
-
         let bakeryMisses = 0;
+        let bakeryRunning = false;
 
         let bakeryTrayX = 50;
 
         let bakeryMoveLeft = false;
-
         let bakeryMoveRight = false;
 
-        let bakeryItems = [];
+        let bakeryPastries = [];
 
         let bakeryLastTime = 0;
-
         let bakerySpawnTimer = 0;
-
         let bakerySpawnInterval = 1000;
 
+        let bakeryMuted = false;
         let bakeryRewardShown = false;
 
 
-        const bakeryPastries = [
+        const bakeryPastryTypes = [
             "🥐",
             "🧁",
             "🍩",
@@ -1963,21 +1470,86 @@ body {
         ];
 
 
+        let bakeryAudio;
+
+
+        function bakeryPlaySound(
+            frequency
+        ) {
+
+            if (bakeryMuted) {
+                return;
+            }
+
+            try {
+
+                if (!bakeryAudio) {
+
+                    bakeryAudio =
+                        new (
+                            window.AudioContext ||
+                            window.webkitAudioContext
+                        )();
+
+                }
+
+                if (
+                    bakeryAudio.state ===
+                    "suspended"
+                ) {
+
+                    bakeryAudio.resume();
+
+                }
+
+                const oscillator =
+                    bakeryAudio.createOscillator();
+
+                const gain =
+                    bakeryAudio.createGain();
+
+                oscillator.connect(gain);
+                gain.connect(
+                    bakeryAudio.destination
+                );
+
+                oscillator.frequency.value =
+                    frequency;
+
+                gain.gain.setValueAtTime(
+                    0.06,
+                    bakeryAudio.currentTime
+                );
+
+                gain.gain.exponentialRampToValueAtTime(
+                    0.001,
+                    bakeryAudio.currentTime + 0.15
+                );
+
+                oscillator.start();
+
+                oscillator.stop(
+                    bakeryAudio.currentTime + 0.15
+                );
+
+            } catch (error) {}
+
+        }
+
+
         function startBakery() {
 
             bakeryScore = 0;
-
             bakeryMisses = 0;
-
-            bakeryItems = [];
 
             bakeryTrayX = 50;
 
-            bakerySpawnTimer = 0;
-
-            bakerySpawnInterval = 1000;
+            bakeryRunning = true;
 
             bakeryRewardShown = false;
+
+            bakerySpawnTimer = 0;
+            bakerySpawnInterval = 1000;
 
             bakeryScoreDisplay.textContent =
                 "0";
@@ -1997,15 +1569,16 @@ body {
             bakeryGameOver.style.display =
                 "none";
 
-            document
-                .querySelectorAll(
-                    "#bakeryGame .bakery-pastry"
-                )
-                .forEach(
-                    item => item.remove()
-                );
+            bakeryCopyMessage.textContent =
+                "";
 
-            bakeryRunning = true;
+            bakeryPastries.forEach(
+                pastry => {
+                    pastry.element.remove();
+                }
+            );
+
+            bakeryPastries = [];
 
             bakeryLastTime =
                 performance.now();
@@ -2017,7 +1590,7 @@ body {
         }
 
 
-        function endBakery() {
+        function bakeryEndGame() {
 
             bakeryRunning = false;
 
@@ -2030,7 +1603,7 @@ body {
         }
 
 
-        function showBakeryReward() {
+        function bakeryUnlockReward() {
 
             if (bakeryRewardShown) {
                 return;
@@ -2043,6 +1616,8 @@ body {
             bakeryDiscount.style.display =
                 "flex";
 
+            bakeryPlaySound(800);
+
         }
 
 
@@ -2052,34 +1627,36 @@ body {
                 return;
             }
 
-            const item =
+            const element =
                 document.createElement("div");
 
-            item.className =
+            element.className =
                 "bakery-pastry";
 
-            item.textContent =
-                bakeryPastries[
+            element.textContent =
+                bakeryPastryTypes[
                     Math.floor(
                         Math.random() *
-                        bakeryPastries.length
+                        bakeryPastryTypes.length
                     )
                 ];
 
             const x =
                 Math.random() * 88 + 6;
 
-            item.style.left =
+            element.style.left =
                 x + "%";
 
-            item.style.top =
+            element.style.top =
                 "-55px";
 
-            bakeryGame.appendChild(item);
+            bakeryGame.appendChild(
+                element
+            );
 
-            bakeryItems.push({
+            bakeryPastries.push({
 
-                element: item,
+                element: element,
 
                 x: x,
 
@@ -2097,124 +1674,102 @@ body {
         }
 
 
-        function bakeryCollision(item) {
-
-            const itemRect =
-                item.element
-                    .getBoundingClientRect();
+        function bakeryCollision(
+            pastry
+        ) {
 
             const trayRect =
-                bakeryTray
-                    .getBoundingClientRect();
+                bakeryTray.getBoundingClientRect();
+
+            const pastryRect =
+                pastry.element.getBoundingClientRect();
 
             return (
-                itemRect.bottom >=
-                    trayRect.top &&
 
-                itemRect.left <
-                    trayRect.right &&
+                pastryRect.bottom >=
+                trayRect.top &&
 
-                itemRect.right >
-                    trayRect.left &&
+                pastryRect.left <
+                trayRect.right &&
 
-                itemRect.bottom <
-                    trayRect.bottom + 45
+                pastryRect.right >
+                trayRect.left &&
+
+                pastryRect.bottom <
+                trayRect.bottom + 45
+
             );
 
         }
 
 
-        function bakeryCatch(item) {
+        function catchBakeryPastry(
+            pastry
+        ) {
 
             bakeryScore++;
 
             bakeryScoreDisplay.textContent =
                 bakeryScore;
 
-            item.element.remove();
+            bakeryPlaySound(650);
 
-            const index =
-                bakeryItems.indexOf(item);
+            pastry.element.remove();
 
-            if (index !== -1) {
-                bakeryItems.splice(
-                    index,
-                    1
-                );
-            }
 
-            const rect =
-                item.element
-                    ? item.element.getBoundingClientRect()
-                    : bakeryTray.getBoundingClientRect();
+            bakeryTray.style.transform =
+                "translateX(-50%) translateY(-7px)";
 
-            const gameRect =
-                bakeryGame.getBoundingClientRect();
+            setTimeout(
+                function () {
 
-            createScoreEffect(
-                bakeryGame,
-                rect.left - gameRect.left,
-                rect.top - gameRect.top
+                    bakeryTray.style.transform =
+                        "translateX(-50%)";
+
+                },
+                150
             );
 
-            createParticles(
-                bakeryGame,
-                bakeryTray.offsetLeft,
-                bakeryTray.offsetTop
-            );
-
-            bakerySpawnInterval =
-                Math.max(
-                    420,
-                    1000 -
-                    bakeryScore * 15
-                );
 
             if (
-                bakeryScore >= 50 &&
-                !bakeryRewardShown
+                bakeryScore >= 50
             ) {
 
-                showBakeryReward();
+                bakeryUnlockReward();
 
             }
 
         }
 
 
-        function bakeryMiss(item) {
+        function missBakeryPastry(
+            pastry
+        ) {
 
             bakeryMisses++;
 
             bakeryMissesDisplay.textContent =
                 bakeryMisses;
 
-            item.element.remove();
+            bakeryPlaySound(180);
 
-            const index =
-                bakeryItems.indexOf(item);
+            pastry.element.remove();
 
-            if (index !== -1) {
-                bakeryItems.splice(
-                    index,
-                    1
-                );
-            }
 
-            createOops(
-                bakeryGame,
-                bakeryTray.offsetLeft,
-                bakeryTray.offsetTop
-            );
+            if (
+                bakeryMisses >= 5
+            ) {
 
-            if (bakeryMisses >= 5) {
-                endBakery();
+                bakeryEndGame();
+
             }
 
         }
 
 
-        function bakeryMoveTray(delta) {
+        function bakeryMoveTray(
+            delta
+        ) {
 
             const speed = 0.055;
 
@@ -2230,9 +1785,9 @@ body {
 
             bakeryTrayX =
                 Math.max(
-                    7,
+                    8,
                     Math.min(
-                        93,
+                        92,
                         bakeryTrayX
                     )
                 );
@@ -2243,18 +1798,17 @@ body {
         }
 
 
-        function bakeryLoop(timestamp) {
+        function bakeryLoop(
+            timestamp
+        ) {
 
             if (!bakeryRunning) {
                 return;
             }
 
             const delta =
-                Math.min(
-                    timestamp -
-                    bakeryLastTime,
-                    50
-                );
+                timestamp -
+                bakeryLastTime;
 
             bakeryLastTime =
                 timestamp;
@@ -2273,45 +1827,68 @@ body {
 
                 bakerySpawnTimer = 0;
 
+                bakerySpawnInterval =
+                    Math.max(
+                        420,
+                        1000 -
+                        bakeryScore * 12
+                    );
+
             }
 
 
             for (
                 let i =
-                    bakeryItems.length - 1;
+                    bakeryPastries.length - 1;
                 i >= 0;
                 i--
             ) {
 
-                const item =
-                    bakeryItems[i];
+                const pastry =
+                    bakeryPastries[i];
 
-                item.y +=
-                    item.speed *
+                pastry.y +=
+                    pastry.speed *
                     delta /
                     1000;
 
-                item.element.style.transform =
-                    `translateY(${item.y}px)`;
+                pastry.element.style.transform =
+                    `translateY(${pastry.y}px)`;
+
 
                 if (
-                    bakeryCollision(item)
+                    bakeryCollision(pastry)
                 ) {
 
-                    bakeryCatch(item);
+                    catchBakeryPastry(
+                        pastry
+                    );
+
+                    bakeryPastries.splice(
+                        i,
+                        1
+                    );
 
                 }
 
                 else if (
-                    item.y >
+                    pastry.y >
                     bakeryGame.clientHeight
                 ) {
 
-                    bakeryMiss(item);
+                    missBakeryPastry(
+                        pastry
+                    );
+
+                    bakeryPastries.splice(
+                        i,
+                        1
+                    );
 
                 }
 
             }
+
 
             requestAnimationFrame(
                 bakeryLoop
@@ -2320,539 +1897,71 @@ body {
         }
 
 
-        bakeryStartButton.addEventListener(
-            "click",
-            startBakery
-        );
+        function bakeryControl(
+            button,
+            direction
+        ) {
 
-        bakeryRestartButton.addEventListener(
-            "click",
-            startBakery
-        );
+            button.addEventListener(
+                "pointerdown",
+                function(event) {
 
-        bakeryContinueButton.addEventListener(
-            "click",
-            function () {
+                    event.preventDefault();
 
-                bakeryDiscount.style.display =
-                    "none";
+                    if (
+                        direction ===
+                        "left"
+                    ) {
 
-                bakeryRunning = true;
+                        bakeryMoveLeft = true;
 
-                bakeryLastTime =
-                    performance.now();
+                    } else {
 
-                requestAnimationFrame(
-                    bakeryLoop
-                );
+                        bakeryMoveRight = true;
 
-            }
-        );
-
-
-        /* =====================================================
-           FLOWER RUSH
-           ===================================================== */
-
-        const flowerGame =
-            document.getElementById("flowerGame");
-
-        const flowerBasket =
-            document.getElementById("flowerBasket");
-
-        const flowerScoreDisplay =
-            document.getElementById("flowerScore");
-
-        const flowerMissesDisplay =
-            document.getElementById(
-                "flowerMisses"
-            );
-
-        const flowerStart =
-            document.getElementById(
-                "flowerStart"
-            );
-
-        const flowerReward =
-            document.getElementById(
-                "flowerReward"
-            );
-
-        const flowerGameOver =
-            document.getElementById(
-                "flowerGameOver"
-            );
-
-        const flowerStartButton =
-            document.getElementById(
-                "flowerStartButton"
-            );
-
-        const flowerContinueButton =
-            document.getElementById(
-                "flowerContinueButton"
-            );
-
-        const flowerRestartButton =
-            document.getElementById(
-                "flowerRestartButton"
-            );
-
-        const flowerFinalScore =
-            document.getElementById(
-                "flowerFinalScore"
-            );
-
-
-        let flowerRunning = false;
-
-        let flowerScore = 0;
-
-        let flowerMisses = 0;
-
-        let flowerBasketX = 50;
-
-        let flowerMoveLeft = false;
-
-        let flowerMoveRight = false;
-
-        let flowers = [];
-
-        let flowerLastTime = 0;
-
-        let flowerSpawnTimer = 0;
-
-        let flowerSpawnInterval = 850;
-
-        let flowerRewardShown = false;
-
-
-        const flowersList = [
-            "🌸",
-            "🌷",
-            "🌼",
-            "🌻",
-            "🌺",
-            "💐"
-        ];
-
-
-        function startFlowerGame() {
-
-            flowerScore = 0;
-
-            flowerMisses = 0;
-
-            flowers = [];
-
-            flowerBasketX = 50;
-
-            flowerSpawnTimer = 0;
-
-            flowerSpawnInterval = 850;
-
-            flowerRewardShown = false;
-
-            flowerScoreDisplay.textContent =
-                "0";
-
-            flowerMissesDisplay.textContent =
-                "0";
-
-            flowerBasket.style.left =
-                "50%";
-
-            flowerStart.style.display =
-                "none";
-
-            flowerReward.style.display =
-                "none";
-
-            flowerGameOver.style.display =
-                "none";
-
-            document
-                .querySelectorAll(
-                    "#flowerGame .falling-flower, #flowerGame .weed"
-                )
-                .forEach(
-                    item => item.remove()
-                );
-
-            flowerRunning = true;
-
-            flowerLastTime =
-                performance.now();
-
-            requestAnimationFrame(
-                flowerLoop
-            );
-
-        }
-
-
-        function endFlowerGame() {
-
-            flowerRunning = false;
-
-            flowerFinalScore.textContent =
-                flowerScore;
-
-            flowerGameOver.style.display =
-                "flex";
-
-        }
-
-
-        function showFlowerReward() {
-
-            if (flowerRewardShown) {
-                return;
-            }
-
-            flowerRewardShown = true;
-
-            flowerRunning = false;
-
-            flowerReward.style.display =
-                "flex";
-
-        }
-
-
-        function spawnFlower() {
-
-            if (!flowerRunning) {
-                return;
-            }
-
-            const isWeed =
-                Math.random() < 0.22;
-
-            const item =
-                document.createElement("div");
-
-            item.className =
-                isWeed
-                    ? "weed"
-                    : "falling-flower";
-
-            item.textContent =
-                isWeed
-                    ? "🌿"
-                    : flowersList[
-                        Math.floor(
-                            Math.random() *
-                            flowersList.length
-                        )
-                    ];
-
-            const x =
-                Math.random() * 88 + 6;
-
-            item.style.left =
-                x + "%";
-
-            item.style.top =
-                "-55px";
-
-            flowerGame.appendChild(item);
-
-            flowers.push({
-
-                element: item,
-
-                x: x,
-
-                y: -55,
-
-                speed:
-                    120 +
-                    Math.min(
-                        flowerScore * 2.5,
-                        150
-                    ),
-
-                weed: isWeed
-
-            });
-
-        }
-
-
-        function flowerCollision(item) {
-
-            const itemRect =
-                item.element
-                    .getBoundingClientRect();
-
-            const basketRect =
-                flowerBasket
-                    .getBoundingClientRect();
-
-            return (
-                itemRect.bottom >=
-                    basketRect.top &&
-
-                itemRect.left <
-                    basketRect.right &&
-
-                itemRect.right >
-                    basketRect.left &&
-
-                itemRect.bottom <
-                    basketRect.bottom + 40
-            );
-
-        }
-
-
-        function flowerCatch(item) {
-
-            item.element.remove();
-
-            const index =
-                flowers.indexOf(item);
-
-            if (index !== -1) {
-                flowers.splice(
-                    index,
-                    1
-                );
-            }
-
-            if (item.weed) {
-
-                flowerMisses++;
-
-                flowerMissesDisplay.textContent =
-                    flowerMisses;
-
-                createOops(
-                    flowerGame,
-                    flowerBasket.offsetLeft,
-                    flowerBasket.offsetTop
-                );
-
-                if (flowerMisses >= 5) {
-                    endFlowerGame();
-                }
-
-                return;
-            }
-
-
-            flowerScore++;
-
-            flowerScoreDisplay.textContent =
-                flowerScore;
-
-            createScoreEffect(
-                flowerGame,
-                flowerBasket.offsetLeft,
-                flowerBasket.offsetTop - 30
-            );
-
-            createParticles(
-                flowerGame,
-                flowerBasket.offsetLeft,
-                flowerBasket.offsetTop
-            );
-
-            flowerSpawnInterval =
-                Math.max(
-                    380,
-                    850 -
-                    flowerScore * 12
-                );
-
-            if (
-                flowerScore >= 30 &&
-                !flowerRewardShown
-            ) {
-
-                showFlowerReward();
-
-            }
-
-        }
-
-
-        function flowerMiss(item) {
-
-            item.element.remove();
-
-            const index =
-                flowers.indexOf(item);
-
-            if (index !== -1) {
-                flowers.splice(
-                    index,
-                    1
-                );
-            }
-
-            if (!item.weed) {
-
-                flowerMisses++;
-
-                flowerMissesDisplay.textContent =
-                    flowerMisses;
-
-                createOops(
-                    flowerGame,
-                    flowerBasket.offsetLeft,
-                    flowerBasket.offsetTop
-                );
-
-                if (flowerMisses >= 5) {
-                    endFlowerGame();
-                }
-
-            }
-
-        }
-
-
-        function moveFlowerBasket(delta) {
-
-            const speed = 0.055;
-
-            if (flowerMoveLeft) {
-                flowerBasketX -=
-                    speed * delta;
-            }
-
-            if (flowerMoveRight) {
-                flowerBasketX +=
-                    speed * delta;
-            }
-
-            flowerBasketX =
-                Math.max(
-                    7,
-                    Math.min(
-                        93,
-                        flowerBasketX
-                    )
-                );
-
-            flowerBasket.style.left =
-                flowerBasketX + "%";
-
-        }
-
-
-        function flowerLoop(timestamp) {
-
-            if (!flowerRunning) {
-                return;
-            }
-
-            const delta =
-                Math.min(
-                    timestamp -
-                    flowerLastTime,
-                    50
-                );
-
-            flowerLastTime =
-                timestamp;
-
-            moveFlowerBasket(delta);
-
-            flowerSpawnTimer +=
-                delta;
-
-            if (
-                flowerSpawnTimer >=
-                flowerSpawnInterval
-            ) {
-
-                spawnFlower();
-
-                flowerSpawnTimer = 0;
-
-            }
-
-
-            for (
-                let i =
-                    flowers.length - 1;
-                i >= 0;
-                i--
-            ) {
-
-                const item =
-                    flowers[i];
-
-                item.y +=
-                    item.speed *
-                    delta /
-                    1000;
-
-                item.element.style.transform =
-                    `translateY(${item.y}px)`;
-
-                if (
-                    flowerCollision(item)
-                ) {
-
-                    flowerCatch(item);
+                    }
 
                 }
+            );
 
-                else if (
-                    item.y >
-                    flowerGame.clientHeight
-                ) {
 
-                    flowerMiss(item);
+            const stop =
+                function() {
 
-                }
+                    bakeryMoveLeft = false;
+                    bakeryMoveRight = false;
 
-            }
+                };
 
-            requestAnimationFrame(
-                flowerLoop
+
+            button.addEventListener(
+                "pointerup",
+                stop
+            );
+
+            button.addEventListener(
+                "pointercancel",
+                stop
+            );
+
+            button.addEventListener(
+                "pointerleave",
+                stop
             );
 
         }
 
 
-        flowerStartButton.addEventListener(
-            "click",
-            startFlowerGame
+        bakeryControl(
+            bakeryLeft,
+            "left"
         );
 
-        flowerRestartButton.addEventListener(
-            "click",
-            startFlowerGame
+        bakeryControl(
+            bakeryRight,
+            "right"
         );
 
-        flowerContinueButton.addEventListener(
-            "click",
-            function () {
-
-                flowerReward.style.display =
-                    "none";
-
-                flowerRunning = true;
-
-                flowerLastTime =
-                    performance.now();
-
-                requestAnimationFrame(
-                    flowerLoop
-                );
-
-            }
-        );
-
-
-        /* =====================================================
-           MOBILE / KEYBOARD CONTROLS
-           ===================================================== */
 
         document.addEventListener(
             "keydown",
@@ -2867,7 +1976,6 @@ body {
                 ) {
 
                     bakeryMoveLeft = true;
-                    flowerMoveLeft = true;
 
                     event.preventDefault();
 
@@ -2879,7 +1987,6 @@ body {
                 ) {
 
                     bakeryMoveRight = true;
-                    flowerMoveRight = true;
 
                     event.preventDefault();
 
@@ -2902,7 +2009,6 @@ body {
                 ) {
 
                     bakeryMoveLeft = false;
-                    flowerMoveLeft = false;
 
                 }
 
@@ -2912,7 +2018,6 @@ body {
                 ) {
 
                     bakeryMoveRight = false;
-                    flowerMoveRight = false;
 
                 }
 
@@ -2920,10 +2025,474 @@ body {
         );
 
 
-        function holdControl(
+        bakeryStartButton.addEventListener(
+            "click",
+            startBakery
+        );
+
+        bakeryRestart.addEventListener(
+            "click",
+            startBakery
+        );
+
+
+        continueBakery.addEventListener(
+            "click",
+            function() {
+
+                bakeryDiscount.style.display =
+                    "none";
+
+                bakeryRunning = true;
+
+                bakeryLastTime =
+                    performance.now();
+
+                requestAnimationFrame(
+                    bakeryLoop
+                );
+
+            }
+        );
+
+
+        copyBakeryCode.addEventListener(
+            "click",
+            async function() {
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        "CATBAKERY20"
+                    );
+
+                    bakeryCopyMessage.textContent =
+                        "Copied! ♡";
+
+                } catch (error) {
+
+                    bakeryCopyMessage.textContent =
+                        "Your code is CATBAKERY20 ♡";
+
+                }
+
+            }
+        );
+
+
+        bakerySound.addEventListener(
+            "click",
+            function() {
+
+                bakeryMuted =
+                    !bakeryMuted;
+
+                bakerySound.textContent =
+                    bakeryMuted
+                    ? "🔇 Muted"
+                    : "🔊 Sound";
+
+            }
+        );
+
+    </script>
+
+
+    <!-- =====================================================
+         FLOWER RUSH JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        const flowerGame =
+            document.getElementById("flowerGame");
+
+        const flowerBasket =
+            document.getElementById("flowerBasket");
+
+        const flowerScoreDisplay =
+            document.getElementById("flowerScore");
+
+        const flowerMissesDisplay =
+            document.getElementById("flowerMisses");
+
+        const flowerStart =
+            document.getElementById("flowerStart");
+
+        const flowerOver =
+            document.getElementById("flowerOver");
+
+        const flowerStartButton =
+            document.getElementById("flowerStartButton");
+
+        const flowerRestart =
+            document.getElementById("flowerRestart");
+
+        const flowerFinalScore =
+            document.getElementById("flowerFinalScore");
+
+        const flowerLeft =
+            document.getElementById("flowerLeft");
+
+        const flowerRight =
+            document.getElementById("flowerRight");
+
+
+        let flowerScore = 0;
+        let flowerMisses = 0;
+
+        let flowerRunning = false;
+
+        let flowerBasketX = 50;
+
+        let flowerMoveLeft = false;
+        let flowerMoveRight = false;
+
+        let flowers = [];
+
+        let flowerLastTime = 0;
+        let flowerSpawnTimer = 0;
+        let flowerSpawnInterval = 900;
+
+
+        const flowerTypes = [
+            "🌸",
+            "🌼",
+            "🌷",
+            "🌻",
+            "🌺",
+            "💐"
+        ];
+
+
+        function startFlowerRush() {
+
+            flowerScore = 0;
+            flowerMisses = 0;
+
+            flowerBasketX = 50;
+
+            flowerRunning = true;
+
+            flowerSpawnTimer = 0;
+            flowerSpawnInterval = 900;
+
+            flowerScoreDisplay.textContent =
+                "0";
+
+            flowerMissesDisplay.textContent =
+                "0";
+
+            flowerBasket.style.left =
+                "50%";
+
+            flowerStart.style.display =
+                "none";
+
+            flowerOver.style.display =
+                "none";
+
+
+            flowers.forEach(
+                flower => {
+                    flower.element.remove();
+                }
+            );
+
+            flowers = [];
+
+            flowerLastTime =
+                performance.now();
+
+            requestAnimationFrame(
+                flowerLoop
+            );
+
+        }
+
+
+        function endFlowerRush() {
+
+            flowerRunning = false;
+
+            flowerFinalScore.textContent =
+                flowerScore;
+
+            flowerOver.style.display =
+                "flex";
+
+        }
+
+
+        function spawnFlower() {
+
+            if (!flowerRunning) {
+                return;
+            }
+
+            const element =
+                document.createElement("div");
+
+            element.className =
+                "falling-flower";
+
+            element.textContent =
+                flowerTypes[
+                    Math.floor(
+                        Math.random() *
+                        flowerTypes.length
+                    )
+                ];
+
+            const x =
+                Math.random() * 88 + 6;
+
+            element.style.left =
+                x + "%";
+
+            element.style.top =
+                "-50px";
+
+            flowerGame.appendChild(
+                element
+            );
+
+            flowers.push({
+
+                element: element,
+
+                x: x,
+
+                y: -50,
+
+                speed:
+                    120 +
+                    Math.min(
+                        flowerScore * 3,
+                        150
+                    )
+
+            });
+
+        }
+
+
+        function flowerCollision(
+            flower
+        ) {
+
+            const basketRect =
+                flowerBasket.getBoundingClientRect();
+
+            const flowerRect =
+                flower.element.getBoundingClientRect();
+
+            return (
+
+                flowerRect.bottom >=
+                basketRect.top &&
+
+                flowerRect.left <
+                basketRect.right &&
+
+                flowerRect.right >
+                basketRect.left &&
+
+                flowerRect.bottom <
+                basketRect.bottom + 45
+
+            );
+
+        }
+
+
+        function catchFlower(
+            flower
+        ) {
+
+            flowerScore++;
+
+            flowerScoreDisplay.textContent =
+                flowerScore;
+
+            flower.element.remove();
+
+            flowerBasket.style.transform =
+                "translateX(-50%) translateY(-6px)";
+
+            setTimeout(
+                function() {
+
+                    flowerBasket.style.transform =
+                        "translateX(-50%)";
+
+                },
+                130
+            );
+
+        }
+
+
+        function missFlower(
+            flower
+        ) {
+
+            flowerMisses++;
+
+            flowerMissesDisplay.textContent =
+                flowerMisses;
+
+            flower.element.remove();
+
+
+            if (
+                flowerMisses >= 5
+            ) {
+
+                endFlowerRush();
+
+            }
+
+        }
+
+
+        function moveFlowerBasket(
+            delta
+        ) {
+
+            const speed = 0.06;
+
+            if (flowerMoveLeft) {
+
+                flowerBasketX -=
+                    speed * delta;
+
+            }
+
+            if (flowerMoveRight) {
+
+                flowerBasketX +=
+                    speed * delta;
+
+            }
+
+            flowerBasketX =
+                Math.max(
+                    8,
+                    Math.min(
+                        92,
+                        flowerBasketX
+                    )
+                );
+
+            flowerBasket.style.left =
+                flowerBasketX + "%";
+
+        }
+
+
+        function flowerLoop(
+            timestamp
+        ) {
+
+            if (!flowerRunning) {
+                return;
+            }
+
+            const delta =
+                timestamp -
+                flowerLastTime;
+
+            flowerLastTime =
+                timestamp;
+
+            moveFlowerBasket(delta);
+
+            flowerSpawnTimer +=
+                delta;
+
+            if (
+                flowerSpawnTimer >=
+                flowerSpawnInterval
+            ) {
+
+                spawnFlower();
+
+                flowerSpawnTimer = 0;
+
+                flowerSpawnInterval =
+                    Math.max(
+                        400,
+                        900 -
+                        flowerScore * 12
+                    );
+
+            }
+
+
+            for (
+                let i =
+                    flowers.length - 1;
+                i >= 0;
+                i--
+            ) {
+
+                const flower =
+                    flowers[i];
+
+                flower.y +=
+                    flower.speed *
+                    delta /
+                    1000;
+
+                flower.element.style.transform =
+                    `translateY(${flower.y}px)`;
+
+
+                if (
+                    flowerCollision(flower)
+                ) {
+
+                    catchFlower(
+                        flower
+                    );
+
+                    flowers.splice(
+                        i,
+                        1
+                    );
+
+                }
+
+                else if (
+                    flower.y >
+                    flowerGame.clientHeight
+                ) {
+
+                    missFlower(
+                        flower
+                    );
+
+                    flowers.splice(
+                        i,
+                        1
+                    );
+
+                }
+
+            }
+
+
+            requestAnimationFrame(
+                flowerLoop
+            );
+
+        }
+
+
+        function flowerControl(
             button,
-            leftSetter,
-            rightSetter
+            direction
         ) {
 
             button.addEventListener(
@@ -2932,515 +2501,131 @@ body {
 
                     event.preventDefault();
 
-                    leftSetter(true);
-                    rightSetter(false);
+                    if (
+                        direction ===
+                        "left"
+                    ) {
+
+                        flowerMoveLeft = true;
+
+                    } else {
+
+                        flowerMoveRight = true;
+
+                    }
 
                 }
             );
 
+
+            const stop =
+                function() {
+
+                    flowerMoveLeft = false;
+                    flowerMoveRight = false;
+
+                };
+
+
             button.addEventListener(
                 "pointerup",
-                function(event) {
-
-                    event.preventDefault();
-
-                    leftSetter(false);
-                    rightSetter(false);
-
-                }
+                stop
             );
 
             button.addEventListener(
                 "pointercancel",
-                function() {
-
-                    leftSetter(false);
-                    rightSetter(false);
-
-                }
+                stop
             );
 
             button.addEventListener(
                 "pointerleave",
-                function() {
-
-                    leftSetter(false);
-                    rightSetter(false);
-
-                }
+                stop
             );
 
         }
 
 
-        holdControl(
-            document.getElementById("bakeryLeft"),
-            value => bakeryMoveLeft = value,
-            value => bakeryMoveRight = value
+        flowerControl(
+            flowerLeft,
+            "left"
         );
 
-        holdControl(
-            document.getElementById("bakeryRight"),
-            value => bakeryMoveRight = value,
-            value => bakeryMoveLeft = value
+        flowerControl(
+            flowerRight,
+            "right"
         );
 
-        holdControl(
-            document.getElementById("flowerLeft"),
-            value => flowerMoveLeft = value,
-            value => flowerMoveRight = value
-        );
-
-        holdControl(
-            document.getElementById("flowerRight"),
-            value => flowerMoveRight = value,
-            value => flowerMoveLeft = value
-        );
-
-
-        /* =====================================================
-           EFFECT HELPERS
-           ===================================================== */
-
-        function createScoreEffect(
-            container,
-            x,
-            y
-        ) {
-
-            const effect =
-                document.createElement("div");
-
-            effect.className =
-                "float-score";
-
-            effect.textContent =
-                "+1 ♡";
-
-            effect.style.left =
-                x + "px";
-
-            effect.style.top =
-                y + "px";
-
-            container.appendChild(
-                effect
-            );
-
-            setTimeout(
-                () => effect.remove(),
-                800
-            );
-
-        }
-
-
-        function createOops(
-            container,
-            x,
-            y
-        ) {
-
-            const effect =
-                document.createElement("div");
-
-            effect.className =
-                "oops";
-
-            effect.textContent =
-                "Oops! ♡";
-
-            effect.style.left =
-                x + "px";
-
-            effect.style.top =
-                y + "px";
-
-            container.appendChild(
-                effect
-            );
-
-            setTimeout(
-                () => effect.remove(),
-                800
-            );
-
-        }
-
-
-        function createParticles(
-            container,
-            x,
-            y
-        ) {
-
-            const symbols = [
-                "♡",
-                "✦",
-                "✧",
-                "⋆"
-            ];
-
-            for (
-                let i = 0;
-                i < 5;
-                i++
-            ) {
-
-                const particle =
-                    document.createElement(
-                        "div"
-                    );
-
-                particle.className =
-                    "particle";
-
-                particle.textContent =
-                    symbols[
-                        Math.floor(
-                            Math.random() *
-                            symbols.length
-                        )
-                    ];
-
-                particle.style.left =
-                    x + "px";
-
-                particle.style.top =
-                    y + "px";
-
-                particle.style.setProperty(
-                    "--x",
-                    (
-                        Math.random() * 70 -
-                        35
-                    ) + "px"
-                );
-
-                particle.style.setProperty(
-                    "--y",
-                    (
-                        Math.random() * -70 -
-                        15
-                    ) + "px"
-                );
-
-                container.appendChild(
-                    particle
-                );
-
-                setTimeout(
-                    () => particle.remove(),
-                    650
-                );
-
-            }
-
-        }
-
-
-        /* =====================================================
-           DRAGGABLE MASCOT
-           ===================================================== */
-
-        const mascot =
-            document.querySelector(
-                ".floating-cat"
-            );
-
-        const bubble =
-            document.getElementById(
-                "catSpeechBubble"
-            );
-
-        const secret =
-            document.getElementById(
-                "catEasterEgg"
-            );
-
-        let mascotDragging = false;
-
-        let mascotOffsetX = 0;
-
-        let mascotOffsetY = 0;
-
-        let mascotClicks = 0;
-
-
-        const mascotMessages = [
-
-            "♡ Hi hi! Welcome to KJewellery! ♡",
-
-            "🎀 Have you played both games yet?",
-
-            "🌸 Flower Rush is so pretty!",
-
-            "🐱 Meow! Good luck in the arcade!",
-
-            "🥐 Don't let the pastries fall!",
-
-            "˚₊‧ You're part of the KJewellery family! ‧₊˚"
-
-        ];
-
-
-        mascot.addEventListener(
-            "pointerdown",
-            function(event) {
-
-                mascotDragging = true;
-
-                const rect =
-                    mascot.getBoundingClientRect();
-
-                mascotOffsetX =
-                    event.clientX -
-                    rect.left;
-
-                mascotOffsetY =
-                    event.clientY -
-                    rect.top;
-
-                mascot.setPointerCapture(
-                    event.pointerId
-                );
-
-                mascot.style.left =
-                    rect.left + "px";
-
-                mascot.style.top =
-                    rect.top + "px";
-
-                mascot.style.right =
-                    "auto";
-
-                mascot.style.bottom =
-                    "auto";
-
-                mascot.style.cursor =
-                    "grabbing";
-
-                event.preventDefault();
-
-            }
-        );
-
-
-        mascot.addEventListener(
-            "pointermove",
-            function(event) {
-
-                if (!mascotDragging) {
-                    return;
-                }
-
-                let x =
-                    event.clientX -
-                    mascotOffsetX;
-
-                let y =
-                    event.clientY -
-                    mascotOffsetY;
-
-                const maxX =
-                    window.innerWidth -
-                    mascot.offsetWidth;
-
-                const maxY =
-                    window.innerHeight -
-                    mascot.offsetHeight;
-
-                x =
-                    Math.max(
-                        0,
-                        Math.min(
-                            x,
-                            maxX
-                        )
-                    );
-
-                y =
-                    Math.max(
-                        0,
-                        Math.min(
-                            y,
-                            maxY
-                        )
-                    );
-
-                mascot.style.left =
-                    x + "px";
-
-                mascot.style.top =
-                    y + "px";
-
-            }
-        );
-
-
-        mascot.addEventListener(
-            "pointerup",
-            function(event) {
-
-                mascotDragging = false;
-
-                mascot.style.cursor =
-                    "grab";
-
-                try {
-
-                    mascot.releasePointerCapture(
-                        event.pointerId
-                    );
-
-                } catch (error) {}
-
-            }
-        );
-
-
-        mascot.addEventListener(
-            "pointercancel",
-            function() {
-
-                mascotDragging = false;
-
-                mascot.style.cursor =
-                    "grab";
-
-            }
-        );
-
-
-        mascot.addEventListener(
-            "click",
-            function(event) {
-
-                event.stopPropagation();
-
-                mascotClicks++;
-
-                bubble.textContent =
-                    mascotMessages[
-                        Math.floor(
-                            Math.random() *
-                            mascotMessages.length
-                        )
-                    ];
-
-                bubble.classList.add(
-                    "show"
-                );
-
-                setTimeout(
-                    function() {
-
-                        bubble.classList.remove(
-                            "show"
-                        );
-
-                    },
-                    3000
-                );
-
-
-                if (
-                    mascotClicks >= 5
-                ) {
-
-                    mascotClicks = 0;
-
-                    bubble.classList.remove(
-                        "show"
-                    );
-
-                    secret.classList.add(
-                        "show"
-                    );
-
-                    setTimeout(
-                        function() {
-
-                            secret.classList.remove(
-                                "show"
-                            );
-
-                        },
-                        4500
-                    );
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           SPARKLE TRAIL
-           ===================================================== */
-
-        let lastSparkle = 0;
 
         document.addEventListener(
-            "mousemove",
+            "keydown",
             function(event) {
 
-                const now =
-                    Date.now();
+                const key =
+                    event.key.toLowerCase();
 
                 if (
-                    now -
-                    lastSparkle <
-                    90
+                    event.key === "ArrowLeft" ||
+                    key === "a"
                 ) {
-                    return;
+
+                    flowerMoveLeft = true;
+
                 }
 
-                lastSparkle =
-                    now;
+                if (
+                    event.key === "ArrowRight" ||
+                    key === "d"
+                ) {
 
-                const sparkle =
-                    document.createElement(
-                        "span"
-                    );
+                    flowerMoveRight = true;
 
-                sparkle.className =
-                    "kj-sparkle";
-
-                const shapes = [
-                    "✦",
-                    "✧",
-                    "♡",
-                    "⋆"
-                ];
-
-                sparkle.textContent =
-                    shapes[
-                        Math.floor(
-                            Math.random() *
-                            shapes.length
-                        )
-                    ];
-
-                sparkle.style.left =
-                    event.clientX + "px";
-
-                sparkle.style.top =
-                    event.clientY + "px";
-
-                document.body.appendChild(
-                    sparkle
-                );
-
-                setTimeout(
-                    () => sparkle.remove(),
-                    700
-                );
+                }
 
             }
+        );
+
+
+        document.addEventListener(
+            "keyup",
+            function(event) {
+
+                const key =
+                    event.key.toLowerCase();
+
+                if (
+                    event.key === "ArrowLeft" ||
+                    key === "a"
+                ) {
+
+                    flowerMoveLeft = false;
+
+                }
+
+                if (
+                    event.key === "ArrowRight" ||
+                    key === "d"
+                ) {
+
+                    flowerMoveRight = false;
+
+                }
+
+            }
+        );
+
+
+        flowerStartButton.addEventListener(
+            "click",
+            startFlowerRush
+        );
+
+        flowerRestart.addEventListener(
+            "click",
+            startFlowerRush
         );
 
     </script>
+
 
 </body>
 
