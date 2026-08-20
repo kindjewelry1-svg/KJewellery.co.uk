@@ -390,6 +390,333 @@
 
     </script>
 
+<!-- 🐱 KJewellery cute draggable cat -->
+
+<div
+    class="floating-cat"
+    aria-label="Draggable KJewellery cat"
+>
+
+    <div class="cat-ear cat-ear-left"></div>
+
+    <div class="cat-ear cat-ear-right"></div>
+
+    <div class="cat-face">
+
+        <span class="cat-eye">•</span>
+
+        <span class="cat-eye">•</span>
+
+        <span class="cat-mouth">ᴗ</span>
+
+    </div>
+
+    <span class="cat-sparkle sparkle-one">
+        ✦
+    </span>
+
+    <span class="cat-sparkle sparkle-two">
+        ♡
+    </span>
+
+</div>
+
+
+<!-- ✨ KJewellery cat speech bubble -->
+
+<div
+    id="catSpeechBubble"
+    class="cat-speech-bubble"
+>
+    ♡ Hi hi! Welcome to KJewellery! ♡
+</div>
+
+
+<!-- ✨ Easter egg message -->
+
+<div
+    id="catEasterEgg"
+    class="cat-easter-egg"
+>
+    ✦ You found my secret! ✦
+    <br>
+    ♡ You're Amazing! ♡
+</div>
+
+
+<script>
+
+const mascot =
+    document.querySelector(".floating-cat");
+
+const bubble =
+    document.getElementById("catSpeechBubble");
+
+const secret =
+    document.getElementById("catEasterEgg");
+
+let clicks = 0;
+
+
+const messages = [
+
+    "♡ Hi hi! Welcome to KJewellery! ♡",
+
+    "🎀 Have you seen the jewellery yet?",
+
+    "✦ Have you played the bakery game?",
+
+    "♡ Something pretty is coming soon...",
+
+    "🐱 Meow! Thanks for visiting!",
+
+    "˚₊‧ You're part of the KJewellery family! ‧₊˚"
+
+];
+
+
+if (mascot) {
+
+    mascot.addEventListener(
+        "click",
+        function(event) {
+
+            event.stopPropagation();
+
+            clicks++;
+
+
+            /* Random cat message */
+
+            const message =
+                messages[
+                    Math.floor(
+                        Math.random() *
+                        messages.length
+                    )
+                ];
+
+
+            bubble.textContent =
+                message;
+
+
+            bubble.classList.add("show");
+
+
+            /* Hide after 3 seconds */
+
+            setTimeout(
+                function() {
+
+                    bubble.classList.remove(
+                        "show"
+                    );
+
+                },
+                3000
+            );
+
+
+            /* Secret after 5 clicks */
+
+            if (clicks === 5) {
+
+                bubble.classList.remove(
+                    "show"
+                );
+
+
+                secret.classList.add(
+                    "show"
+                );
+
+
+                setTimeout(
+                    function() {
+
+                        secret.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    4500
+                );
+
+
+                clicks = 0;
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   DRAGGABLE CAT
+   ========================================= */
+
+let isDragging = false;
+
+let offsetX = 0;
+
+let offsetY = 0;
+
+
+if (mascot) {
+
+    mascot.addEventListener(
+        "pointerdown",
+        function(event) {
+
+            isDragging = true;
+
+
+            const rect =
+                mascot.getBoundingClientRect();
+
+
+            offsetX =
+                event.clientX -
+                rect.left;
+
+
+            offsetY =
+                event.clientY -
+                rect.top;
+
+
+            mascot.setPointerCapture(
+                event.pointerId
+            );
+
+
+            mascot.style.left =
+                rect.left + "px";
+
+
+            mascot.style.top =
+                rect.top + "px";
+
+
+            mascot.style.right =
+                "auto";
+
+
+            mascot.style.bottom =
+                "auto";
+
+
+            mascot.style.cursor =
+                "grabbing";
+
+
+            event.preventDefault();
+
+        }
+    );
+
+
+    mascot.addEventListener(
+        "pointermove",
+        function(event) {
+
+            if (!isDragging) {
+                return;
+            }
+
+
+            let x =
+                event.clientX -
+                offsetX;
+
+
+            let y =
+                event.clientY -
+                offsetY;
+
+
+            const maxX =
+                window.innerWidth -
+                mascot.offsetWidth;
+
+
+            const maxY =
+                window.innerHeight -
+                mascot.offsetHeight;
+
+
+            x =
+                Math.max(
+                    0,
+                    Math.min(
+                        x,
+                        maxX
+                    )
+                );
+
+
+            y =
+                Math.max(
+                    0,
+                    Math.min(
+                        y,
+                        maxY
+                    )
+                );
+
+
+            mascot.style.left =
+                x + "px";
+
+
+            mascot.style.top =
+                y + "px";
+
+        }
+    );
+
+
+    mascot.addEventListener(
+        "pointerup",
+        function(event) {
+
+            isDragging = false;
+
+            mascot.style.cursor =
+                "grab";
+
+
+            try {
+
+                mascot.releasePointerCapture(
+                    event.pointerId
+                );
+
+            } catch (error) {}
+
+        }
+    );
+
+
+    mascot.addEventListener(
+        "pointercancel",
+        function() {
+
+            isDragging = false;
+
+            mascot.style.cursor =
+                "grab";
+
+        }
+    );
+
+}
+
+</script>
+
 </body>
 
 </html>
