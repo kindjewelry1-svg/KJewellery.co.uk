@@ -22,6 +22,53 @@
 
     <style>
 
+/* =========================================
+   📱 MOBILE ARCADE SCROLL FIX
+   ========================================= */
+
+html,
+body {
+    height: auto !important;
+    min-height: 100%;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+body {
+    position: static !important;
+}
+
+.arcade-page,
+.arcade-container,
+.game-page {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+}
+
+@media (max-width: 600px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .arcade-page,
+    .arcade-container,
+    .game-page {
+        width: 100%;
+        max-width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+}
+
         /* =====================================================
            ARCADE PAGE
            ===================================================== */
