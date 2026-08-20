@@ -5,13 +5,12 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>KJewellery Cat Bakery</title>
+    <title>  KJewellery Arcade </title>
 
     <link
         rel="icon"
@@ -19,73 +18,1179 @@
         href="logo.png"
     >
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 
     <style>
 
-        /* =========================================
-           MOBILE SCROLL FIX
-           ========================================= */
+        /* =====================================================
+           ARCADE PAGE
+           ===================================================== */
 
         html,
         body {
-            min-height: 100%;
-            height: auto;
+            max-width: 100%;
             overflow-x: hidden;
-            overflow-y: auto;
+        }
+
+        .arcade-page {
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 30px 15px 70px;
         }
 
 
-        body {
-            touch-action: pan-y;
+        /* =====================================================
+           ARCADE HERO
+           ===================================================== */
+
+        .arcade-hero {
+            text-align: center;
+            padding: 35px 20px;
+            margin-bottom: 30px;
+
+            background: rgba(255, 255, 255, 0.88);
+
+            border: 3px solid #f3bad1;
+            border-radius: 30px;
+
+            box-shadow:
+                0 10px 25px rgba(100, 70, 60, 0.08);
+        }
+
+        .arcade-hero h2 {
+            margin: 0 0 12px;
+
+            color: #c66e97;
+
+            font-size: clamp(30px, 6vw, 48px);
+        }
+
+        .arcade-hero p {
+            margin: 8px auto;
+
+            max-width: 700px;
+
+            line-height: 1.7;
         }
 
 
-        /* The game itself still prevents accidental
-           page movement while actually playing. */
+        /* =====================================================
+           GAME SECTIONS
+           ===================================================== */
 
-        #game {
+        .arcade-game {
+            margin-bottom: 55px;
+        }
+
+        .game-heading {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .game-heading h2 {
+            color: #c66e97;
+            margin-bottom: 7px;
+        }
+
+        .game-heading p {
+            opacity: 0.8;
+        }
+
+
+        /* =====================================================
+           GAME INFO
+           ===================================================== */
+
+        .game-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 12px;
+        }
+
+        .info-box {
+            background: white;
+
+            border: 2px solid #f3bad1;
+
+            border-radius: 18px;
+
+            padding: 10px 18px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 5px 12px rgba(100, 70, 60, 0.08);
+        }
+
+        .info-box span {
+            color: #c66e97;
+        }
+
+        .sound-button {
+            border: 2px solid #f3bad1;
+
+            background: white;
+
+            color: #6b4d43;
+
+            padding: 10px 16px;
+
+            border-radius: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           GENERAL GAME AREA
+           ===================================================== */
+
+        .arcade-game-area {
+            position: relative;
+
+            width: 100%;
+
+            height: 560px;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            border: 4px solid #f3bad1;
+
+            box-shadow:
+                0 12px 30px rgba(100, 70, 60, 0.13);
+
             touch-action: none;
+
+            user-select: none;
         }
 
 
-        .game-page {
-            min-height: auto;
-            padding-bottom: 100px;
+        /* =====================================================
+           CAT BAKERY
+           ===================================================== */
+
+        #bakeryGame {
+            background:
+                linear-gradient(
+                    to bottom,
+                    #fff2d9 0%,
+                    #ffe4d0 58%,
+                    #f4c7b1 100%
+                );
+        }
+
+        .bakery-wall {
+            position: absolute;
+
+            inset: 0 0 auto 0;
+
+            height: 150px;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.28) 0 45px,
+                    rgba(255,210,190,0.18) 45px 90px
+                );
+
+            pointer-events: none;
+        }
+
+        .bakery-sign {
+            position: absolute;
+
+            top: 20px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: min(80%, 380px);
+
+            padding: 13px;
+
+            text-align: center;
+
+            background: #fffaf2;
+
+            border: 3px solid #d691ae;
+
+            border-radius: 18px;
+
+            color: #c66e97;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 6px 12px rgba(100,70,60,0.08);
+
+            z-index: 2;
+        }
+
+        .bakery-window {
+            position: absolute;
+
+            top: 115px;
+
+            width: 110px;
+            height: 75px;
+
+            background: #cceef0;
+
+            border: 7px solid #fffaf2;
+
+            border-radius: 18px;
+
+            opacity: 0.85;
+        }
+
+        .bakery-window::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            top: 0;
+            bottom: 0;
+
+            width: 4px;
+
+            background: #fffaf2;
+        }
+
+        .bakery-window::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            top: 50%;
+
+            height: 4px;
+
+            background: #fffaf2;
+        }
+
+        .window-left {
+            left: 35px;
+        }
+
+        .window-right {
+            right: 35px;
+        }
+
+        .bakery-counter {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 95px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #d99a78,
+                    #b97858
+                );
+
+            border-top: 7px solid #efb69d;
+        }
+
+        .bakery-cat {
+            position: absolute;
+
+            z-index: 4;
+
+            font-size: 58px;
+
+            filter:
+                drop-shadow(
+                    0 4px 3px
+                    rgba(70,45,40,0.15)
+                );
+
+            pointer-events: none;
+        }
+
+        .cat-one {
+            left: 40px;
+            bottom: 82px;
+        }
+
+        .cat-two {
+            right: 45px;
+            bottom: 82px;
+
+            font-size: 52px;
+        }
+
+        .cat-three {
+            left: 50%;
+            transform: translateX(-50%);
+
+            bottom: 15px;
+
+            font-size: 36px;
+        }
+
+        #bakeryTray {
+            position: absolute;
+
+            z-index: 10;
+
+            bottom: 103px;
+
+            left: 50%;
+
+            width: 100px;
+            height: 27px;
+
+            transform: translateX(-50%);
+
+            background:
+                linear-gradient(
+                    #fff4e5,
+                    #dba88c
+                );
+
+            border: 4px solid #a97059;
+
+            border-radius:
+                8px 8px 20px 20px;
+
+            box-shadow:
+                0 5px 8px
+                rgba(80,50,40,0.18);
+        }
+
+        #bakeryTray::after {
+            content: "";
+
+            position: absolute;
+
+            left: 23px;
+            right: 23px;
+
+            bottom: -9px;
+
+            height: 7px;
+
+            border-radius: 8px;
+
+            background: #a97059;
+        }
+
+        .bakery-pastry {
+            position: absolute;
+
+            z-index: 8;
+
+            font-size: 38px;
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            pointer-events: none;
+
+            filter:
+                drop-shadow(
+                    0 4px 3px
+                    rgba(80,50,40,0.14)
+                );
         }
 
 
-        /* Make sure mobile controls don't block
-           normal scrolling. */
+        /* =====================================================
+           FLOWER RUSH
+           ===================================================== */
+
+        #flowerGame {
+            background:
+                linear-gradient(
+                    to bottom,
+                    #dff5e5 0%,
+                    #c8edcf 52%,
+                    #9ed19d 100%
+                );
+        }
+
+        .flower-sky {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 20% 25%,
+                    rgba(255,255,255,0.65) 0 20px,
+                    transparent 21px
+                ),
+                radial-gradient(
+                    circle at 75% 18%,
+                    rgba(255,255,255,0.55) 0 18px,
+                    transparent 19px
+                );
+
+            pointer-events: none;
+        }
+
+        .flower-sun {
+            position: absolute;
+
+            top: 25px;
+            right: 35px;
+
+            font-size: 55px;
+
+            opacity: 0.85;
+        }
+
+        .flower-cloud {
+            position: absolute;
+
+            font-size: 34px;
+
+            opacity: 0.7;
+        }
+
+        .flower-cloud.one {
+            top: 50px;
+            left: 30px;
+        }
+
+        .flower-cloud.two {
+            top: 100px;
+            right: 120px;
+        }
+
+        .garden-ground {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 105px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #7eb87b,
+                    #679b66
+                );
+
+            border-top:
+                6px solid #a7d497;
+
+            pointer-events: none;
+        }
+
+        .garden-cat {
+            position: absolute;
+
+            z-index: 4;
+
+            bottom: 55px;
+
+            left: 25px;
+
+            font-size: 58px;
+
+            pointer-events: none;
+
+            filter:
+                drop-shadow(
+                    0 4px 3px
+                    rgba(50,80,50,0.16)
+                );
+        }
+
+        .garden-bush {
+            position: absolute;
+
+            z-index: 3;
+
+            bottom: 48px;
+
+            right: 25px;
+
+            font-size: 70px;
+
+            pointer-events: none;
+        }
+
+        #flowerBasket {
+            position: absolute;
+
+            z-index: 10;
+
+            bottom: 92px;
+
+            left: 50%;
+
+            width: 100px;
+            height: 52px;
+
+            transform: translateX(-50%);
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #e6b67d,
+                    #b87b4f
+                );
+
+            border:
+                4px solid #986341;
+
+            border-radius:
+                8px 8px 25px 25px;
+
+            box-shadow:
+                0 5px 8px
+                rgba(70,50,35,0.18);
+        }
+
+        #flowerBasket::before {
+            content: "";
+
+            position: absolute;
+
+            left: 13px;
+            right: 13px;
+
+            top: -23px;
+
+            height: 30px;
+
+            border:
+                5px solid #986341;
+
+            border-bottom: none;
+
+            border-radius:
+                30px 30px 0 0;
+        }
+
+        .falling-flower {
+            position: absolute;
+
+            z-index: 8;
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+
+            pointer-events: none;
+
+            filter:
+                drop-shadow(
+                    0 3px 3px
+                    rgba(50,80,50,0.12)
+                );
+        }
+
+        .weed {
+            position: absolute;
+
+            z-index: 8;
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           OVERLAYS
+           ===================================================== */
+
+        .game-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 50;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(255,250,245,0.84);
+
+            backdrop-filter: blur(5px);
+        }
+
+        .overlay-card {
+            width: min(100%, 430px);
+
+            max-height: calc(100% - 30px);
+
+            overflow-y: auto;
+
+            background: white;
+
+            border: 3px solid #f3bad1;
+
+            border-radius: 28px;
+
+            padding: 28px 22px;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 30px
+                rgba(80,50,40,0.15);
+        }
+
+        .overlay-card h2 {
+            color: #c66e97;
+
+            margin-top: 0;
+        }
+
+        .overlay-card p {
+            line-height: 1.65;
+        }
+
+        .main-game-button {
+            border: none;
+
+            background: #d691ae;
+
+            color: white;
+
+            padding: 12px 23px;
+
+            border-radius: 25px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin: 5px;
+
+            box-shadow:
+                0 5px 0 #b96d8e;
+        }
+
+        .main-game-button:hover {
+            background: #c66e97;
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           EFFECTS
+           ===================================================== */
+
+        .float-score {
+            position: absolute;
+
+            z-index: 30;
+
+            color: #c66e97;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            pointer-events: none;
+
+            animation:
+                floatScore 0.8s ease-out forwards;
+        }
+
+        @keyframes floatScore {
+
+            from {
+                opacity: 1;
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform:
+                    translateY(-45px)
+                    scale(1.2);
+            }
+
+        }
+
+        .particle {
+            position: absolute;
+
+            z-index: 25;
+
+            font-size: 18px;
+
+            pointer-events: none;
+
+            animation:
+                particlePop 0.65s ease-out forwards;
+        }
+
+        @keyframes particlePop {
+
+            from {
+                opacity: 1;
+
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
+
+            to {
+                opacity: 0;
+
+                transform:
+                    translate(
+                        var(--x),
+                        var(--y)
+                    )
+                    scale(0.3);
+            }
+
+        }
+
+        .oops {
+            position: absolute;
+
+            z-index: 30;
+
+            color: #8d6558;
+
+            font-weight: bold;
+
+            pointer-events: none;
+
+            animation:
+                oopsAnim 0.8s ease-out forwards;
+        }
+
+        @keyframes oopsAnim {
+
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-35px);
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE CONTROLS
+           ===================================================== */
 
         .mobile-controls {
-            touch-action: manipulation;
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            margin-top: 12px;
+        }
+
+        .control-button {
+            width: 115px;
+            height: 55px;
+
+            border: none;
+
+            border-radius: 20px;
+
+            background: #f3bad1;
+
+            color: #6b4d43;
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 5px 0 #d691ae;
+
+            touch-action: none;
+
+            user-select: none;
+        }
+
+        .control-button:active {
+            transform: translateY(3px);
+
+            box-shadow:
+                0 2px 0 #d691ae;
         }
 
 
-        /* =========================================
-           MOBILE GAME SIZE
-           ========================================= */
+        /* =====================================================
+           FLOWER RUSH SPECIAL
+           ===================================================== */
+
+        .flower-reward {
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0b4,
+                    #f3bad1
+                );
+
+            border-radius: 20px;
+
+            padding: 15px;
+
+            margin-top: 15px;
+
+            font-weight: bold;
+
+            color: #6b4d43;
+        }
+
+
+        /* =====================================================
+           NIGHT MODE
+           ===================================================== */
+
+        body.night-mode .arcade-hero,
+        body.night-mode .overlay-card,
+        body.night-mode .info-box,
+        body.night-mode .sound-button {
+            background: #352a32;
+
+            color: #ffe8f2;
+        }
+
+        body.night-mode .arcade-hero p,
+        body.night-mode .game-heading p,
+        body.night-mode .overlay-card p {
+            color: #ffe8f2;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
 
         @media (max-width: 600px) {
 
-            .game-page {
-                width: 100%;
-                padding-left: 12px;
-                padding-right: 12px;
-                padding-bottom: 120px;
+            .arcade-page {
+                padding:
+                    20px 10px 55px;
             }
 
-            #game {
-                height: 520px;
-                min-height: 520px;
+            .arcade-hero {
+                padding:
+                    28px 15px;
             }
 
-            .game-instructions {
-                padding-bottom: 30px;
+            .arcade-game-area {
+                height: 500px;
+
+                border-radius: 22px;
+            }
+
+            .bakery-window {
+                width: 75px;
+                height: 58px;
+            }
+
+            .window-left {
+                left: 15px;
+            }
+
+            .window-right {
+                right: 15px;
+            }
+
+            .bakery-cat {
+                font-size: 43px;
+            }
+
+            .cat-one {
+                left: 15px;
+            }
+
+            .cat-two {
+                right: 15px;
+            }
+
+            .bakery-sign {
+                font-size: 14px;
+            }
+
+            .garden-cat {
+                font-size: 43px;
+                left: 12px;
+            }
+
+            .garden-bush {
+                font-size: 52px;
+                right: 10px;
+            }
+
+            #bakeryTray,
+            #flowerBasket {
+                width: 88px;
+            }
+
+            .falling-flower,
+            .weed {
+                font-size: 32px;
+            }
+
+            .game-info {
+                gap: 7px;
+            }
+
+            .info-box,
+            .sound-button {
+                padding: 8px 11px;
+                font-size: 13px;
+            }
+
+        }
+
+
+        /* =====================================================
+           DRAGGABLE MASCOT
+           ===================================================== */
+
+        .floating-cat {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            z-index: 9999;
+
+            width: 75px;
+            height: 75px;
+
+            background:
+                #fffaf5;
+
+            border:
+                3px solid #f3bad1;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: grab;
+
+            user-select: none;
+
+            touch-action: none;
+
+            box-shadow:
+                0 8px 20px
+                rgba(80,50,40,0.15);
+        }
+
+        .floating-cat .cat-face {
+            font-size: 30px;
+        }
+
+        .floating-cat .cat-sparkle {
+            position: absolute;
+
+            top: -10px;
+            left: 5px;
+
+            color: #d691ae;
+
+            font-size: 20px;
+        }
+
+        .floating-cat .cat-heart {
+            position: absolute;
+
+            right: 2px;
+            bottom: 2px;
+
+            color: #c66e97;
+
+            font-size: 18px;
+        }
+
+        .cat-speech-bubble {
+            position: fixed;
+
+            right: 25px;
+            bottom: 105px;
+
+            z-index: 9998;
+
+            max-width: 240px;
+
+            padding: 12px 15px;
+
+            background: white;
+
+            border:
+                2px solid #f3bad1;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 6px 18px
+                rgba(80,50,40,0.12);
+
+            font-size: 13px;
+
+            text-align: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transform:
+                translateY(10px);
+
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .cat-speech-bubble.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        .cat-easter-egg {
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%,-50%)
+                scale(0.8);
+
+            z-index: 10000;
+
+            padding: 25px;
+
+            background:
+                #fff0b4;
+
+            border:
+                3px solid #d691ae;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            color: #6b4d43;
+
+            box-shadow:
+                0 12px 35px
+                rgba(80,50,40,0.2);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .cat-easter-egg.show {
+            opacity: 1;
+
+            transform:
+                translate(-50%,-50%)
+                scale(1);
+        }
+
+
+        /* =====================================================
+           SPARKLE TRAIL
+           ===================================================== */
+
+        .kj-sparkle {
+            position: fixed;
+
+            z-index: 9997;
+
+            pointer-events: none;
+
+            color: #d691ae;
+
+            font-size: 15px;
+
+            animation:
+                sparkleFade 0.7s ease-out forwards;
+        }
+
+        @keyframes sparkleFade {
+
+            from {
+                opacity: 1;
+                transform:
+                    translate(-50%,-50%)
+                    scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform:
+                    translate(-50%,-80%)
+                    scale(0.4);
             }
 
         }
@@ -98,9 +1203,9 @@
 <body id="top">
 
 
-    <!-- =========================================
-         KJEWELLERY HEADER
-         ========================================= -->
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
     <header class="site-header">
 
@@ -108,41 +1213,27 @@
             𝜗𝜚⋆₊˚ KJewellery ₊˚⋆𝜗𝜚
         </h1>
 
-
         <nav>
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="shop.html">
-                Shop
-            </a>
+            <a href="shop.html">Shop</a>
 
-            <a href="about.html">
-                About
-            </a>
+            <a href="about.html">About</a>
 
-            <a href="contact.html">
-                Contact
-            </a>
+            <a href="contact.html">Contact</a>
 
             <a href="arcade.html">Arcade</a>
 
-            <a href="garden.html">
-                Garden
-            </a>
+            <a href="garden.html">Garden</a>
 
-            <a href="art.html">
-                Art Corner
-            </a>
+            <a href="art.html">Art Corner</a>
 
             <a href="guestbook.html">
                 Guestbook
             </a>
 
         </nav>
-
 
         <button
             id="themeToggle"
@@ -155,778 +1246,802 @@
     </header>
 
 
-    <!-- =========================================
-         GAME
-         ========================================= -->
+    <!-- =====================================================
+         MAIN ARCADE
+         ===================================================== -->
 
-    <main class="game-page">
-
-        <h2 class="game-title">
-            Cat Café Bakery!
-        </h2>
+    <main class="arcade-page">
 
 
-        <p class="discount-hint">
-            Catch 50 treats to unlock 20% OFF KJewellery!
-        </p>
+        <!-- ARCADE INTRO -->
+
+        <section class="arcade-hero">
+
+            <h2>
+                🎮 ♡ KJewellery Arcade ♡ 🎮
+            </h2>
+
+            <p>
+                Welcome to the KJewellery Arcade!
+                ˚₊‧꒰ა ♡ ໒꒱ ‧₊˚
+            </p>
+
+            <p>
+                Take a little break, play some games
+                and collect cute rewards! ✦
+            </p>
+
+        </section>
 
 
-        <!-- GAME INFORMATION -->
+        <!-- =================================================
+             GAME 1 — CAT CAFÉ BAKERY
+             ================================================= -->
 
-        <div class="game-info">
+        <section class="arcade-game">
 
-            <div class="info-box">
+            <div class="game-heading">
 
-                Score:
-                <span id="score">
-                    0
-                </span>
+                <h2>
+                    🐈🥐 Cat Café Bakery
+                </h2>
+
+                <p>
+                    Catch the tasty pastries before
+                    they hit the floor! ♡
+                </p>
 
             </div>
 
 
-            <div class="info-box">
+            <div class="game-info">
 
-                Misses:
-                <span id="misses">
-                    0
-                </span>/5
-
-            </div>
-
-
-            <button
-                id="muteButton"
-                class="sound-button"
-                type="button"
-            >
-                🔊 Sound
-            </button>
-
-        </div>
-
-
-        <!-- =========================================
-             GAME AREA
-             ========================================= -->
-
-        <div id="game">
-
-
-            <!-- Bakery sign -->
-
-            <div class="bakery-sign">
-                ♡ Meowgical Bakery ♡
-            </div>
-
-
-            <!-- Bakery windows -->
-
-            <div class="bakery-window window-left"></div>
-
-            <div class="bakery-window window-right"></div>
-
-
-            <!-- Decorative cats -->
-
-            <div class="bakery-cat cat-one"></div>
-
-            <div class="bakery-cat cat-two"></div>
-
-            <div class="bakery-cat cat-three"></div>
-
-
-            <!-- Decorative bread -->
-
-            <div class="bread-stack"></div>
-
-
-            <!-- Oven -->
-
-            <div class="oven"></div>
-
-
-            <!-- Player tray -->
-
-            <div id="tray"></div>
-
-
-            <!-- =====================================
-                 START SCREEN
-                 ===================================== -->
-
-            <div
-                id="startScreen"
-                class="game-overlay"
-            >
-
-                <div class="overlay-card">
-
-                    <div class="big-cat"></div>
-
-
-                    <h2>
-                        Welcome, baker! ♡
-                    </h2>
-
-
-                    <p>
-                        Help the kitty catch all the
-                        delicious treats before they fall
-                        on the floor!
-                    </p>
-
-
-                    <p>
-                        Use
-                        <strong>← →</strong>
-                        or
-                        <strong>A / D</strong>
-                        to move.
-                    </p>
-
-
-                    <button
-                        id="startButton"
-                        class="main-game-button"
-                        type="button"
-                    >
-                        Start Baking ♡
-                    </button>
-
+                <div class="info-box">
+                    Score:
+                    <span id="bakeryScore">0</span>
                 </div>
 
+                <div class="info-box">
+                    Misses:
+                    <span id="bakeryMisses">0</span>/5
+                </div>
+
+                <button
+                    id="bakerySoundButton"
+                    class="sound-button"
+                    type="button"
+                >
+                    🔊 Sound
+                </button>
+
             </div>
 
 
-            <!-- =====================================
-                 DISCOUNT SCREEN
-                 ===================================== -->
-
             <div
-                id="discountScreen"
-                class="game-overlay"
-                style="display: none;"
+                id="bakeryGame"
+                class="arcade-game-area"
             >
 
-                <div class="overlay-card discount-card">
+                <div class="bakery-wall"></div>
 
-                    <div class="big-cat"></div>
+                <div class="bakery-sign">
+                    ♡ Meowgical Bakery ♡
+                </div>
+
+                <div class="bakery-window window-left"></div>
+
+                <div class="bakery-window window-right"></div>
+
+                <div class="bakery-cat cat-one">
+                    🐱
+                </div>
+
+                <div class="bakery-cat cat-two">
+                    🐈
+                </div>
+
+                <div class="bakery-cat cat-three">
+                    😴🐈
+                </div>
+
+                <div class="bakery-counter"></div>
+
+                <div id="bakeryTray"></div>
 
 
-                    <h2>
-                        Meowgical Milestone!
-                    </h2>
+                <!-- BAKERY START -->
 
+                <div
+                    id="bakeryStart"
+                    class="game-overlay"
+                >
 
-                    <p>
-                        You caught 50 tasty treats! ♡
-                    </p>
+                    <div class="overlay-card">
 
+                        <h2>
+                            🐱 Welcome, baker! ♡
+                        </h2>
 
-                    <p>
-                        You've unlocked:
-                    </p>
+                        <p>
+                            Help the kitty catch all
+                            the delicious treats!
+                        </p>
 
+                        <p>
+                            Use
+                            <strong>← →</strong>
+                            or
+                            <strong>A / D</strong>.
+                        </p>
 
-                    <h3 class="discount-title">
-                        50% OFF KJewellery!
-                    </h3>
+                        <button
+                            id="bakeryStartButton"
+                            class="main-game-button"
+                            type="button"
+                        >
+                            Start Baking ♡
+                        </button>
 
-
-                    <div class="discount-code">
-                        CATBAKERY50
                     </div>
 
-
-                    <button
-                        id="copyDiscountButton"
-                        class="main-game-button"
-                        type="button"
-                    >
-                        Copy Code ♡
-                    </button>
+                </div>
 
 
-                    <button
-                        id="closeDiscountButton"
-                        class="main-game-button"
-                        type="button"
-                    >
-                        Keep Baking!
-                    </button>
+                <!-- BAKERY DISCOUNT -->
+
+                <div
+                    id="bakeryDiscount"
+                    class="game-overlay"
+                    style="display:none;"
+                >
+
+                    <div class="overlay-card">
+
+                        <h2>
+                            🎀 Meowgical Milestone!
+                        </h2>
+
+                        <p>
+                            You caught 50 tasty treats!
+                            ♡
+                        </p>
+
+                        <h3>
+                            You've unlocked 20% OFF!
+                        </h3>
+
+                        <div
+                            class="flower-reward"
+                        >
+                            CATBAKERY20
+                        </div>
+
+                        <button
+                            id="bakeryContinueButton"
+                            class="main-game-button"
+                            type="button"
+                        >
+                            Keep Baking ♡
+                        </button>
+
+                    </div>
+
+                </div>
 
 
-                    <p
-                        id="copyMessage"
-                        class="copy-message"
-                    ></p>
+                <!-- BAKERY GAME OVER -->
+
+                <div
+                    id="bakeryGameOver"
+                    class="game-overlay"
+                    style="display:none;"
+                >
+
+                    <div class="overlay-card">
+
+                        <h2>
+                            🐱 Bakery Closed! ♡
+                        </h2>
+
+                        <p>
+                            You caught
+                            <strong>
+                                <span id="bakeryFinalScore">
+                                    0
+                                </span>
+                            </strong>
+                            treats!
+                        </p>
+
+                        <button
+                            id="bakeryRestartButton"
+                            class="main-game-button"
+                            type="button"
+                        >
+                            Play Again ♡
+                        </button>
+
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <!-- =====================================
-                 GAME OVER SCREEN
-                 ===================================== -->
+            <div class="mobile-controls">
+
+                <button
+                    id="bakeryLeft"
+                    class="control-button"
+                    type="button"
+                >
+                    ←
+                </button>
+
+                <button
+                    id="bakeryRight"
+                    class="control-button"
+                    type="button"
+                >
+                    →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GAME 2 — FLOWER RUSH
+             ================================================= -->
+
+        <section class="arcade-game">
+
+            <div class="game-heading">
+
+                <h2>
+                    🌸 Flower Rush 🌷
+                </h2>
+
+                <p>
+                    Catch the pretty flowers and
+                    avoid the weeds! ♡
+                </p>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <div class="info-box">
+                    Flowers:
+                    <span id="flowerScore">0</span>
+                </div>
+
+                <div class="info-box">
+                    Weeds:
+                    <span id="flowerMisses">0</span>/5
+                </div>
+
+            </div>
+
 
             <div
-                id="gameOverScreen"
-                class="game-overlay"
-                style="display: none;"
+                id="flowerGame"
+                class="arcade-game-area"
             >
 
-                <div class="overlay-card">
+                <div class="flower-sky"></div>
 
-                    <div class="big-cat"></div>
+                <div class="flower-cloud one">
+                    ☁️
+                </div>
+
+                <div class="flower-cloud two">
+                    ☁️
+                </div>
+
+                <div class="flower-sun">
+                    ☀️
+                </div>
+
+                <div class="garden-cat">
+                    🐱
+                </div>
+
+                <div class="garden-bush">
+                    🌳
+                </div>
+
+                <div class="garden-ground"></div>
+
+                <div id="flowerBasket"></div>
 
 
-                    <h2>
-                        Bakery closed! ♡
-                    </h2>
+                <!-- FLOWER START -->
+
+                <div
+                    id="flowerStart"
+                    class="game-overlay"
+                >
+
+                    <div class="overlay-card">
+
+                        <h2>
+                            🌸 Flower Rush! ♡
+                        </h2>
+
+                        <p>
+                            Catch as many beautiful
+                            flowers as you can!
+                        </p>
+
+                        <p>
+                            🌷 Flowers = +1
+                            <br>
+                            🌿 Weeds = miss
+                        </p>
+
+                        <p>
+                            Use
+                            <strong>← →</strong>
+                            or
+                            <strong>A / D</strong>.
+                        </p>
+
+                        <button
+                            id="flowerStartButton"
+                            class="main-game-button"
+                            type="button"
+                        >
+                            Start Gardening ♡
+                        </button>
+
+                    </div>
+
+                </div>
 
 
-                    <p>
+                <!-- FLOWER REWARD -->
 
-                        You caught
+                <div
+                    id="flowerReward"
+                    class="game-overlay"
+                    style="display:none;"
+                >
 
-                        <strong>
+                    <div class="overlay-card">
 
-                            <span id="finalScore">
-                                0
-                            </span>
+                        <h2>
+                            🌸 Garden Superstar! 🌸
+                        </h2>
 
-                        </strong>
+                        <p>
+                            You collected 30 flowers!
+                            ♡
+                        </p>
 
-                        tasty treats!
+                        <div class="flower-reward">
+                            ✦ You're blooming amazing! ✦
+                        </div>
 
-                    </p>
+                        <button
+                            id="flowerContinueButton"
+                            class="main-game-button"
+                            type="button"
+                        >
+                            Keep Gardening ♡
+                        </button>
+
+                    </div>
+
+                </div>
 
 
-                    <button
-                        id="restartButton"
-                        class="main-game-button"
-                        type="button"
-                    >
-                        Play Again ♡
-                    </button>
+                <!-- FLOWER GAME OVER -->
+
+                <div
+                    id="flowerGameOver"
+                    class="game-overlay"
+                    style="display:none;"
+                >
+
+                    <div class="overlay-card">
+
+                        <h2>
+                            🌷 Garden Closed! ♡
+                        </h2>
+
+                        <p>
+                            You collected
+                            <strong>
+                                <span id="flowerFinalScore">
+                                    0
+                                </span>
+                            </strong>
+                            flowers!
+                        </p>
+
+                        <button
+                            id="flowerRestartButton"
+                            class="main-game-button"
+                            type="button"
+                        >
+                            Try Again ♡
+                        </button>
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
 
+            <div class="mobile-controls">
 
-        <!-- =========================================
-             MOBILE CONTROLS
-             ========================================= -->
+                <button
+                    id="flowerLeft"
+                    class="control-button"
+                    type="button"
+                >
+                    ←
+                </button>
 
-        <div class="mobile-controls">
+                <button
+                    id="flowerRight"
+                    class="control-button"
+                    type="button"
+                >
+                    →
+                </button>
 
-            <button
-                id="leftButton"
-                class="control-button"
-                type="button"
-                aria-label="Move left"
-            >
-                ←
-            </button>
+            </div>
 
+        </section>
 
-            <button
-                id="rightButton"
-                class="control-button"
-                type="button"
-                aria-label="Move right"
-            >
-                →
-            </button>
-
-        </div>
-
-
-        <p class="game-instructions">
-
-            Desktop: Arrow Keys or A/D
-
-            ·
-
-            Mobile: use the buttons ♡
-
-        </p>
 
     </main>
 
 
-    <!-- =========================================
-         BACKGROUND MUSIC
-         ========================================= -->
+    <!-- =====================================================
+         BACK TO TOP
+         ===================================================== -->
 
-    <audio
-        id="backgroundMusic"
-        src="lofi.mp3"
-        loop
-        preload="auto"
-    ></audio>
+    <a
+        href="#top"
+        class="back-to-top"
+        aria-label="Back to top"
+    >
+        ↑
+    </a>
 
 
-    <!-- =========================================
-         GAME JAVASCRIPT
-         ========================================= -->
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <p>
+            © KJewellery ˖᯽ ݁˖· ─ Handmade with love
+            ˖᯽ ݁˖· ─
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         MASCOT
+         ===================================================== -->
+
+    <div
+        class="floating-cat"
+        aria-label="KJewellery cat mascot"
+    >
+
+        <span class="cat-sparkle">
+            ✦
+        </span>
+
+        <span class="cat-face">
+            ૮ ˶ᵔ ᵕ ᵔ˶ ა
+        </span>
+
+        <span class="cat-heart">
+            ♡
+        </span>
+
+    </div>
+
+
+    <div
+        id="catSpeechBubble"
+        class="cat-speech-bubble"
+    >
+        ♡ Hi hi! Welcome to KJewellery! ♡
+    </div>
+
+
+    <div
+        id="catEasterEgg"
+        class="cat-easter-egg"
+    >
+        ✦ You found my secret! ✦
+        <br>
+        ♡ You're Amazing! ♡
+    </div>
+
+
+    <div id="sparkle-trail-container"></div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
 
     <script>
 
-        /* =========================================
-           ELEMENTS
-           ========================================= */
+        /* =====================================================
+           NIGHT MODE
+           ===================================================== */
 
-        const game =
-            document.getElementById("game");
+        const themeToggle =
+            document.getElementById("themeToggle");
 
-        const tray =
-            document.getElementById("tray");
+        if (
+            themeToggle &&
+            localStorage.getItem(
+                "kjewelleryTheme"
+            ) === "night"
+        ) {
 
-        const scoreDisplay =
-            document.getElementById("score");
-
-        const missesDisplay =
-            document.getElementById("misses");
-
-        const startScreen =
-            document.getElementById("startScreen");
-
-        const gameOverScreen =
-            document.getElementById("gameOverScreen");
-
-        const discountScreen =
-            document.getElementById("discountScreen");
-
-        const startButton =
-            document.getElementById("startButton");
-
-        const restartButton =
-            document.getElementById("restartButton");
-
-        const closeDiscountButton =
-            document.getElementById(
-                "closeDiscountButton"
+            document.body.classList.add(
+                "night-mode"
             );
 
-        const copyDiscountButton =
-            document.getElementById(
-                "copyDiscountButton"
+            themeToggle.textContent =
+                "☀️ Day Mode";
+
+        }
+
+
+        if (themeToggle) {
+
+            themeToggle.addEventListener(
+                "click",
+                function () {
+
+                    document.body.classList.toggle(
+                        "night-mode"
+                    );
+
+                    const night =
+                        document.body.classList.contains(
+                            "night-mode"
+                        );
+
+                    themeToggle.textContent =
+                        night
+                            ? "☀️ Day Mode"
+                            : "🌙 Night Mode";
+
+                    localStorage.setItem(
+                        "kjewelleryTheme",
+                        night
+                            ? "night"
+                            : "day"
+                    );
+
+                }
             );
 
-        const copyMessage =
+        }
+
+
+        /* =====================================================
+           BAKERY GAME
+           ===================================================== */
+
+        const bakeryGame =
+            document.getElementById("bakeryGame");
+
+        const bakeryTray =
+            document.getElementById("bakeryTray");
+
+        const bakeryScoreDisplay =
+            document.getElementById("bakeryScore");
+
+        const bakeryMissesDisplay =
+            document.getElementById("bakeryMisses");
+
+        const bakeryStart =
+            document.getElementById("bakeryStart");
+
+        const bakeryDiscount =
+            document.getElementById("bakeryDiscount");
+
+        const bakeryGameOver =
+            document.getElementById("bakeryGameOver");
+
+        const bakeryStartButton =
             document.getElementById(
-                "copyMessage"
+                "bakeryStartButton"
             );
 
-        const finalScore =
+        const bakeryContinueButton =
             document.getElementById(
-                "finalScore"
+                "bakeryContinueButton"
             );
 
-        const music =
+        const bakeryRestartButton =
             document.getElementById(
-                "backgroundMusic"
+                "bakeryRestartButton"
             );
 
-        const muteButton =
+        const bakeryFinalScore =
             document.getElementById(
-                "muteButton"
+                "bakeryFinalScore"
             );
 
-        const leftButton =
-            document.getElementById(
-                "leftButton"
-            );
+        let bakeryRunning = false;
 
-        const rightButton =
-            document.getElementById(
-                "rightButton"
-            );
+        let bakeryScore = 0;
 
+        let bakeryMisses = 0;
 
-        /* =========================================
-           GAME VARIABLES
-           ========================================= */
+        let bakeryTrayX = 50;
 
-        let score = 0;
+        let bakeryMoveLeft = false;
 
-        let misses = 0;
+        let bakeryMoveRight = false;
 
-        const maximumMisses = 5;
+        let bakeryItems = [];
 
-        let gameRunning = false;
+        let bakeryLastTime = 0;
 
-        let trayX = 50;
+        let bakerySpawnTimer = 0;
 
-        let pastries = [];
+        let bakerySpawnInterval = 1000;
 
-        let lastTime = 0;
-
-        let spawnTimer = 0;
-
-        let spawnInterval = 1000;
-
-        let moveLeft = false;
-
-        let moveRight = false;
-
-        let muted = false;
-
-        let discountUnlocked = false;
-
-        let animationFrame = null;
+        let bakeryRewardShown = false;
 
 
-        /* =========================================
-           PASTRY TYPES
-           ========================================= */
-
-        const pastryTypes = [
-
+        const bakeryPastries = [
             "🥐",
-
             "🧁",
-
             "🍩",
-
             "🍪",
-
             "🍥",
-
             "🍰"
-
         ];
 
 
-        /* =========================================
-           SOUND
-           ========================================= */
+        function startBakery() {
 
-        let audioContext;
+            bakeryScore = 0;
 
+            bakeryMisses = 0;
 
-        function playSound(type) {
+            bakeryItems = [];
 
-            if (muted) {
-                return;
-            }
+            bakeryTrayX = 50;
 
+            bakerySpawnTimer = 0;
 
-            try {
+            bakerySpawnInterval = 1000;
 
-                if (!audioContext) {
+            bakeryRewardShown = false;
 
-                    audioContext =
-                        new (
-                            window.AudioContext ||
-                            window.webkitAudioContext
-                        )();
+            bakeryScoreDisplay.textContent =
+                "0";
 
-                }
+            bakeryMissesDisplay.textContent =
+                "0";
 
+            bakeryTray.style.left =
+                "50%";
 
-                if (
-                    audioContext.state ===
-                    "suspended"
-                ) {
-
-                    audioContext.resume();
-
-                }
-
-
-                const oscillator =
-                    audioContext.createOscillator();
-
-                const gain =
-                    audioContext.createGain();
-
-
-                oscillator.connect(gain);
-
-                gain.connect(
-                    audioContext.destination
-                );
-
-
-                if (type === "catch") {
-
-                    oscillator.frequency.value =
-                        650;
-
-                } else {
-
-                    oscillator.frequency.value =
-                        180;
-
-                }
-
-
-                gain.gain.setValueAtTime(
-                    0.08,
-                    audioContext.currentTime
-                );
-
-
-                gain.gain.exponentialRampToValueAtTime(
-                    0.001,
-                    audioContext.currentTime + 0.15
-                );
-
-
-                oscillator.start();
-
-
-                oscillator.stop(
-                    audioContext.currentTime + 0.15
-                );
-
-            }
-
-            catch (error) {
-
-                console.log(
-                    "Sound unavailable."
-                );
-
-            }
-
-        }
-
-
-        /* =========================================
-           START GAME
-           ========================================= */
-
-        function startGame() {
-
-            score = 0;
-
-            misses = 0;
-
-            pastries = [];
-
-            trayX = 50;
-
-            spawnTimer = 0;
-
-            spawnInterval = 1000;
-
-            discountUnlocked = false;
-
-            scoreDisplay.textContent =
-                score;
-
-            missesDisplay.textContent =
-                misses;
-
-            tray.style.left =
-                trayX + "%";
-
-            gameRunning = true;
-
-            startScreen.style.display =
+            bakeryStart.style.display =
                 "none";
 
-            gameOverScreen.style.display =
+            bakeryDiscount.style.display =
                 "none";
 
-            discountScreen.style.display =
+            bakeryGameOver.style.display =
                 "none";
 
-            copyMessage.textContent =
-                "";
-
-
-            /* Remove old pastries */
-
-            const oldPastries =
-                game.querySelectorAll(
-                    ".pastry"
+            document
+                .querySelectorAll(
+                    "#bakeryGame .bakery-pastry"
+                )
+                .forEach(
+                    item => item.remove()
                 );
 
+            bakeryRunning = true;
 
-            oldPastries.forEach(
-                pastry => pastry.remove()
-            );
-
-
-            /* Cancel any previous loop */
-
-            if (animationFrame) {
-
-                cancelAnimationFrame(
-                    animationFrame
-                );
-
-            }
-
-
-            /* Start music */
-
-            if (!muted) {
-
-                music.volume = 0.25;
-
-                music.play().catch(
-                    function(error) {
-
-                        console.log(
-                            "Music could not play:",
-                            error
-                        );
-
-                    }
-                );
-
-            }
-
-
-            lastTime =
+            bakeryLastTime =
                 performance.now();
 
-
-            animationFrame =
-                requestAnimationFrame(
-                    gameLoop
-                );
+            requestAnimationFrame(
+                bakeryLoop
+            );
 
         }
 
 
-        /* =========================================
-           END GAME
-           ========================================= */
+        function endBakery() {
 
-        function endGame() {
+            bakeryRunning = false;
 
-            gameRunning = false;
+            bakeryFinalScore.textContent =
+                bakeryScore;
 
-
-            if (animationFrame) {
-
-                cancelAnimationFrame(
-                    animationFrame
-                );
-
-            }
-
-
-            finalScore.textContent =
-                score;
-
-
-            gameOverScreen.style.display =
+            bakeryGameOver.style.display =
                 "flex";
 
-
-            music.pause();
-
         }
 
 
-        /* =========================================
-           DISCOUNT REWARD
-           ========================================= */
+        function showBakeryReward() {
 
-        function unlockDiscount() {
-
-            if (discountUnlocked) {
+            if (bakeryRewardShown) {
                 return;
             }
 
+            bakeryRewardShown = true;
 
-            discountUnlocked = true;
+            bakeryRunning = false;
 
-            gameRunning = false;
-
-
-            if (animationFrame) {
-
-                cancelAnimationFrame(
-                    animationFrame
-                );
-
-            }
-
-
-            discountScreen.style.display =
+            bakeryDiscount.style.display =
                 "flex";
-
-
-            playSound("catch");
 
         }
 
 
-        /* =========================================
-           SPAWN PASTRY
-           ========================================= */
+        function spawnBakeryPastry() {
 
-        function spawnPastry() {
-
-            if (!gameRunning) {
+            if (!bakeryRunning) {
                 return;
             }
 
+            const item =
+                document.createElement("div");
 
-            const pastryElement =
-                document.createElement(
-                    "div"
-                );
+            item.className =
+                "bakery-pastry";
 
-
-            pastryElement.className =
-                "pastry";
-
-
-            pastryElement.textContent =
-                pastryTypes[
+            item.textContent =
+                bakeryPastries[
                     Math.floor(
                         Math.random() *
-                        pastryTypes.length
+                        bakeryPastries.length
                     )
                 ];
-
 
             const x =
                 Math.random() * 88 + 6;
 
-
-            pastryElement.style.left =
+            item.style.left =
                 x + "%";
 
+            item.style.top =
+                "-55px";
 
-            pastryElement.style.top =
-                "-50px";
+            bakeryGame.appendChild(item);
 
+            bakeryItems.push({
 
-            game.appendChild(
-                pastryElement
-            );
+                element: item,
 
+                x: x,
 
-            pastries.push({
-
-                element:
-                    pastryElement,
-
-                x:
-                    x,
-
-                y:
-                    -50,
+                y: -55,
 
                 speed:
-                    120 +
+                    125 +
                     Math.min(
-                        score * 3,
+                        bakeryScore * 3,
                         180
                     )
 
@@ -935,501 +2050,762 @@
         }
 
 
-        /* =========================================
-           COLLISION
-           ========================================= */
+        function bakeryCollision(item) {
 
-        function checkCollision(
-            pastry
-        ) {
+            const itemRect =
+                item.element
+                    .getBoundingClientRect();
 
             const trayRect =
-                tray.getBoundingClientRect();
-
-
-            const pastryRect =
-                pastry.element
+                bakeryTray
                     .getBoundingClientRect();
-
 
             return (
-
-                pastryRect.bottom >=
+                itemRect.bottom >=
                     trayRect.top &&
 
-                pastryRect.left <
+                itemRect.left <
                     trayRect.right &&
 
-                pastryRect.right >
+                itemRect.right >
                     trayRect.left &&
 
-                pastryRect.bottom <
+                itemRect.bottom <
                     trayRect.bottom + 45
-
             );
 
         }
 
 
-        /* =========================================
-           CATCH PASTRY
-           ========================================= */
+        function bakeryCatch(item) {
 
-        function catchPastry(
-            pastry
-        ) {
+            bakeryScore++;
 
-            score++;
+            bakeryScoreDisplay.textContent =
+                bakeryScore;
 
-            scoreDisplay.textContent =
-                score;
+            item.element.remove();
 
+            const index =
+                bakeryItems.indexOf(item);
 
-            playSound("catch");
-
+            if (index !== -1) {
+                bakeryItems.splice(
+                    index,
+                    1
+                );
+            }
 
             const rect =
-                pastry.element
-                    .getBoundingClientRect();
-
+                item.element
+                    ? item.element.getBoundingClientRect()
+                    : bakeryTray.getBoundingClientRect();
 
             const gameRect =
-                game.getBoundingClientRect();
+                bakeryGame.getBoundingClientRect();
 
-
-            const x =
-                rect.left -
-                gameRect.left;
-
-
-            const y =
-                rect.top -
-                gameRect.top;
-
-
-            /* Floating score */
-
-            const scoreText =
-                document.createElement(
-                    "div"
-                );
-
-
-            scoreText.className =
-                "float-score";
-
-
-            scoreText.textContent =
-                "+1 ♡";
-
-
-            scoreText.style.left =
-                x + "px";
-
-
-            scoreText.style.top =
-                y + "px";
-
-
-            game.appendChild(
-                scoreText
+            createScoreEffect(
+                bakeryGame,
+                rect.left - gameRect.left,
+                rect.top - gameRect.top
             );
-
-
-            setTimeout(
-                () => scoreText.remove(),
-                800
-            );
-
-
-            /* Tray bounce */
-
-            tray.classList.add(
-                "tray-bounce"
-            );
-
-
-            setTimeout(
-                () => {
-
-                    tray.classList.remove(
-                        "tray-bounce"
-                    );
-
-                },
-                250
-            );
-
 
             createParticles(
-                x,
-                y
+                bakeryGame,
+                bakeryTray.offsetLeft,
+                bakeryTray.offsetTop
             );
 
-
-            pastry.element.remove();
-
-
-            /* 50 treat reward */
-
-            if (score >= 50) {
-
-                unlockDiscount();
-
-            }
-
-        }
-
-
-        /* =========================================
-           PARTICLES
-           ========================================= */
-
-        function createParticles(
-            x,
-            y
-        ) {
-
-            for (
-                let i = 0;
-                i < 7;
-                i++
-            ) {
-
-                const particle =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                particle.className =
-                    "particle";
-
-
-                particle.style.left =
-                    x + "px";
-
-
-                particle.style.top =
-                    y + "px";
-
-
-                particle.style.setProperty(
-                    "--x",
-                    (
-                        Math.random() *
-                        80 -
-                        40
-                    ) + "px"
+            bakerySpawnInterval =
+                Math.max(
+                    420,
+                    1000 -
+                    bakeryScore * 15
                 );
-
-
-                particle.style.setProperty(
-                    "--y",
-                    (
-                        Math.random() *
-                        80 -
-                        40
-                    ) + "px"
-                );
-
-
-                game.appendChild(
-                    particle
-                );
-
-
-                setTimeout(
-                    () =>
-                        particle.remove(),
-                    600
-                );
-
-            }
-
-        }
-
-
-        /* =========================================
-           MISSED PASTRY
-           ========================================= */
-
-        function missPastry(
-            pastry
-        ) {
-
-            misses++;
-
-            missesDisplay.textContent =
-                misses;
-
-
-            playSound("miss");
-
-
-            const rect =
-                pastry.element
-                    .getBoundingClientRect();
-
-
-            const gameRect =
-                game.getBoundingClientRect();
-
-
-            const oops =
-                document.createElement(
-                    "div"
-                );
-
-
-            oops.className =
-                "oops";
-
-
-            oops.textContent =
-                "Oops! ♡";
-
-
-            oops.style.left =
-                (
-                    rect.left -
-                    gameRect.left
-                ) + "px";
-
-
-            oops.style.top =
-                (
-                    rect.top -
-                    gameRect.top
-                ) + "px";
-
-
-            game.appendChild(
-                oops
-            );
-
-
-            setTimeout(
-                () => oops.remove(),
-                800
-            );
-
-
-            pastry.element.remove();
-
 
             if (
-                misses >=
-                maximumMisses
+                bakeryScore >= 50 &&
+                !bakeryRewardShown
             ) {
 
-                endGame();
+                showBakeryReward();
 
             }
 
         }
 
 
-        /* =========================================
-           DIFFICULTY
-           ========================================= */
+        function bakeryMiss(item) {
 
-        function updateDifficulty() {
+            bakeryMisses++;
 
-            spawnInterval =
-                Math.max(
-                    400,
-                    1000 -
-                    score * 18
+            bakeryMissesDisplay.textContent =
+                bakeryMisses;
+
+            item.element.remove();
+
+            const index =
+                bakeryItems.indexOf(item);
+
+            if (index !== -1) {
+                bakeryItems.splice(
+                    index,
+                    1
                 );
+            }
+
+            createOops(
+                bakeryGame,
+                bakeryTray.offsetLeft,
+                bakeryTray.offsetTop
+            );
+
+            if (bakeryMisses >= 5) {
+                endBakery();
+            }
 
         }
 
 
-        /* =========================================
-           TRAY MOVEMENT
-           ========================================= */
+        function bakeryMoveTray(delta) {
 
-        function moveTray(
-            deltaTime
-        ) {
+            const speed = 0.055;
 
-            const speed = 55;
-
-
-            if (moveLeft) {
-
-                trayX -=
-                    speed *
-                    deltaTime /
-                    1000;
-
+            if (bakeryMoveLeft) {
+                bakeryTrayX -=
+                    speed * delta;
             }
 
-
-            if (moveRight) {
-
-                trayX +=
-                    speed *
-                    deltaTime /
-                    1000;
-
+            if (bakeryMoveRight) {
+                bakeryTrayX +=
+                    speed * delta;
             }
 
-
-            trayX =
+            bakeryTrayX =
                 Math.max(
-                    8,
+                    7,
                     Math.min(
-                        92,
-                        trayX
+                        93,
+                        bakeryTrayX
                     )
                 );
 
-
-            tray.style.left =
-                trayX + "%";
+            bakeryTray.style.left =
+                bakeryTrayX + "%";
 
         }
 
 
-        /* =========================================
-           GAME LOOP
-           ========================================= */
+        function bakeryLoop(timestamp) {
 
-        function gameLoop(
-            timestamp
-        ) {
-
-            if (!gameRunning) {
+            if (!bakeryRunning) {
                 return;
             }
 
+            const delta =
+                Math.min(
+                    timestamp -
+                    bakeryLastTime,
+                    50
+                );
 
-            const deltaTime =
-                timestamp -
-                lastTime;
-
-
-            lastTime =
+            bakeryLastTime =
                 timestamp;
 
+            bakeryMoveTray(delta);
 
-            moveTray(
-                deltaTime
-            );
-
-
-            spawnTimer +=
-                deltaTime;
-
+            bakerySpawnTimer +=
+                delta;
 
             if (
-                spawnTimer >=
-                spawnInterval
+                bakerySpawnTimer >=
+                bakerySpawnInterval
             ) {
 
-                spawnPastry();
+                spawnBakeryPastry();
 
-                spawnTimer = 0;
-
-
-                if (
-                    score >= 10 &&
-                    Math.random() < 0.2
-                ) {
-
-                    setTimeout(
-                        function() {
-
-                            if (gameRunning) {
-
-                                spawnPastry();
-
-                            }
-
-                        },
-                        250
-                    );
-
-                }
+                bakerySpawnTimer = 0;
 
             }
 
 
             for (
                 let i =
-                    pastries.length - 1;
+                    bakeryItems.length - 1;
                 i >= 0;
                 i--
             ) {
 
-                const pastry =
-                    pastries[i];
+                const item =
+                    bakeryItems[i];
 
-
-                pastry.y +=
-                    pastry.speed *
-                    deltaTime /
+                item.y +=
+                    item.speed *
+                    delta /
                     1000;
 
-
-                pastry.element.style.transform =
-                    `translateY(${pastry.y}px)`;
-
+                item.element.style.transform =
+                    `translateY(${item.y}px)`;
 
                 if (
-                    checkCollision(
-                        pastry
-                    )
+                    bakeryCollision(item)
                 ) {
 
-                    catchPastry(
-                        pastry
-                    );
-
-
-                    pastries.splice(
-                        i,
-                        1
-                    );
-
-
-                    updateDifficulty();
+                    bakeryCatch(item);
 
                 }
 
                 else if (
-                    pastry.y >
-                    game.clientHeight
+                    item.y >
+                    bakeryGame.clientHeight
                 ) {
 
-                    missPastry(
-                        pastry
-                    );
-
-
-                    pastries.splice(
-                        i,
-                        1
-                    );
+                    bakeryMiss(item);
 
                 }
 
             }
 
-
-            animationFrame =
-                requestAnimationFrame(
-                    gameLoop
-                );
+            requestAnimationFrame(
+                bakeryLoop
+            );
 
         }
 
 
-        /* =========================================
-           KEYBOARD CONTROLS
-           ========================================= */
+        bakeryStartButton.addEventListener(
+            "click",
+            startBakery
+        );
+
+        bakeryRestartButton.addEventListener(
+            "click",
+            startBakery
+        );
+
+        bakeryContinueButton.addEventListener(
+            "click",
+            function () {
+
+                bakeryDiscount.style.display =
+                    "none";
+
+                bakeryRunning = true;
+
+                bakeryLastTime =
+                    performance.now();
+
+                requestAnimationFrame(
+                    bakeryLoop
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           FLOWER RUSH
+           ===================================================== */
+
+        const flowerGame =
+            document.getElementById("flowerGame");
+
+        const flowerBasket =
+            document.getElementById("flowerBasket");
+
+        const flowerScoreDisplay =
+            document.getElementById("flowerScore");
+
+        const flowerMissesDisplay =
+            document.getElementById(
+                "flowerMisses"
+            );
+
+        const flowerStart =
+            document.getElementById(
+                "flowerStart"
+            );
+
+        const flowerReward =
+            document.getElementById(
+                "flowerReward"
+            );
+
+        const flowerGameOver =
+            document.getElementById(
+                "flowerGameOver"
+            );
+
+        const flowerStartButton =
+            document.getElementById(
+                "flowerStartButton"
+            );
+
+        const flowerContinueButton =
+            document.getElementById(
+                "flowerContinueButton"
+            );
+
+        const flowerRestartButton =
+            document.getElementById(
+                "flowerRestartButton"
+            );
+
+        const flowerFinalScore =
+            document.getElementById(
+                "flowerFinalScore"
+            );
+
+
+        let flowerRunning = false;
+
+        let flowerScore = 0;
+
+        let flowerMisses = 0;
+
+        let flowerBasketX = 50;
+
+        let flowerMoveLeft = false;
+
+        let flowerMoveRight = false;
+
+        let flowers = [];
+
+        let flowerLastTime = 0;
+
+        let flowerSpawnTimer = 0;
+
+        let flowerSpawnInterval = 850;
+
+        let flowerRewardShown = false;
+
+
+        const flowersList = [
+            "🌸",
+            "🌷",
+            "🌼",
+            "🌻",
+            "🌺",
+            "💐"
+        ];
+
+
+        function startFlowerGame() {
+
+            flowerScore = 0;
+
+            flowerMisses = 0;
+
+            flowers = [];
+
+            flowerBasketX = 50;
+
+            flowerSpawnTimer = 0;
+
+            flowerSpawnInterval = 850;
+
+            flowerRewardShown = false;
+
+            flowerScoreDisplay.textContent =
+                "0";
+
+            flowerMissesDisplay.textContent =
+                "0";
+
+            flowerBasket.style.left =
+                "50%";
+
+            flowerStart.style.display =
+                "none";
+
+            flowerReward.style.display =
+                "none";
+
+            flowerGameOver.style.display =
+                "none";
+
+            document
+                .querySelectorAll(
+                    "#flowerGame .falling-flower, #flowerGame .weed"
+                )
+                .forEach(
+                    item => item.remove()
+                );
+
+            flowerRunning = true;
+
+            flowerLastTime =
+                performance.now();
+
+            requestAnimationFrame(
+                flowerLoop
+            );
+
+        }
+
+
+        function endFlowerGame() {
+
+            flowerRunning = false;
+
+            flowerFinalScore.textContent =
+                flowerScore;
+
+            flowerGameOver.style.display =
+                "flex";
+
+        }
+
+
+        function showFlowerReward() {
+
+            if (flowerRewardShown) {
+                return;
+            }
+
+            flowerRewardShown = true;
+
+            flowerRunning = false;
+
+            flowerReward.style.display =
+                "flex";
+
+        }
+
+
+        function spawnFlower() {
+
+            if (!flowerRunning) {
+                return;
+            }
+
+            const isWeed =
+                Math.random() < 0.22;
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                isWeed
+                    ? "weed"
+                    : "falling-flower";
+
+            item.textContent =
+                isWeed
+                    ? "🌿"
+                    : flowersList[
+                        Math.floor(
+                            Math.random() *
+                            flowersList.length
+                        )
+                    ];
+
+            const x =
+                Math.random() * 88 + 6;
+
+            item.style.left =
+                x + "%";
+
+            item.style.top =
+                "-55px";
+
+            flowerGame.appendChild(item);
+
+            flowers.push({
+
+                element: item,
+
+                x: x,
+
+                y: -55,
+
+                speed:
+                    120 +
+                    Math.min(
+                        flowerScore * 2.5,
+                        150
+                    ),
+
+                weed: isWeed
+
+            });
+
+        }
+
+
+        function flowerCollision(item) {
+
+            const itemRect =
+                item.element
+                    .getBoundingClientRect();
+
+            const basketRect =
+                flowerBasket
+                    .getBoundingClientRect();
+
+            return (
+                itemRect.bottom >=
+                    basketRect.top &&
+
+                itemRect.left <
+                    basketRect.right &&
+
+                itemRect.right >
+                    basketRect.left &&
+
+                itemRect.bottom <
+                    basketRect.bottom + 40
+            );
+
+        }
+
+
+        function flowerCatch(item) {
+
+            item.element.remove();
+
+            const index =
+                flowers.indexOf(item);
+
+            if (index !== -1) {
+                flowers.splice(
+                    index,
+                    1
+                );
+            }
+
+            if (item.weed) {
+
+                flowerMisses++;
+
+                flowerMissesDisplay.textContent =
+                    flowerMisses;
+
+                createOops(
+                    flowerGame,
+                    flowerBasket.offsetLeft,
+                    flowerBasket.offsetTop
+                );
+
+                if (flowerMisses >= 5) {
+                    endFlowerGame();
+                }
+
+                return;
+            }
+
+
+            flowerScore++;
+
+            flowerScoreDisplay.textContent =
+                flowerScore;
+
+            createScoreEffect(
+                flowerGame,
+                flowerBasket.offsetLeft,
+                flowerBasket.offsetTop - 30
+            );
+
+            createParticles(
+                flowerGame,
+                flowerBasket.offsetLeft,
+                flowerBasket.offsetTop
+            );
+
+            flowerSpawnInterval =
+                Math.max(
+                    380,
+                    850 -
+                    flowerScore * 12
+                );
+
+            if (
+                flowerScore >= 30 &&
+                !flowerRewardShown
+            ) {
+
+                showFlowerReward();
+
+            }
+
+        }
+
+
+        function flowerMiss(item) {
+
+            item.element.remove();
+
+            const index =
+                flowers.indexOf(item);
+
+            if (index !== -1) {
+                flowers.splice(
+                    index,
+                    1
+                );
+            }
+
+            if (!item.weed) {
+
+                flowerMisses++;
+
+                flowerMissesDisplay.textContent =
+                    flowerMisses;
+
+                createOops(
+                    flowerGame,
+                    flowerBasket.offsetLeft,
+                    flowerBasket.offsetTop
+                );
+
+                if (flowerMisses >= 5) {
+                    endFlowerGame();
+                }
+
+            }
+
+        }
+
+
+        function moveFlowerBasket(delta) {
+
+            const speed = 0.055;
+
+            if (flowerMoveLeft) {
+                flowerBasketX -=
+                    speed * delta;
+            }
+
+            if (flowerMoveRight) {
+                flowerBasketX +=
+                    speed * delta;
+            }
+
+            flowerBasketX =
+                Math.max(
+                    7,
+                    Math.min(
+                        93,
+                        flowerBasketX
+                    )
+                );
+
+            flowerBasket.style.left =
+                flowerBasketX + "%";
+
+        }
+
+
+        function flowerLoop(timestamp) {
+
+            if (!flowerRunning) {
+                return;
+            }
+
+            const delta =
+                Math.min(
+                    timestamp -
+                    flowerLastTime,
+                    50
+                );
+
+            flowerLastTime =
+                timestamp;
+
+            moveFlowerBasket(delta);
+
+            flowerSpawnTimer +=
+                delta;
+
+            if (
+                flowerSpawnTimer >=
+                flowerSpawnInterval
+            ) {
+
+                spawnFlower();
+
+                flowerSpawnTimer = 0;
+
+            }
+
+
+            for (
+                let i =
+                    flowers.length - 1;
+                i >= 0;
+                i--
+            ) {
+
+                const item =
+                    flowers[i];
+
+                item.y +=
+                    item.speed *
+                    delta /
+                    1000;
+
+                item.element.style.transform =
+                    `translateY(${item.y}px)`;
+
+                if (
+                    flowerCollision(item)
+                ) {
+
+                    flowerCatch(item);
+
+                }
+
+                else if (
+                    item.y >
+                    flowerGame.clientHeight
+                ) {
+
+                    flowerMiss(item);
+
+                }
+
+            }
+
+            requestAnimationFrame(
+                flowerLoop
+            );
+
+        }
+
+
+        flowerStartButton.addEventListener(
+            "click",
+            startFlowerGame
+        );
+
+        flowerRestartButton.addEventListener(
+            "click",
+            startFlowerGame
+        );
+
+        flowerContinueButton.addEventListener(
+            "click",
+            function () {
+
+                flowerReward.style.display =
+                    "none";
+
+                flowerRunning = true;
+
+                flowerLastTime =
+                    performance.now();
+
+                requestAnimationFrame(
+                    flowerLoop
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           MOBILE / KEYBOARD CONTROLS
+           ===================================================== */
 
         document.addEventListener(
             "keydown",
@@ -1438,27 +2814,25 @@
                 const key =
                     event.key.toLowerCase();
 
-
                 if (
-                    event.key ===
-                    "ArrowLeft" ||
+                    event.key === "ArrowLeft" ||
                     key === "a"
                 ) {
 
-                    moveLeft = true;
+                    bakeryMoveLeft = true;
+                    flowerMoveLeft = true;
 
                     event.preventDefault();
 
                 }
 
-
                 if (
-                    event.key ===
-                    "ArrowRight" ||
+                    event.key === "ArrowRight" ||
                     key === "d"
                 ) {
 
-                    moveRight = true;
+                    bakeryMoveRight = true;
+                    flowerMoveRight = true;
 
                     event.preventDefault();
 
@@ -1475,25 +2849,23 @@
                 const key =
                     event.key.toLowerCase();
 
-
                 if (
-                    event.key ===
-                    "ArrowLeft" ||
+                    event.key === "ArrowLeft" ||
                     key === "a"
                 ) {
 
-                    moveLeft = false;
+                    bakeryMoveLeft = false;
+                    flowerMoveLeft = false;
 
                 }
 
-
                 if (
-                    event.key ===
-                    "ArrowRight" ||
+                    event.key === "ArrowRight" ||
                     key === "d"
                 ) {
 
-                    moveRight = false;
+                    bakeryMoveRight = false;
+                    flowerMoveRight = false;
 
                 }
 
@@ -1501,13 +2873,10 @@
         );
 
 
-        /* =========================================
-           MOBILE CONTROLS
-           ========================================= */
-
-        function holdButton(
+        function holdControl(
             button,
-            direction
+            leftSetter,
+            rightSetter
         ) {
 
             button.addEventListener(
@@ -1516,729 +2885,515 @@
 
                     event.preventDefault();
 
-
-                    if (
-                        direction ===
-                        "left"
-                    ) {
-
-                        moveLeft = true;
-
-                    }
-
-                    else {
-
-                        moveRight = true;
-
-                    }
+                    leftSetter(true);
+                    rightSetter(false);
 
                 }
             );
-
 
             button.addEventListener(
                 "pointerup",
-                function() {
+                function(event) {
 
-                    moveLeft = false;
+                    event.preventDefault();
 
-                    moveRight = false;
-
-                }
-            );
-
-
-            button.addEventListener(
-                "pointerleave",
-                function() {
-
-                    moveLeft = false;
-
-                    moveRight = false;
+                    leftSetter(false);
+                    rightSetter(false);
 
                 }
             );
-
 
             button.addEventListener(
                 "pointercancel",
                 function() {
 
-                    moveLeft = false;
-
-                    moveRight = false;
+                    leftSetter(false);
+                    rightSetter(false);
 
                 }
             );
 
-        }
-
-
-        holdButton(
-            leftButton,
-            "left"
-        );
-
-
-        holdButton(
-            rightButton,
-            "right"
-        );
-
-
-        /* =========================================
-           MUTE BUTTON
-           ========================================= */
-
-        muteButton.addEventListener(
-            "click",
-            function() {
-
-                muted = !muted;
-
-
-                if (muted) {
-
-                    music.pause();
-
-                    muteButton.textContent =
-                        "🔇 Muted";
-
-                }
-
-                else {
-
-                    muteButton.textContent =
-                        "🔊 Sound";
-
-
-                    if (gameRunning) {
-
-                        music.play().catch(
-                            () => {}
-                        );
-
-                    }
-
-                }
-
-            }
-        );
-
-
-        /* =========================================
-           GAME BUTTONS
-           ========================================= */
-
-        startButton.addEventListener(
-            "click",
-            startGame
-        );
-
-
-        restartButton.addEventListener(
-            "click",
-            startGame
-        );
-
-
-        /* =========================================
-           DISCOUNT BUTTONS
-           ========================================= */
-
-        copyDiscountButton.addEventListener(
-            "click",
-            async function() {
-
-                try {
-
-                    await navigator.clipboard.writeText(
-                        "CATBAKERY50"
-                    );
-
-
-                    copyMessage.textContent =
-                        "Copied! ♡";
-
-                }
-
-                catch (error) {
-
-                    copyMessage.textContent =
-                        "Your code is: CATBAKERY50 ♡";
-
-                }
-
-            }
-        );
-
-
-        closeDiscountButton.addEventListener(
-            "click",
-            function() {
-
-                discountScreen.style.display =
-                    "none";
-
-
-                gameRunning = true;
-
-
-                lastTime =
-                    performance.now();
-
-
-                animationFrame =
-                    requestAnimationFrame(
-                        gameLoop
-                    );
-
-            }
-        );
-
-    </script>
-
-
-    <!-- =========================================
-         NIGHT MODE
-         ========================================= -->
-
-    <script>
-
-        const themeToggle =
-            document.getElementById(
-                "themeToggle"
-            );
-
-
-        if (
-            localStorage.getItem(
-                "kjewelleryTheme"
-            ) === "night"
-        ) {
-
-            document.body.classList.add(
-                "night-mode"
-            );
-
-
-            themeToggle.textContent =
-                "☀️ Day Mode";
-
-        }
-
-
-        if (themeToggle) {
-
-            themeToggle.addEventListener(
-                "click",
+            button.addEventListener(
+                "pointerleave",
                 function() {
 
-                    document.body.classList.toggle(
-                        "night-mode"
-                    );
-
-
-                    if (
-                        document.body.classList.contains(
-                            "night-mode"
-                        )
-                    ) {
-
-                        themeToggle.textContent =
-                            "☀️ Day Mode";
-
-
-                        localStorage.setItem(
-                            "kjewelleryTheme",
-                            "night"
-                        );
-
-                    }
-
-                    else {
-
-                        themeToggle.textContent =
-                            "🌙 Night Mode";
-
-
-                        localStorage.setItem(
-                            "kjewelleryTheme",
-                            "day"
-                        );
-
-                    }
+                    leftSetter(false);
+                    rightSetter(false);
 
                 }
             );
 
         }
 
-    </script>
+
+        holdControl(
+            document.getElementById("bakeryLeft"),
+            value => bakeryMoveLeft = value,
+            value => bakeryMoveRight = value
+        );
+
+        holdControl(
+            document.getElementById("bakeryRight"),
+            value => bakeryMoveRight = value,
+            value => bakeryMoveLeft = value
+        );
+
+        holdControl(
+            document.getElementById("flowerLeft"),
+            value => flowerMoveLeft = value,
+            value => flowerMoveRight = value
+        );
+
+        holdControl(
+            document.getElementById("flowerRight"),
+            value => flowerMoveRight = value,
+            value => flowerMoveLeft = value
+        );
 
 
-    <!-- =========================================
-         🐱 KJEWELLERY FLOATING MASCOT
-         ========================================= -->
+        /* =====================================================
+           EFFECT HELPERS
+           ===================================================== */
 
-    <div
-        class="floating-cat"
-        aria-label="Draggable KJewellery cat"
-    >
+        function createScoreEffect(
+            container,
+            x,
+            y
+        ) {
 
-        <div class="cat-ear cat-ear-left"></div>
+            const effect =
+                document.createElement("div");
 
-        <div class="cat-ear cat-ear-right"></div>
+            effect.className =
+                "float-score";
 
+            effect.textContent =
+                "+1 ♡";
 
-        <div class="cat-face">
+            effect.style.left =
+                x + "px";
 
-            <span class="cat-eye">
-                •
-            </span>
+            effect.style.top =
+                y + "px";
 
-            <span class="cat-eye">
-                •
-            </span>
+            container.appendChild(
+                effect
+            );
 
-            <span class="cat-mouth">
-                ᴗ
-            </span>
+            setTimeout(
+                () => effect.remove(),
+                800
+            );
 
-        </div>
-
-
-        <span class="cat-sparkle sparkle-one">
-            ✦
-        </span>
-
-
-        <span class="cat-sparkle sparkle-two">
-            ♡
-        </span>
-
-    </div>
+        }
 
 
-    <!-- =========================================
-         CAT SPEECH BUBBLE
-         ========================================= -->
+        function createOops(
+            container,
+            x,
+            y
+        ) {
 
-    <div
-        id="catSpeechBubble"
-        class="cat-speech-bubble"
-    >
-        ♡ Hi hi! Welcome to KJewellery! ♡
-    </div>
+            const effect =
+                document.createElement("div");
+
+            effect.className =
+                "oops";
+
+            effect.textContent =
+                "Oops! ♡";
+
+            effect.style.left =
+                x + "px";
+
+            effect.style.top =
+                y + "px";
+
+            container.appendChild(
+                effect
+            );
+
+            setTimeout(
+                () => effect.remove(),
+                800
+            );
+
+        }
 
 
-    <!-- =========================================
-         CAT EASTER EGG
-         ========================================= -->
+        function createParticles(
+            container,
+            x,
+            y
+        ) {
 
-    <div
-        id="catEasterEgg"
-        class="cat-easter-egg"
-    >
+            const symbols = [
+                "♡",
+                "✦",
+                "✧",
+                "⋆"
+            ];
 
-        ✦ You found my secret! ✦
+            for (
+                let i = 0;
+                i < 5;
+                i++
+            ) {
 
-        <br>
+                const particle =
+                    document.createElement(
+                        "div"
+                    );
 
-        ♡ You're Amazing! ♡
+                particle.className =
+                    "particle";
 
-    </div>
+                particle.textContent =
+                    symbols[
+                        Math.floor(
+                            Math.random() *
+                            symbols.length
+                        )
+                    ];
+
+                particle.style.left =
+                    x + "px";
+
+                particle.style.top =
+                    y + "px";
+
+                particle.style.setProperty(
+                    "--x",
+                    (
+                        Math.random() * 70 -
+                        35
+                    ) + "px"
+                );
+
+                particle.style.setProperty(
+                    "--y",
+                    (
+                        Math.random() * -70 -
+                        15
+                    ) + "px"
+                );
+
+                container.appendChild(
+                    particle
+                );
+
+                setTimeout(
+                    () => particle.remove(),
+                    650
+                );
+
+            }
+
+        }
 
 
-    <!-- =========================================
-         CAT JAVASCRIPT
-         ========================================= -->
-
-    <script>
+        /* =====================================================
+           DRAGGABLE MASCOT
+           ===================================================== */
 
         const mascot =
             document.querySelector(
                 ".floating-cat"
             );
 
-
         const bubble =
             document.getElementById(
                 "catSpeechBubble"
             );
-
 
         const secret =
             document.getElementById(
                 "catEasterEgg"
             );
 
+        let mascotDragging = false;
 
-        let clicks = 0;
+        let mascotOffsetX = 0;
+
+        let mascotOffsetY = 0;
+
+        let mascotClicks = 0;
 
 
-        const messages = [
+        const mascotMessages = [
 
             "♡ Hi hi! Welcome to KJewellery! ♡",
 
-            "🎀 Have you seen the jewellery yet?",
+            "🎀 Have you played both games yet?",
 
-            "✦ Have you played the bakery game?",
+            "🌸 Flower Rush is so pretty!",
 
-            "♡ Something pretty is coming soon...",
+            "🐱 Meow! Good luck in the arcade!",
 
-            "🐱 Meow! Thanks for visiting!",
+            "🥐 Don't let the pastries fall!",
 
             "˚₊‧ You're part of the KJewellery family! ‧₊˚"
 
         ];
 
 
-        /* =========================================
-           CAT CLICK
-           ========================================= */
+        mascot.addEventListener(
+            "pointerdown",
+            function(event) {
 
-        if (mascot) {
+                mascotDragging = true;
 
-            mascot.addEventListener(
-                "click",
-                function(event) {
+                const rect =
+                    mascot.getBoundingClientRect();
 
-                    event.stopPropagation();
+                mascotOffsetX =
+                    event.clientX -
+                    rect.left;
+
+                mascotOffsetY =
+                    event.clientY -
+                    rect.top;
+
+                mascot.setPointerCapture(
+                    event.pointerId
+                );
+
+                mascot.style.left =
+                    rect.left + "px";
+
+                mascot.style.top =
+                    rect.top + "px";
+
+                mascot.style.right =
+                    "auto";
+
+                mascot.style.bottom =
+                    "auto";
+
+                mascot.style.cursor =
+                    "grabbing";
+
+                event.preventDefault();
+
+            }
+        );
 
 
-                    clicks++;
+        mascot.addEventListener(
+            "pointermove",
+            function(event) {
 
+                if (!mascotDragging) {
+                    return;
+                }
 
-                    const message =
-                        messages[
-                            Math.floor(
-                                Math.random() *
-                                messages.length
-                            )
-                        ];
+                let x =
+                    event.clientX -
+                    mascotOffsetX;
 
+                let y =
+                    event.clientY -
+                    mascotOffsetY;
 
-                    bubble.textContent =
-                        message;
+                const maxX =
+                    window.innerWidth -
+                    mascot.offsetWidth;
 
+                const maxY =
+                    window.innerHeight -
+                    mascot.offsetHeight;
 
-                    bubble.classList.add(
-                        "show"
+                x =
+                    Math.max(
+                        0,
+                        Math.min(
+                            x,
+                            maxX
+                        )
                     );
 
-
-                    setTimeout(
-                        function() {
-
-                            bubble.classList.remove(
-                                "show"
-                            );
-
-                        },
-                        3000
+                y =
+                    Math.max(
+                        0,
+                        Math.min(
+                            y,
+                            maxY
+                        )
                     );
 
+                mascot.style.left =
+                    x + "px";
 
-                    if (clicks === 5) {
+                mascot.style.top =
+                    y + "px";
+
+            }
+        );
+
+
+        mascot.addEventListener(
+            "pointerup",
+            function(event) {
+
+                mascotDragging = false;
+
+                mascot.style.cursor =
+                    "grab";
+
+                try {
+
+                    mascot.releasePointerCapture(
+                        event.pointerId
+                    );
+
+                } catch (error) {}
+
+            }
+        );
+
+
+        mascot.addEventListener(
+            "pointercancel",
+            function() {
+
+                mascotDragging = false;
+
+                mascot.style.cursor =
+                    "grab";
+
+            }
+        );
+
+
+        mascot.addEventListener(
+            "click",
+            function(event) {
+
+                event.stopPropagation();
+
+                mascotClicks++;
+
+                bubble.textContent =
+                    mascotMessages[
+                        Math.floor(
+                            Math.random() *
+                            mascotMessages.length
+                        )
+                    ];
+
+                bubble.classList.add(
+                    "show"
+                );
+
+                setTimeout(
+                    function() {
 
                         bubble.classList.remove(
                             "show"
                         );
 
-
-                        secret.classList.add(
-                            "show"
-                        );
-
-
-                        setTimeout(
-                            function() {
-
-                                secret.classList.remove(
-                                    "show"
-                                );
-
-                            },
-                            4500
-                        );
+                    },
+                    3000
+                );
 
 
-                        clicks = 0;
+                if (
+                    mascotClicks >= 5
+                ) {
 
-                    }
+                    mascotClicks = 0;
 
-                }
-            );
-
-        }
-
-
-        /* =========================================
-           DRAGGABLE CAT
-           ========================================= */
-
-        let isDragging = false;
-
-        let offsetX = 0;
-
-        let offsetY = 0;
-
-
-        if (mascot) {
-
-            mascot.addEventListener(
-                "pointerdown",
-                function(event) {
-
-                    isDragging = true;
-
-
-                    const rect =
-                        mascot.getBoundingClientRect();
-
-
-                    offsetX =
-                        event.clientX -
-                        rect.left;
-
-
-                    offsetY =
-                        event.clientY -
-                        rect.top;
-
-
-                    mascot.setPointerCapture(
-                        event.pointerId
+                    bubble.classList.remove(
+                        "show"
                     );
 
-
-                    mascot.style.left =
-                        rect.left + "px";
-
-
-                    mascot.style.top =
-                        rect.top + "px";
-
-
-                    mascot.style.right =
-                        "auto";
-
-
-                    mascot.style.bottom =
-                        "auto";
-
-
-                    mascot.style.cursor =
-                        "grabbing";
-
-
-                    event.preventDefault();
-
-                }
-            );
-
-
-            mascot.addEventListener(
-                "pointermove",
-                function(event) {
-
-                    if (!isDragging) {
-                        return;
-                    }
-
-
-                    let x =
-                        event.clientX -
-                        offsetX;
-
-
-                    let y =
-                        event.clientY -
-                        offsetY;
-
-
-                    const maxX =
-                        window.innerWidth -
-                        mascot.offsetWidth;
-
-
-                    const maxY =
-                        window.innerHeight -
-                        mascot.offsetHeight;
-
-
-                    x =
-                        Math.max(
-                            0,
-                            Math.min(
-                                x,
-                                maxX
-                            )
-                        );
-
-
-                    y =
-                        Math.max(
-                            0,
-                            Math.min(
-                                y,
-                                maxY
-                            )
-                        );
-
-
-                    mascot.style.left =
-                        x + "px";
-
-
-                    mascot.style.top =
-                        y + "px";
-
-                }
-            );
-
-
-            mascot.addEventListener(
-                "pointerup",
-                function(event) {
-
-                    isDragging = false;
-
-
-                    mascot.style.cursor =
-                        "grab";
-
-
-                    try {
-
-                        mascot.releasePointerCapture(
-                            event.pointerId
-                        );
-
-                    }
-
-                    catch (error) {}
-
-                }
-            );
-
-
-            mascot.addEventListener(
-                "pointercancel",
-                function() {
-
-                    isDragging = false;
-
-                    mascot.style.cursor =
-                        "grab";
-
-                }
-            );
-
-        }
-
-    </script>
-
-
-    <!-- =========================================
-         SPARKLE TRAIL
-         ========================================= -->
-
-    <script>
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            function() {
-
-                let lastSparkle = 0;
-
-
-                document.addEventListener(
-                    "mousemove",
-                    function(event) {
-
-                        const now =
-                            Date.now();
-
-
-                        if (
-                            now -
-                            lastSparkle <
-                            80
-                        ) {
-
-                            return;
-
-                        }
-
-
-                        lastSparkle =
-                            now;
-
-
-                        const sparkle =
-                            document.createElement(
-                                "span"
+                    secret.classList.add(
+                        "show"
+                    );
+
+                    setTimeout(
+                        function() {
+
+                            secret.classList.remove(
+                                "show"
                             );
 
+                        },
+                        4500
+                    );
 
-                        sparkle.className =
-                            "kj-sparkle";
+                }
 
-
-                        const shapes = [
-
-                            "✦",
-
-                            "✧",
-
-                            "♡",
-
-                            "⋆"
-
-                        ];
+            }
+        );
 
 
-                        sparkle.textContent =
-                            shapes[
-                                Math.floor(
-                                    Math.random() *
-                                    shapes.length
-                                )
-                            ];
+        /* =====================================================
+           SPARKLE TRAIL
+           ===================================================== */
 
+        let lastSparkle = 0;
 
-                        sparkle.style.left =
-                            event.clientX + "px";
+        document.addEventListener(
+            "mousemove",
+            function(event) {
 
+                const now =
+                    Date.now();
 
-                        sparkle.style.top =
-                            event.clientY + "px";
+                if (
+                    now -
+                    lastSparkle <
+                    90
+                ) {
+                    return;
+                }
 
+                lastSparkle =
+                    now;
 
-                        document.body.appendChild(
-                            sparkle
-                        );
+                const sparkle =
+                    document.createElement(
+                        "span"
+                    );
 
+                sparkle.className =
+                    "kj-sparkle";
 
-                        setTimeout(
-                            function() {
+                const shapes = [
+                    "✦",
+                    "✧",
+                    "♡",
+                    "⋆"
+                ];
 
-                                sparkle.remove();
+                sparkle.textContent =
+                    shapes[
+                        Math.floor(
+                            Math.random() *
+                            shapes.length
+                        )
+                    ];
 
-                            },
-                            700
-                        );
+                sparkle.style.left =
+                    event.clientX + "px";
 
-                    }
+                sparkle.style.top =
+                    event.clientY + "px";
+
+                document.body.appendChild(
+                    sparkle
+                );
+
+                setTimeout(
+                    () => sparkle.remove(),
+                    700
                 );
 
             }
         );
 
     </script>
-
 
 </body>
 
