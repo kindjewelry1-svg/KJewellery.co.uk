@@ -623,11 +623,18 @@
 <body id="top">
 
 
-    <!-- =================================================
-         HEADER
-         ================================================= -->
+    <!-- ANNOUNCEMENT BANNER -->
 
-    <header class="site-header">
+    <div class="announcement-banner">
+
+        ✦₊˚ KJewellery's first collection is coming soon! ♡ ˚₊✦
+
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header>
 
         <h1>
             𝜗𝜚⋆₊˚ KJewellery ₊˚⋆𝜗𝜚
@@ -653,18 +660,17 @@
             </a>
 
             <a href="arcade.html">Arcade</a>
-
-            <a href="garden.html">
-                Garden
-            </a>
-
-            <a href="art.html">
-                Art
-            </a>
-<a href="guestbook.html">
+            <a href="garden.html">Garden</a>
+             <a href="art.html">Art Corner</a>
+             <a href="guestbook.html">
                 Guestbook
             </a>
+
         </nav>
+    </br>
+        <button id="themeToggle" class="theme-toggle" type="button">
+    🌙 Night Mode
+</button>
 
     </header>
 
@@ -916,9 +922,75 @@
     </main>
 
 
-    <!-- =================================================
+        <!-- =================================================
          JAVASCRIPT
          ================================================= -->
+
+<!-- =====================================================
+         NIGHT MODE
+         ===================================================== -->
+
+    <script>
+
+        const themeToggle =
+            document.getElementById("themeToggle");
+
+
+        if (
+            localStorage.getItem("kjewelleryTheme")
+            === "night"
+        ) {
+
+            document.body.classList.add(
+                "night-mode"
+            );
+
+            themeToggle.textContent =
+                "☀️ Day Mode";
+
+        }
+
+
+        themeToggle.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle(
+                    "night-mode"
+                );
+
+
+                if (
+                    document.body.classList.contains(
+                        "night-mode"
+                    )
+                ) {
+
+                    themeToggle.textContent =
+                        "☀️ Day Mode";
+
+                    localStorage.setItem(
+                        "kjewelleryTheme",
+                        "night"
+                    );
+
+                } else {
+
+                    themeToggle.textContent =
+                        "🌙 Night Mode";
+
+                    localStorage.setItem(
+                        "kjewelleryTheme",
+                        "day"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
 
     <script>
 
