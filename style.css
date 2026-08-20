@@ -4079,3 +4079,68 @@ body.night-mode .garden-note {
     }
 
 }
+/* 🛒 FLOATING CART BUTTON */
+
+#cartButton {
+    position: fixed !important;
+    top: 14px !important;
+    left: 14px !important;
+
+    width: 125px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
+
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #d691ae !important;
+    color: white !important;
+
+    border: 2px solid #f3bad1 !important;
+    border-radius: 22px !important;
+
+    font-family: "Comfortaa", sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+    white-space: nowrap !important;
+
+    box-sizing: border-box !important;
+
+    z-index: 99999 !important;
+
+    box-shadow: 0 4px 10px rgba(100, 70, 60, 0.15);
+
+    cursor: pointer;
+}
+
+
+/* 📱 PHONE */
+
+@media (max-width: 600px) {
+
+    #cartButton {
+        top: 10px !important;
+        left: 10px !important;
+
+        width: 115px !important;
+        min-width: 115px !important;
+        max-width: 115px !important;
+
+        height: 38px !important;
+        min-height: 38px !important;
+        max-height: 38px !important;
+
+        font-size: 12px !important;
+    }
+
+}
