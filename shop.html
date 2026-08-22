@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,17 +12,32 @@
 
     <title>Shop KJewellery ₊⟡⋆ ˙⋆✮ ⊹₊⟡</title>
 
-    <link rel="icon" type="image/png" href="logo.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="logo.png"
+    >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 
     <style>
@@ -45,24 +59,18 @@
 
         .cart-button {
             position: fixed;
-
             right: 20px;
             bottom: 20px;
-
             z-index: 1000;
 
             border: 3px solid #f3bad1;
-
             background: white;
-
             color: #6b4d43;
 
             padding: 13px 18px;
-
             border-radius: 30px;
 
             font-family: "Comfortaa", sans-serif;
-
             font-weight: bold;
 
             cursor: pointer;
@@ -76,14 +84,12 @@
 
         .cart-button:hover {
             transform: translateY(-3px);
-
             background: #fff0f6;
         }
 
 
         .cart-count {
             display: inline-flex;
-
             align-items: center;
             justify-content: center;
 
@@ -93,7 +99,6 @@
             margin-left: 5px;
 
             background: #c66e97;
-
             color: white;
 
             border-radius: 50%;
@@ -110,13 +115,11 @@
             text-align: center;
 
             padding: 45px 20px;
-
             margin-bottom: 30px;
 
             background: rgba(255,255,255,0.82);
 
             border: 3px solid #f3bad1;
-
             border-radius: 30px;
 
             box-shadow:
@@ -140,23 +143,164 @@
 
 
         /* =========================================
-           INTRO
+           COLLECTIONS
            ========================================= */
 
-        .shop-intro {
-            text-align: center;
+        .collections {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(300px, 1fr)
+                );
+
+            gap: 25px;
 
             margin-bottom: 35px;
         }
 
 
-        .shop-intro h2 {
-            color: #c66e97;
+        .collection-card {
+            background: white;
+
+            border: 3px solid #f3bad1;
+            border-radius: 25px;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 20px rgba(100,70,60,0.08);
+
+            transition: 0.2s ease;
         }
 
 
-        .shop-intro p {
+        .collection-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 25px rgba(100,70,60,0.12);
+        }
+
+
+        .collection-card h2 {
+            color: #c66e97;
+
+            margin-top: 0;
+            margin-bottom: 18px;
+        }
+
+
+        .collection-card p {
             line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+
+        .collection-button {
+            border: none;
+
+            background: #d691ae;
+            color: white;
+
+            padding: 13px 22px;
+
+            border-radius: 25px;
+
+            font-family: "Comfortaa", sans-serif;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 4px 0 #b96d8e;
+
+            transition: 0.15s ease;
+        }
+
+
+        .collection-button:hover {
+            background: #c66e97;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .collection-button:active {
+            transform:
+                translateY(2px);
+
+            box-shadow:
+                0 2px 0 #b96d8e;
+        }
+
+
+        .collection-button.coming-soon {
+            background: #f3bad1;
+            color: #6b4d43;
+
+            cursor: default;
+
+            box-shadow:
+                0 4px 0 #d99ab5;
+        }
+
+
+        .collection-button.coming-soon:hover {
+            background: #f3bad1;
+
+            transform: none;
+        }
+
+
+        /* =========================================
+           COLLECTION PRODUCTS AREA
+           ========================================= */
+
+        .collection-products {
+            display: none;
+
+            margin-top: 35px;
+            margin-bottom: 35px;
+        }
+
+
+        .collection-products.show {
+            display: block;
+        }
+
+
+        .collection-heading {
+            text-align: center;
+
+            color: #c66e97;
+
+            margin-bottom: 25px;
+        }
+
+
+        .close-collection {
+            display: block;
+
+            margin: 25px auto 0;
+
+            border: none;
+
+            background: #f3bad1;
+            color: #6b4d43;
+
+            padding: 10px 18px;
+
+            border-radius: 22px;
+
+            font-family: "Comfortaa", sans-serif;
+            font-weight: 700;
+
+            cursor: pointer;
         }
 
 
@@ -181,7 +325,6 @@
             background: white;
 
             border: 3px solid #f3bad1;
-
             border-radius: 25px;
 
             padding: 15px;
@@ -289,14 +432,13 @@
 
 
         /* =========================================
-           ADD BUTTON
+           ADD TO CART
            ========================================= */
 
         .add-cart-button {
             border: none;
 
             background: #d691ae;
-
             color: white;
 
             padding: 11px 18px;
@@ -304,7 +446,6 @@
             border-radius: 25px;
 
             font-family: "Comfortaa", sans-serif;
-
             font-weight: 700;
 
             cursor: pointer;
@@ -319,12 +460,14 @@
         .add-cart-button:hover {
             background: #c66e97;
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
 
 
         .add-cart-button:active {
-            transform: translateY(2px);
+            transform:
+                translateY(2px);
 
             box-shadow:
                 0 2px 0 #b96d8e;
@@ -391,7 +534,8 @@
             background:
                 rgba(70,45,55,0.45);
 
-            backdrop-filter: blur(4px);
+            backdrop-filter:
+                blur(4px);
         }
 
 
@@ -602,6 +746,45 @@
 
 
         /* =========================================
+           CHECKOUT BUTTON
+           ========================================= */
+
+        .checkout-button {
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #d691ae;
+
+            color: white;
+
+            font-family: "Comfortaa", sans-serif;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .checkout-button:hover {
+            background: #c66e97;
+        }
+
+
+        .checkout-button:disabled {
+            opacity: 0.7;
+
+            cursor: wait;
+        }
+
+
+        /* =========================================
            MOBILE
            ========================================= */
 
@@ -610,6 +793,11 @@
             .shop-page {
                 padding:
                     25px 12px 70px;
+            }
+
+
+            .collections {
+                grid-template-columns: 1fr;
             }
 
 
@@ -622,7 +810,6 @@
 
             .cart-button {
                 right: 12px;
-
                 bottom: 12px;
             }
 
@@ -647,12 +834,15 @@
 
 <body>
 
+
     <!-- =========================================
          ANNOUNCEMENT
          ========================================= -->
 
     <div class="announcement-banner">
-        ✦₊˚ KJewellery's first collection is coming soon! ♡ ˚₊✦
+
+        ✦₊˚ KJewellery's first collection is here! ♡ ˚₊✦
+
     </div>
 
 
@@ -669,21 +859,29 @@
 
         <nav>
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="shop.html">Shop</a>
+            <a href="shop.html">
+                Shop
+            </a>
 
-            <a href="about.html">About</a>
+            <a href="about.html">
+                About
+            </a>
 
-            <a href="contact.html">Contact</a>
+            <a href="contact.html">
+                Contact
+            </a>
 
-            <a href="arcade.html">Arcade</a>
-
-            
-            
+        
 
         </nav>
-        <BR>
+
+
+        <br>
+
 
         <button
             id="themeToggle"
@@ -719,540 +917,602 @@
         </section>
 
 
-        <!-- INTRO -->
+        <!-- =========================================
+             COLLECTIONS
+             ========================================= -->
 
-        <section class="shop-intro">
+        <section class="collections">
 
-            <h2>
-                ˚˖𓍢ִ໋❀ Our First Collection
-            </h2>
 
-            <p>
-                Pick your favourite KJewellery pieces
-                and add them to your cart! ♡
-            </p>
+            <!-- FIRST COLLECTION -->
 
-            <p>
-                Stock is limited because every piece
-                is handmade. ˚₊‧꒰ა ♡ ໒꒱ ‧₊˚
-            </p>
+            <div class="collection-card">
+
+                <h2>
+                    🌸 First Collection ♡
+                </h2>
+
+                <p>
+                    Our very first KJewellery collection,
+                    handmade with lots of love. 🎀
+                </p>
+
+                <button
+                    id="viewFirstCollection"
+                    class="collection-button"
+                    type="button"
+                >
+                    View Collection ♡
+                </button>
+
+            </div>
+
+
+            <!-- AUTUMN COLLECTION -->
+
+            <div class="collection-card">
+
+                <h2>
+                    🍂 Autumn Collection
+                </h2>
+
+                <p>
+                    Cosy autumn colours and cute
+                    seasonal jewellery are coming soon! 🍁
+                </p>
+
+                <button
+                    class="collection-button coming-soon"
+                    type="button"
+                    disabled
+                >
+                    Coming Soon ♡
+                </button>
+
+            </div>
 
         </section>
 
 
         <!-- =========================================
-             PRODUCTS
+             FIRST COLLECTION PRODUCTS
+             HIDDEN UNTIL BUTTON IS CLICKED
              ========================================= -->
 
-        <section class="products">
+        <section
+            id="firstCollection"
+            class="collection-products"
+        >
+
+            <h2 class="collection-heading">
+                🌸 First Collection ♡
+            </h2>
 
 
-            <!-- BRACELET 1 -->
+            <section class="products">
 
-            <div
-                class="product-card"
-                data-product-id="1"
-            >
 
-                <img
-                    src="bracelet1.jpeg"
-                    alt="Pink and white handmade beaded bracelet"
-                    class="product-image"
-                >
+                <!-- PRODUCT 1 -->
 
-                <h3>
-                    ⟡ ݁₊ . Pink Turtle Bracelet
-                </h3>
-
-                <p>
-                    A cute pink and white beaded bracelet
-                    finished with a little turtle charm.
-                </p>
-
-                <span class="product-price">
-                    £1.50
-                </span>
-
-                <span
-                    class="stock-label"
-                    data-stock-label="1"
-                ></span>
-
-                <button
-                    class="add-cart-button"
+                <div
+                    class="product-card"
                     data-product-id="1"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- BRACELET 2 -->
-
-            <div
-                class="product-card"
-                data-product-id="2"
-            >
-
-                <img
-                    src="bracelet2.jpeg"
-                    alt="Blue handmade beaded bracelet"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Blue Butterfly Bracelet
-                </h3>
+                    <img
+                        src="bracelet1.jpeg"
+                        alt="Pink and white handmade beaded bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    A dreamy blue beaded bracelet with
-                    a pretty butterfly charm.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Pink Turtle Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £1.50
-                </span>
+                    <p>
+                        A cute pink and white beaded bracelet
+                        finished with a little turtle charm.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="2"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="1"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="1"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+
+                <div
+                    class="product-card"
                     data-product-id="2"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- BRACELET 3 -->
-
-            <div
-                class="product-card"
-                data-product-id="3"
-            >
-
-                <img
-                    src="bracelet3.jpeg"
-                    alt="Purple handmade beaded bracelet"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Purple Star Bracelet
-                </h3>
+                    <img
+                        src="bracelet2.jpeg"
+                        alt="Blue handmade beaded bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    A soft purple bracelet decorated with
-                    sparkly beads and a cute star.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Blue Butterfly Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £1.50
-                </span>
+                    <p>
+                        A dreamy blue beaded bracelet
+                        with a pretty butterfly charm.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="3"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="2"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="2"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+
+                <div
+                    class="product-card"
                     data-product-id="3"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- BRACELET 4 -->
-
-            <div
-                class="product-card"
-                data-product-id="4"
-            >
-
-                <img
-                    src="bracelet4.jpeg"
-                    alt="Navy and white handmade beaded bracelet"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Ocean Turtle Bracelet
-                </h3>
+                    <img
+                        src="bracelet3.jpeg"
+                        alt="Purple handmade beaded bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    A navy and white beaded bracelet with
-                    an adorable turtle charm.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Purple Star Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £1.50
-                </span>
+                    <p>
+                        A soft purple bracelet decorated
+                        with sparkly beads and a cute star.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="4"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="3"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="3"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 4 -->
+
+                <div
+                    class="product-card"
                     data-product-id="4"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- BRACELET 5 -->
-
-            <div
-                class="product-card"
-                data-product-id="5"
-            >
-
-                <img
-                    src="bracelet5.jpeg"
-                    alt="Turquoise and white handmade beaded bracelet"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Seafoam Turtle Bracelet
-                </h3>
+                    <img
+                        src="bracelet4.jpeg"
+                        alt="Navy and white handmade beaded bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    A fresh turquoise and white bracelet
-                    inspired by soft ocean colours.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Ocean Turtle Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £1.50
-                </span>
+                    <p>
+                        A navy and white beaded bracelet
+                        with an adorable turtle charm.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="5"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="4"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="4"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 5 -->
+
+                <div
+                    class="product-card"
                     data-product-id="5"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- BRACELET 6 -->
-
-            <div
-                class="product-card"
-                data-product-id="6"
-            >
-
-                <img
-                    src="bracelet6.jpeg"
-                    alt="Clear and white handmade beaded bracelet"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Crystal Turtle Bracelet
-                </h3>
+                    <img
+                        src="bracelet5.jpeg"
+                        alt="Turquoise and white handmade beaded bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    A delicate clear blue and white bracelet
-                    with sparkling beads and a turtle charm.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Seafoam Turtle Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £1.50
-                </span>
+                    <p>
+                        A fresh turquoise and white bracelet
+                        inspired by soft ocean colours.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="6"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="5"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="5"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 6 -->
+
+                <div
+                    class="product-card"
                     data-product-id="6"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- EARRINGS 1 -->
-
-            <div
-                class="product-card"
-                data-product-id="7"
-            >
-
-                <img
-                    src="earrings1.jpeg"
-                    alt="Pink orange and purple handmade earrings"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Red & Orange Earrings
-                </h3>
+                    <img
+                        src="bracelet6.jpeg"
+                        alt="Clear and white handmade beaded bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    Colourful handmade beaded earrings
-                    with bright pink, orange and purple beads.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Crystal Turtle Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £2.00
-                </span>
+                    <p>
+                        A delicate clear blue and white bracelet
+                        with sparkling beads and a turtle charm.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="7"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="6"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="6"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 7 -->
+
+                <div
+                    class="product-card"
                     data-product-id="7"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- EARRINGS 2 -->
-
-            <div
-                class="product-card"
-                data-product-id="8"
-            >
-
-                <img
-                    src="earrings2.jpeg"
-                    alt="Pastel handmade star earrings"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Pastel Star Earrings
-                </h3>
+                    <img
+                        src="earrings1.jpeg"
+                        alt="Red and orange handmade earrings"
+                        class="product-image"
+                    >
 
-                <p>
-                    Sweet pastel earrings decorated with
-                    tiny star-shaped beads.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Red & Orange Earrings
+                    </h3>
 
-                <span class="product-price">
-                    £2.00
-                </span>
+                    <p>
+                        Colourful handmade beaded earrings
+                        with bright pink, orange and purple beads.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="8"
-                ></span>
+                    <span class="product-price">
+                        £2.00
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="7"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="7"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 8 -->
+
+                <div
+                    class="product-card"
                     data-product-id="8"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-                        <!-- BRACELET 7 -->
-
-            <div
-                class="product-card"
-                data-product-id="9"
-            >
-
-                <img
-                    src="Bracelet7.jpeg"
-                    alt="Pink and purple handmade beaded bracelet with butterfly charm"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Red Butterfly Bracelet
-                </h3>
+                    <img
+                        src="earrings2.jpeg"
+                        alt="Pastel handmade star earrings"
+                        class="product-image"
+                    >
 
-                <p>
-                    A dreamy Red and white beaded bracelet
-                    finished with a beautiful butterfly charm.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Pastel Star Earrings
+                    </h3>
 
-                <span class="product-price">
-                    £1.50
-                </span>
+                    <p>
+                        Sweet pastel earrings decorated
+                        with tiny star-shaped beads.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="9"
-                ></span>
+                    <span class="product-price">
+                        £2.00
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="8"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="8"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 9 -->
+
+                <div
+                    class="product-card"
                     data-product-id="9"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- BRACELET 8 -->
-
-            <div
-                class="product-card"
-                data-product-id="10"
-            >
-
-                <img
-                    src="Bracelet8.jpeg"
-                    alt="Blue and white handmade beaded bracelet with heart charm"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Blue Heart Bracelet
-                </h3>
+                    <img
+                        src="Bracelet7.jpeg"
+                        alt="Red and white handmade butterfly bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    A sweet blue and white beaded bracelet
-                    with a cute heart charm.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Red Butterfly Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £1.50
-                </span>
+                    <p>
+                        A dreamy red and white beaded bracelet
+                        finished with a beautiful butterfly charm.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="10"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="9"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="9"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 10 -->
+
+                <div
+                    class="product-card"
                     data-product-id="10"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- BRACELET 9 -->
-
-            <div
-                class="product-card"
-                data-product-id="11"
-            >
-
-                <img
-                    src="Bracelet9.jpeg"
-                    alt="Yellow and Orange handmade beaded bracelet with flower charm"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Sunset Rose Bracelet
-                </h3>
+                    <img
+                        src="Bracelet8.jpeg"
+                        alt="Blue and white handmade heart bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    A bright and cheerful yellow and orange
-                    bracelet finished with a pretty rose charm.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Blue Heart Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £1.50
-                </span>
+                    <p>
+                        A sweet blue and white beaded bracelet
+                        with a cute heart charm.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="11"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="10"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="10"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 11 -->
+
+                <div
+                    class="product-card"
                     data-product-id="11"
-                    type="button"
-                >
-                    Add to Cart ♡
-                </button>
-
-            </div>
-
-
-            <!-- BUMBLE BEE EARRINGS -->
-
-            <div
-                class="product-card"
-                data-product-id="12"
-            >
-
-                <img
-                    src="Earrings3.jpeg"
-                    alt="Black and yellow handmade Bumble Bee earrings"
-                    class="product-image"
                 >
 
-                <h3>
-                    ⟡ ݁₊ . Bumble Bee Earrings
-                </h3>
+                    <img
+                        src="Bracelet9.jpeg"
+                        alt="Yellow and orange handmade rose bracelet"
+                        class="product-image"
+                    >
 
-                <p>
-                    Sweet black and yellow handmade earrings
-                    inspired by cute little bumble bees.
-                </p>
+                    <h3>
+                        ⟡ ݁₊ . Sunset Rose Bracelet
+                    </h3>
 
-                <span class="product-price">
-                    £2.00
-                </span>
+                    <p>
+                        A bright and cheerful yellow and orange
+                        bracelet finished with a pretty rose charm.
+                    </p>
 
-                <span
-                    class="stock-label"
-                    data-stock-label="12"
-                ></span>
+                    <span class="product-price">
+                        £1.50
+                    </span>
 
-                <button
-                    class="add-cart-button"
+                    <span
+                        class="stock-label"
+                        data-stock-label="11"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="11"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUCT 12 -->
+
+                <div
+                    class="product-card"
                     data-product-id="12"
-                    type="button"
                 >
-                    Add to Cart ♡
-                </button>
 
-            </div>
+                    <img
+                        src="Earrings3.jpeg"
+                        alt="Black and yellow handmade Bumble Bee earrings"
+                        class="product-image"
+                    >
+
+                    <h3>
+                        ⟡ ݁₊ . Bumble Bee Earrings
+                    </h3>
+
+                    <p>
+                        Sweet black and yellow handmade earrings
+                        inspired by cute little bumble bees.
+                    </p>
+
+                    <span class="product-price">
+                        £2.00
+                    </span>
+
+                    <span
+                        class="stock-label"
+                        data-stock-label="12"
+                    ></span>
+
+                    <button
+                        class="add-cart-button"
+                        data-product-id="12"
+                        type="button"
+                    >
+                        Add to Cart ♡
+                    </button>
+
+                </div>
+
+
+            </section>
+
+
+            <button
+                id="closeCollection"
+                class="close-collection"
+                type="button"
+            >
+                ↑ Hide Collection ♡
+            </button>
 
         </section>
 
 
-        <!-- NOTE -->
+        <!-- =========================================
+             SHOP NOTE
+             ========================================= -->
 
         <section class="shop-note">
 
@@ -1272,6 +1532,7 @@
 
         </section>
 
+
     </main>
 
 
@@ -1284,13 +1545,16 @@
         class="cart-button"
         type="button"
     >
+
         🛒 Cart
+
         <span
             id="cartCount"
             class="cart-count"
         >
             0
         </span>
+
     </button>
 
 
@@ -1314,11 +1578,14 @@
                 ×
             </button>
 
+
             <h2>
                 ♡ Your KJewellery Cart ♡
             </h2>
 
+
             <div id="cartItems"></div>
+
 
             <div
                 id="cartTotal"
@@ -1336,30 +1603,37 @@
 
             </div>
 
-<div class="checkout-note">
-    🇬🇧 ♡ We currently only ship orders within the UK. ♡
-    <br><br>
-    Please make sure your shipping address is in the UK
-    before continuing to checkout. 🎀
-</div>
 
-<button
-    id="checkoutButton"
-    class="checkout-button"
-    type="button"
+            <div class="checkout-note">
 
-    >
-    ♡ Checkout ♡
-</button>
+                🇬🇧 ♡ We currently only ship orders within the UK. ♡
 
-<p
-    id="checkoutMessage"
-    style="
-        text-align: center;
-        margin-top: 10px;
-        font-size: 13px;
-    "
-></p>
+                <br><br>
+
+                Please make sure your shipping address is in the UK
+                before continuing to checkout. 🎀
+
+            </div>
+
+
+            <button
+                id="checkoutButton"
+                class="checkout-button"
+                type="button"
+            >
+                ♡ Checkout ♡
+            </button>
+
+
+            <p
+                id="checkoutMessage"
+                style="
+                    text-align: center;
+                    margin-top: 10px;
+                    font-size: 13px;
+                "
+            ></p>
+
 
         </div>
 
@@ -1389,93 +1663,147 @@
 
 
     <!-- =========================================
-         CART JAVASCRIPT
+         JAVASCRIPT
          ========================================= -->
 
     <script>
 
         /* =========================================
+           COLLECTION BUTTON
+           ========================================= */
+
+        const viewFirstCollection =
+            document.getElementById(
+                "viewFirstCollection"
+            );
+
+        const firstCollection =
+            document.getElementById(
+                "firstCollection"
+            );
+
+        const closeCollection =
+            document.getElementById(
+                "closeCollection"
+            );
+
+
+        viewFirstCollection.addEventListener(
+            "click",
+            function() {
+
+                firstCollection.classList.add(
+                    "show"
+                );
+
+                firstCollection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
+
+
+        closeCollection.addEventListener(
+            "click",
+            function() {
+
+                firstCollection.classList.remove(
+                    "show"
+                );
+
+                document.querySelector(
+                    ".collections"
+                ).scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
+
+
+        /* =========================================
            PRODUCT STOCK
-           
-           ⭐ CHANGE THESE NUMBERS WHEN YOU MAKE
-              MORE PRODUCTS!
            ========================================= */
 
         const products = {
 
-    "1": {
-        name: "Pink Turtle Bracelet",
-        price: 1.50,
-        stock: 2
-    },
+            "1": {
+                name: "Pink Turtle Bracelet",
+                price: 1.50,
+                stock: 2
+            },
 
-    "2": {
-        name: "Blue Butterfly Bracelet",
-        price: 1.50,
-        stock: 1
-    },
+            "2": {
+                name: "Blue Butterfly Bracelet",
+                price: 1.50,
+                stock: 1
+            },
 
-    "3": {
-        name: "Purple Star Bracelet",
-        price: 1.50,
-        stock: 3
-    },
+            "3": {
+                name: "Purple Star Bracelet",
+                price: 1.50,
+                stock: 3
+            },
 
-    "4": {
-        name: "Ocean Turtle Bracelet",
-        price: 1.50,
-        stock: 3
-    },
+            "4": {
+                name: "Ocean Turtle Bracelet",
+                price: 1.50,
+                stock: 3
+            },
 
-    "5": {
-        name: "Seafoam Turtle Bracelet",
-        price: 1.50,
-        stock: 2
-    },
+            "5": {
+                name: "Seafoam Turtle Bracelet",
+                price: 1.50,
+                stock: 2
+            },
 
-    "6": {
-        name: "Crystal Turtle Bracelet",
-        price: 1.50,
-        stock: 3
-    },
+            "6": {
+                name: "Crystal Turtle Bracelet",
+                price: 1.50,
+                stock: 3
+            },
 
-    "7": {
-        name: "Red & Orange Earrings",
-        price: 2.00,
-        stock: 1
-    },
+            "7": {
+                name: "Red & Orange Earrings",
+                price: 2.00,
+                stock: 1
+            },
 
-    "8": {
-    name: "Pastel Star Earrings",
-    price: 2.00,
-    stock: 2
-},
+            "8": {
+                name: "Pastel Star Earrings",
+                price: 2.00,
+                stock: 2
+            },
 
-"9": {
-    name: "Red Butterfly Bracelet",
-    price: 1.50,
-    stock: 1
-},
+            "9": {
+                name: "Red Butterfly Bracelet",
+                price: 1.50,
+                stock: 1
+            },
 
-"10": {
-    name: "Blue Heart Bracelet",
-    price: 1.50,
-    stock: 2
-},
+            "10": {
+                name: "Blue Heart Bracelet",
+                price: 1.50,
+                stock: 2
+            },
 
-"11": {
-    name: "Sunset Rose Bracelet",
-    price: 1.50,
-    stock: 3
-},
+            "11": {
+                name: "Sunset Rose Bracelet",
+                price: 1.50,
+                stock: 3
+            },
 
-"12": {
-    name: "Bumble Bee Earrings",
-    price: 2.00,
-    stock: 1
-}
+            "12": {
+                name: "Bumble Bee Earrings",
+                price: 2.00,
+                stock: 1
+            }
 
-};
+        };
+
 
         /* =========================================
            CART
@@ -1483,10 +1811,6 @@
 
         let cart = {};
 
-
-        /*
-           Load cart from browser storage.
-        */
 
         try {
 
@@ -1502,37 +1826,41 @@
 
             }
 
-            /*
-               Clean up old/invalid cart entries.
-               The cart now uses the numeric Supabase
-               product IDs (1-8), so old slug-based
-               entries are removed automatically.
-            */
 
             const cleanedCart = {};
 
-            Object.keys(cart || {}).forEach(function(productId) {
 
-                const quantity = Number(cart[productId]);
+            Object.keys(cart || {}).forEach(
+                function(productId) {
 
-                if (
-                    products[productId] &&
-                    Number.isInteger(quantity) &&
-                    quantity > 0
-                ) {
+                    const quantity =
+                        Number(
+                            cart[productId]
+                        );
 
-                    cleanedCart[productId] = Math.min(
-                        quantity,
-                        products[productId].stock
-                    );
+
+                    if (
+                        products[productId] &&
+                        Number.isInteger(quantity) &&
+                        quantity > 0
+                    ) {
+
+                        cleanedCart[productId] =
+                            Math.min(
+                                quantity,
+                                products[productId].stock
+                            );
+
+                    }
 
                 }
+            );
 
-            });
 
             cart = cleanedCart;
 
-        } catch (error) {
+        }
+        catch (error) {
 
             cart = {};
 
@@ -1554,10 +1882,12 @@
 
 
         /* =========================================
-           HOW MANY OF A PRODUCT ARE IN CART
+           CART QUANTITY
            ========================================= */
 
-        function getCartQuantity(productId) {
+        function getCartQuantity(
+            productId
+        ) {
 
             return cart[productId] || 0;
 
@@ -1565,7 +1895,7 @@
 
 
         /* =========================================
-           UPDATE STOCK DISPLAY
+           STOCK DISPLAY
            ========================================= */
 
         function updateStockDisplays() {
@@ -1576,10 +1906,12 @@
                     const product =
                         products[productId];
 
+
                     const quantityInCart =
                         getCartQuantity(
                             productId
                         );
+
 
                     const remaining =
                         Math.max(
@@ -1632,6 +1964,7 @@
 
                     }
 
+
                     else if (remaining === 1) {
 
                         stockLabel.textContent =
@@ -1653,6 +1986,7 @@
                         }
 
                     }
+
 
                     else {
 
@@ -1686,7 +2020,9 @@
            ADD TO CART
            ========================================= */
 
-        function addToCart(productId) {
+        function addToCart(
+            productId
+        ) {
 
             const product =
                 products[productId];
@@ -1702,12 +2038,6 @@
                     productId
                 );
 
-
-            /*
-               🚨 IMPORTANT:
-               Never allow the cart quantity
-               to go above available stock.
-            */
 
             if (
                 currentQuantity >=
@@ -1737,7 +2067,7 @@
 
 
         /* =========================================
-           REMOVE ONE
+           DECREASE
            ========================================= */
 
         function decreaseQuantity(
@@ -1771,7 +2101,7 @@
 
 
         /* =========================================
-           INCREASE QUANTITY
+           INCREASE
            ========================================= */
 
         function increaseQuantity(
@@ -1787,10 +2117,6 @@
                     productId
                 );
 
-
-            /*
-               🚨 STOCK LIMIT
-            */
 
             if (
                 currentQuantity >=
@@ -1849,15 +2175,18 @@
                     "cartItems"
                 );
 
+
             const cartCount =
                 document.getElementById(
                     "cartCount"
                 );
 
+
             const cartTotal =
                 document.getElementById(
                     "cartTotal"
                 );
+
 
             const totalPrice =
                 document.getElementById(
@@ -1879,6 +2208,7 @@
                     const quantity =
                         cart[productId];
 
+
                     const product =
                         products[productId];
 
@@ -1887,7 +2217,9 @@
                         !product ||
                         quantity <= 0
                     ) {
+
                         return;
+
                     }
 
 
@@ -1905,6 +2237,7 @@
                             "div"
                         );
 
+
                     item.className =
                         "cart-item";
 
@@ -1913,6 +2246,7 @@
                         document.createElement(
                             "div"
                         );
+
 
                     info.className =
                         "cart-item-info";
@@ -1923,8 +2257,10 @@
                             "div"
                         );
 
+
                     name.className =
                         "cart-item-name";
+
 
                     name.textContent =
                         product.name;
@@ -1935,22 +2271,29 @@
                             "div"
                         );
 
+
                     price.className =
                         "cart-item-price";
+
 
                     price.textContent =
                         `£${product.price.toFixed(2)} each`;
 
 
-                    info.appendChild(name);
+                    info.appendChild(
+                        name
+                    );
 
-                    info.appendChild(price);
+                    info.appendChild(
+                        price
+                    );
 
 
                     const controls =
                         document.createElement(
                             "div"
                         );
+
 
                     controls.className =
                         "quantity-controls";
@@ -1961,19 +2304,17 @@
                             "button"
                         );
 
+
                     minus.className =
                         "quantity-button";
+
 
                     minus.textContent =
                         "−";
 
+
                     minus.type =
                         "button";
-
-                    minus.setAttribute(
-                        "aria-label",
-                        "Decrease quantity"
-                    );
 
 
                     minus.addEventListener(
@@ -1993,8 +2334,10 @@
                             "span"
                         );
 
+
                     quantityDisplay.className =
                         "quantity-number";
+
 
                     quantityDisplay.textContent =
                         quantity;
@@ -2005,20 +2348,18 @@
                             "button"
                         );
 
+
                     plus.className =
                         "quantity-button";
+
 
                     plus.textContent =
                         "+";
 
+
                     plus.type =
                         "button";
 
-
-                    /*
-                       Disable + when all stock
-                       is already in the cart.
-                    */
 
                     if (
                         quantity >=
@@ -2061,14 +2402,18 @@
                             "button"
                         );
 
+
                     remove.className =
                         "remove-button";
+
 
                     remove.textContent =
                         "♡";
 
+
                     remove.type =
                         "button";
+
 
                     remove.title =
                         "Remove item";
@@ -2086,7 +2431,9 @@
                     );
 
 
-                    item.appendChild(info);
+                    item.appendChild(
+                        info
+                    );
 
                     item.appendChild(
                         controls
@@ -2113,7 +2460,9 @@
                 `£${total.toFixed(2)}`;
 
 
-            if (totalItems === 0) {
+            if (
+                totalItems === 0
+            ) {
 
                 cartItems.innerHTML = `
                     <div class="empty-cart">
@@ -2122,6 +2471,7 @@
                         Go pick something pretty. 🎀
                     </div>
                 `;
+
 
                 cartTotal.style.display =
                     "none";
@@ -2139,7 +2489,7 @@
 
 
         /* =========================================
-           ADD BUTTON LISTENERS
+           ADD BUTTONS
            ========================================= */
 
         document
@@ -2157,6 +2507,7 @@
                                 button.dataset
                                     .productId;
 
+
                             addToCart(
                                 productId
                             );
@@ -2169,7 +2520,7 @@
 
 
         /* =========================================
-           OPEN / CLOSE CART
+           CART OPEN / CLOSE
            ========================================= */
 
         const cartButton =
@@ -2177,10 +2528,12 @@
                 "cartButton"
             );
 
+
         const cartOverlay =
             document.getElementById(
                 "cartOverlay"
             );
+
 
         const closeCart =
             document.getElementById(
@@ -2239,14 +2592,10 @@
 
         updateCartDisplay();
 
-    </script>
 
-
-    <!-- =========================================
-         NIGHT MODE
-         ========================================= -->
-
-    <script>
+        /* =========================================
+           NIGHT MODE
+           ========================================= */
 
         const themeToggle =
             document.getElementById(
@@ -2314,143 +2663,162 @@
             );
 
         }
-/* =========================================
-   STRIPE CHECKOUT
-   ========================================= */
-
-const checkoutButton =
-    document.getElementById("checkoutButton");
-
-const checkoutMessage =
-    document.getElementById("checkoutMessage");
 
 
-if (checkoutButton) {
+        /* =========================================
+           STRIPE CHECKOUT
+           ========================================= */
 
-checkoutButton.addEventListener(
-    "click",
-    async function () {
+        const checkoutButton =
+            document.getElementById(
+                "checkoutButton"
+            );
 
-        /* Don't checkout an empty cart */
 
-        if (Object.keys(cart).length === 0) {
+        const checkoutMessage =
+            document.getElementById(
+                "checkoutMessage"
+            );
 
-            checkoutMessage.textContent =
-                "♡ Your cart is empty! Add something first. ♡";
 
-            return;
+        if (checkoutButton) {
+
+            checkoutButton.addEventListener(
+                "click",
+                async function() {
+
+                    if (
+                        Object.keys(cart).length === 0
+                    ) {
+
+                        checkoutMessage.textContent =
+                            "♡ Your cart is empty! Add something first. ♡";
+
+                        return;
+
+                    }
+
+
+                    checkoutButton.disabled =
+                        true;
+
+
+                    checkoutButton.textContent =
+                        "Creating checkout... ♡";
+
+
+                    checkoutMessage.textContent =
+                        "";
+
+
+                    try {
+
+                        const response =
+                            await fetch(
+                                "https://spryjlrhvtnreatihkxl.supabase.co/functions/v1/create-checkout",
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body:
+                                        JSON.stringify({
+                                            cart: cart
+                                        })
+                                }
+                            );
+
+
+                        const responseText =
+                            await response.text();
+
+
+                        let data;
+
+
+                        try {
+
+                            data =
+                                JSON.parse(
+                                    responseText
+                                );
+
+                        }
+
+                        catch (parseError) {
+
+                            console.error(
+                                "Supabase response:",
+                                responseText
+                            );
+
+                            throw new Error(
+                                `Checkout server returned ${response.status}.`
+                            );
+
+                        }
+
+
+                        if (
+                            !response.ok ||
+                            !data.success
+                        ) {
+
+                            throw new Error(
+                                data.error ||
+                                "Could not create checkout."
+                            );
+
+                        }
+
+
+                        if (
+                            !data.checkoutUrl
+                        ) {
+
+                            throw new Error(
+                                "Checkout URL was not returned."
+                            );
+
+                        }
+
+
+                        window.location.href =
+                            data.checkoutUrl;
+
+                    }
+
+
+                    catch (error) {
+
+                        console.error(
+                            error
+                        );
+
+
+                        checkoutMessage.textContent =
+                            "♡ Sorry! Checkout couldn't be opened. Please try again.";
+
+
+                        checkoutButton.disabled =
+                            false;
+
+
+                        checkoutButton.textContent =
+                            "💳 Checkout ♡";
+
+                    }
+
+                }
+            );
 
         }
 
-
-        checkoutButton.disabled = true;
-
-        checkoutButton.textContent =
-            "Creating checkout... ♡";
-
-        checkoutMessage.textContent =
-            "";
-
-
-        try {
-
-            /*
-               IMPORTANT:
-               The browser only sends product IDs
-               and quantities.
-
-               Stripe prices come from Supabase,
-               not from this website.
-            */
-
-
-const response =
-    await fetch(
-        "https://spryjlrhvtnreatihkxl.supabase.co/functions/v1/create-checkout",
-        {
-            method: "POST",
-
-            headers: {
-                "Content-Type":
-                    "application/json"
-            },
-
-            body: JSON.stringify({
-                cart: cart
-            })
-        }
-    );
-
-
-
-
-            const responseText =
-                await response.text();
-
-            let data;
-
-            try {
-
-                data = JSON.parse(responseText);
-
-            } catch (parseError) {
-
-                console.error("Supabase response:", responseText);
-
-                throw new Error(
-                    `Checkout server returned ${response.status}.`
-                );
-
-            }
-
-
-            if (!response.ok ||
-                !data.success) {
-
-                throw new Error(
-                    data.error ||
-                    "Could not create checkout."
-                );
-
-            }
-
-
-            /*
-               Send the customer to Stripe.
-            */
-
-            if (!data.checkoutUrl) {
-
-                throw new Error(
-                    "Checkout URL was not returned."
-                );
-
-            }
-
-            window.location.href =
-                data.checkoutUrl;
-
-
-        } catch (error) {
-
-            console.error(error);
-
-            checkoutMessage.textContent =
-                "♡ Sorry! Checkout couldn't be opened. Please try again.";
-
-            checkoutButton.disabled =
-                false;
-
-            checkoutButton.textContent =
-                "💳 Checkout ♡";
-
-        }
-
-    }
-);
-
-}
     </script>
+
 
 </body>
 
